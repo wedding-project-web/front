@@ -1,20 +1,22 @@
 import styled from "@emotion/styled";
 import second from "../../assets/image/second.jpg";
 
-const FirstImgContentsContainer = styled.div`
-  /* border: 3px solid red; */
+const Container = styled.div`
+  background-color: #ffffee;
   display: flex;
-  padding: 200px;
+  justify-content: center;
+  padding: 140px 0px 140px 0px;
 `;
 
-const ImgContainer = styled.div`
-  width: 380px;
-  height: 550px;
+const FirstImgContainer = styled.div`
+  width: 300px;
+  height: 400px;
   /* border: 2px solid blue; */
 `;
 
 const Img = styled.img`
   width: 100%;
+  height: 100%;
 `;
 
 const FirstContentTitleContainer = styled.div`
@@ -45,12 +47,9 @@ const ContentsContainer = styled.div`
   gap: 60px;
 `;
 
-const WeddingStory = () => {
+const MusicWedding = () => {
   return (
-    <FirstImgContentsContainer>
-      <ImgContainer>
-        <Img src={second} />
-      </ImgContainer>
+    <Container>
       <ContentsContainer>
         <FirstContentTitleContainer>
           <FirstContentTitle>BRIDE OF MAY WEDDING STORY</FirstContentTitle>
@@ -68,8 +67,11 @@ const WeddingStory = () => {
           </FirstContents>
         </FirstContentsContainer>
       </ContentsContainer>
-    </FirstImgContentsContainer>
+      <FirstImgContainer>
+        <Img src={second} />
+      </FirstImgContainer>
+    </Container>
   );
 };
 
-export default WeddingStory;
+export default MusicWedding;
