@@ -2,27 +2,58 @@ import styled from "@emotion/styled";
 import mainWedding from "../assets/image/wedding-hall.jpg";
 import back from "../assets/image/10. 예식홀-후면.jpg";
 import front from "../assets/image/10. 웨딩홀 정면.jpg";
+import bridal from "../assets/image/신부대기실.jpg";
+import banquet from "../assets/image/14 연회장.jpg";
+import secondBanquet from "../assets/image/14 연회장2.jpg";
+
 import { useState } from "react";
+
+const WeddingHallPageContainer = styled.div`
+  width: 100%;
+`;
 
 const ImgContainer = styled.div`
   display: flex;
   justify-content: center; /* 이미지 중앙 정렬 */
   align-items: center; /* 세로 중앙 정렬 */
-  width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
-  height: auto; /* 높이는 자동 조정 */
+  /* width: 100%; 부모 컨테이너의 너비에 맞춤 */
+  min-height: 100vdh;
 `;
 
-const Title = styled.div`
+const MainImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+// const Title = styled.div`
+//   font-size: 100px;
+//   font-weight: 800;
+//   color: #ffffff;
+//   position: absolute;
+//   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* 텍스트 가독성을 위한 그림자 */
+// `;
+
+const SubTitle = styled.div`
   font-size: 50px;
   margin: 50px 0px 0px 0px;
 `;
-
 const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
   gap: 20px;
   margin: 50px 0px 0px 0px;
+  /* border: 1px solid black; */
+`;
+
+const SubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  padding: 0px 0px 0px 50px;
+  /* border: 1px solid black; */
 `;
 
 const ImgSlideContainer = styled.div`
@@ -33,12 +64,29 @@ const ImgSlideContainer = styled.div`
 
 const ImgGalleryContainer = styled.div`
   font-size: 50px;
+  width: 70%;
+`;
+const GalleryContentsContainer = styled.div`
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  /* border: 1px solid black; */
 `;
 
-const GalleryContents = styled.div``;
+const GalleryContents = styled.div`
+  color: black;
+  font-size: 50px;
+`;
 
 const Img = styled.img`
-  width: 1300px;
+  width: 100%;
+`;
+
+const ArrowContainer = styled.div`
+  display: flex;
+  gap: 30px;
+  justify-content: center;
 `;
 
 const LeftArrow = styled.div`
@@ -60,8 +108,8 @@ const RightArrow = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const WeddingHallPage = () => {
-  const images = [back, front]; // 보여줄 이미지 배열
+const WeddingAndPartyPage = () => {
+  const images = [back, front, bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -75,13 +123,18 @@ const WeddingHallPage = () => {
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
+
+  const handleSelectImage = (index: number) => {
+    setCurrentIndex(index); // 선택한 index로 currentIndex 설정
+  };
+
   return (
-    <div>
+    <WeddingHallPageContainer>
       <ImgContainer>
-        <img src={mainWedding} />
+        <MainImg src={mainWedding} />
       </ImgContainer>
-      {/* <div>WEDDING HALL</div> */}
-      <Title>WEDDING HALL</Title>
+      {/* <Title>WEDDING HALL</Title> */}
+      <SubTitle>WEDDING & PARTY</SubTitle>
 
       <ContentsContainer>
         <div>
@@ -110,21 +163,23 @@ const WeddingHallPage = () => {
             alt={`Wedding Hall ${currentIndex + 1}`}
           />
         </ImgGalleryContainer>
-        <div>
+        <SubContainer>
           <GalleryContents>Gallery of Hall</GalleryContents>
-          <div>
-            <div>first</div>
-            <div>second</div>
-            <div>third</div>
-          </div>
-          <div>
+          <GalleryContentsContainer>
+            <div onClick={() => handleSelectImage(0)}>wedding hall</div>
+            <div onClick={() => handleSelectImage(1)}>wedding hall</div>
+            <div onClick={() => handleSelectImage(2)}>bridal</div>
+            <div onClick={() => handleSelectImage(3)}>banquet hall</div>
+            <div onClick={() => handleSelectImage(4)}>banquet hall</div>
+          </GalleryContentsContainer>
+          <ArrowContainer>
             <LeftArrow onClick={handlePrev}>←</LeftArrow>
             <RightArrow onClick={handleNext}>→</RightArrow>
-          </div>
-        </div>
+          </ArrowContainer>
+        </SubContainer>
       </ImgSlideContainer>
-    </div>
+    </WeddingHallPageContainer>
   );
 };
 
-export default WeddingHallPage;
+export default WeddingAndPartyPage;
