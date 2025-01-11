@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Banner from "../components/common/Banner";
 
 const MainPageContainer = styled.section`
   min-height: 100dvh;
@@ -7,12 +8,7 @@ const MainPageContainer = styled.section`
 const MainPage = () => {
   return (
     <MainPageContainer>
-      {/* <div>메인페이지임ddddddddddddddd</div>;
-      <div>메인페이지임ddddddddddddddd</div>;
-      <div>메인페이지임ddddddddddddddd</div>;
-      <div>메인페이지임ddddddddddddddd</div>;
-      <div>메인페이지임ddddddddddddddd</div>;
-      <div>메인페이지임ddddddddddddddd</div>; */}
+      <Banner />
     </MainPageContainer>
   );
 };
