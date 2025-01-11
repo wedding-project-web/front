@@ -38,7 +38,6 @@ const ContentsContainer = styled.div`
   font-size: 20px;
   gap: 30px;
   margin: 50px 0px 0px 0px;
-  /* border: 1px solid black; */
 `;
 
 const MainContent = styled.div`
@@ -59,11 +58,13 @@ const ImgSlideContainer = styled.div`
   display: flex;
   width: 100%;
   margin: 50px 0px 0px 0px;
+  /* border: 1px solid black; */
 `;
 
 const ImgGalleryContainer = styled.div`
   font-size: 50px;
   width: 70%;
+  /* border: 1px solid black; */
 `;
 const GalleryContentsContainer = styled.div`
   font-size: 25px;

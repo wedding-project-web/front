@@ -28,6 +28,10 @@ const SecondContentsContainer = styled.div`
   display: flex;
   gap: 10px;
 `;
+
+const ThirdContentsContainer = styled.div`
+  display: flex;
+`;
 const SubTitle = styled.span`
   font-weight: 700;
 `;
@@ -83,7 +87,9 @@ const Footer = () => {
             bm6161@naver.com
           </div>
         </SecondContentsContainer>
-        <div>Copyright© 웨딩 오월의 신부 All Rights Reserved.</div>
+        <ThirdContentsContainer>
+          <div>Copyright© 웨딩 오월의 신부 All Rights Reserved.</div>
+        </ThirdContentsContainer>
       </ContentsContainer>
       <TopClick>Top</TopClick>
     </FooterContainer>
