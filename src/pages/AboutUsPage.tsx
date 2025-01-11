@@ -1,15 +1,16 @@
 import styled from "@emotion/styled";
 import quotes from "../assets/icon/quotes.png";
-import WeddingStory from "../components/SpecialWeddingPromotion/WeddingStory";
-import MusicWedding from "../components/SpecialWeddingPromotion/MusicWedding";
+import WeddingStory from "../components/AboutUs/WeddingStory";
+import MusicWedding from "../components/AboutUs/MusicWedding";
 
 const TitleContainer = styled.div`
-  background-color: #fcfff0;
-  padding: 50px;
+  background-color: #fbfff2;
+  margin-top: 100px;
+  padding: 100px;
 `;
 
 const Title = styled.div`
-  font-size: 40px;
+  font-size: 30px;
   color: #166237;
 `;
 
@@ -35,7 +36,7 @@ const ThirdContent = styled.div`
   font-size: 18px;
 `;
 
-const SpecialWeddingPromotionPage = () => {
+const AboutUsPage = () => {
   return (
     <div>
       <TitleContainer>
@@ -58,4 +59,4 @@ const SpecialWeddingPromotionPage = () => {
   );
 };
 
-export default SpecialWeddingPromotionPage;
+export default AboutUsPage;

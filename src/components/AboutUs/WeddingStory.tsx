@@ -1,24 +1,17 @@
 import styled from "@emotion/styled";
-import first from "../../assets/image/first.jpg";
 import second from "../../assets/image/second.jpg";
 
-const Container = styled.div`
-  background-color: #ffffee;
-  padding: 40px;
+const FirstImgContentsContainer = styled.div`
+  /* border: 3px solid red; */
   display: flex;
-  position: relative;
+  justify-content: center;
+  padding: 100px 0px 100px 0px;
 `;
 
-const FirstImgContainer = styled.div`
-  width: 300px;
-  height: 400px;
-  border: 2px solid blue;
-`;
-
-const SecondImgContainer = styled.div`
-  width: 500px;
+const ImgContainer = styled.div`
+  width: 380px;
   height: 550px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 `;
 
 const Img = styled.img`
@@ -26,36 +19,39 @@ const Img = styled.img`
 `;
 
 const FirstContentTitleContainer = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 const FirstContentTitle = styled.div`
   font-size: 30px;
-  border: 3px solid yellow;
+  /* border: 3px solid yellow; */
   color: #a68a00;
 `;
 
 const FirstContentsContainer = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   gap: 20px;
   display: flex;
   flex-direction: column;
 `;
 const FirstContents = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   justify-content: end;
   padding: 0px 130px 0px 130px;
   gap: 60px;
 `;
 
-const MusicWedding = () => {
+const WeddingStory = () => {
   return (
-    <Container>
+    <FirstImgContentsContainer>
+      <ImgContainer>
+        <Img src={second} />
+      </ImgContainer>
       <ContentsContainer>
         <FirstContentTitleContainer>
           <FirstContentTitle>BRIDE OF MAY WEDDING STORY</FirstContentTitle>
@@ -73,14 +69,8 @@ const MusicWedding = () => {
           </FirstContents>
         </FirstContentsContainer>
       </ContentsContainer>
-      <FirstImgContainer>
-        <Img src={second} />
-      </FirstImgContainer>
-      <SecondImgContainer>
-        <Img src={first} />
-      </SecondImgContainer>
-    </Container>
+    </FirstImgContentsContainer>
   );
 };
 
-export default MusicWedding;
+export default WeddingStory;
