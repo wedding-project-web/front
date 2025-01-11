@@ -5,7 +5,7 @@ const FooterContainer = styled.div`
   padding: 40px;
   display: flex;
   gap: 30px;
-  border: 1px solid black;
+  border-top: 1px solid lightgray;
 `;
 
 const ImgContainer = styled.div``;

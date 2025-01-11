@@ -5,10 +5,12 @@ import front from "../assets/image/10. 웨딩홀 정면.jpg";
 import bridal from "../assets/image/신부대기실.jpg";
 import banquet from "../assets/image/14 연회장.jpg";
 import secondBanquet from "../assets/image/14 연회장2.jpg";
+import leftArrow from "../assets/icon/arrow-left.png";
+import rightArrow from "../assets/icon/arrow-right.png";
 
 import { useState } from "react";
 
-const WeddingHallPageContainer = styled.div`
+const PageContainer = styled.div`
   width: 100%;
 `;
 
@@ -26,14 +28,6 @@ const MainImg = styled.img`
   object-fit: contain;
 `;
 
-// const Title = styled.div`
-//   font-size: 100px;
-//   font-weight: 800;
-//   color: #ffffff;
-//   position: absolute;
-//   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* 텍스트 가독성을 위한 그림자 */
-// `;
-
 const SubTitle = styled.div`
   font-size: 50px;
   margin: 50px 0px 0px 0px;
@@ -42,9 +36,14 @@ const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
-  gap: 20px;
+  gap: 30px;
   margin: 50px 0px 0px 0px;
   /* border: 1px solid black; */
+`;
+
+const MainContent = styled.div`
+  color: #166237;
+  font-size: 35px;
 `;
 
 const SubContainer = styled.div`
@@ -83,6 +82,17 @@ const Img = styled.img`
   width: 100%;
 `;
 
+const UnderlinedText = styled.div`
+  text-decoration: underline; /* 밑줄 추가 */
+  text-decoration-color: #ababab; /* 밑줄 색상 설정 */
+  cursor: pointer; /* 클릭 가능한 느낌을 주기 위해 포인터 추가 */
+
+  &:hover {
+    color: #166237; /* hover 시 글씨 색 변경 */
+    text-decoration-color: #166237; /* 밑줄 색도 hover 시 변경 */
+  }
+`;
+
 const ArrowContainer = styled.div`
   display: flex;
   gap: 30px;
@@ -90,8 +100,8 @@ const ArrowContainer = styled.div`
 `;
 
 const LeftArrow = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border: 1px solid black;
   border-radius: 50%;
   display: flex;
@@ -100,8 +110,8 @@ const LeftArrow = styled.div`
 `;
 
 const RightArrow = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border: 1px solid black;
   border-radius: 50%;
   display: flex;
@@ -129,11 +139,10 @@ const WeddingAndPartyPage = () => {
   };
 
   return (
-    <WeddingHallPageContainer>
+    <PageContainer>
       <ImgContainer>
         <MainImg src={mainWedding} />
       </ImgContainer>
-      {/* <Title>WEDDING HALL</Title> */}
       <SubTitle>WEDDING & PARTY</SubTitle>
 
       <ContentsContainer>
@@ -153,7 +162,9 @@ const WeddingAndPartyPage = () => {
           04러블리한 플라워 데코레이션을 풍성하게 연출하여 싱그러운 야외예식을
           연상케하는 상상 이상의 아름다움
         </div>
-        <div>여유와 낭만 그리고 프라이빗 공간, 단독 웨딩 홀</div>
+        <MainContent>
+          여유와 낭만 그리고 프라이빗 공간, 단독 웨딩 홀
+        </MainContent>
       </ContentsContainer>
 
       <ImgSlideContainer>
@@ -166,19 +177,33 @@ const WeddingAndPartyPage = () => {
         <SubContainer>
           <GalleryContents>Gallery of Hall</GalleryContents>
           <GalleryContentsContainer>
-            <div onClick={() => handleSelectImage(0)}>wedding hall</div>
-            <div onClick={() => handleSelectImage(1)}>wedding hall</div>
-            <div onClick={() => handleSelectImage(2)}>bridal</div>
-            <div onClick={() => handleSelectImage(3)}>banquet hall</div>
-            <div onClick={() => handleSelectImage(4)}>banquet hall</div>
+            <UnderlinedText onClick={() => handleSelectImage(0)}>
+              wedding hall
+            </UnderlinedText>
+            <UnderlinedText onClick={() => handleSelectImage(1)}>
+              wedding hall
+            </UnderlinedText>
+            <UnderlinedText onClick={() => handleSelectImage(2)}>
+              bridal
+            </UnderlinedText>
+            <UnderlinedText onClick={() => handleSelectImage(3)}>
+              banquet hall
+            </UnderlinedText>
+            <UnderlinedText onClick={() => handleSelectImage(4)}>
+              banquet hall
+            </UnderlinedText>
           </GalleryContentsContainer>
           <ArrowContainer>
-            <LeftArrow onClick={handlePrev}>←</LeftArrow>
-            <RightArrow onClick={handleNext}>→</RightArrow>
+            <LeftArrow onClick={handlePrev}>
+              <img src={leftArrow} />
+            </LeftArrow>
+            <RightArrow onClick={handleNext}>
+              <img src={rightArrow} />
+            </RightArrow>
           </ArrowContainer>
         </SubContainer>
       </ImgSlideContainer>
-    </WeddingHallPageContainer>
+    </PageContainer>
   );
 };
 
