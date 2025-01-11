@@ -25,6 +25,10 @@ const DropdownMenuLane = styled.li`
   align-items: center;
   font-size: 18px;
   padding: 0px 16px;
+
+  &:hover {
+    background-color: #e9e9e9;
+  }
 `;
 
 interface DropdownMenuProps {
