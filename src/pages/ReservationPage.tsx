@@ -122,8 +122,8 @@ const ModifyButton = styled.a`
   cursor: pointer;
 
   &:hover {
-    background-color: #000000;
-    border: 1px solid #000000;
+    background-color: #333333;
+    border: 1px solid #333333;
   }
 `;
 
@@ -155,10 +155,16 @@ const CheckBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 12px;
   border: 1px solid;
   border-radius: 2px;
   cursor: pointer;
+`;
+
+const SelectCheckBox = styled(CheckBox)`
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
 `;
 
 const BottomLane = styled.div`
@@ -254,9 +260,11 @@ const ReservationPage = () => {
           <TermContainer>
             <TermTopLane>
               전체동의
-              <CheckBox onClick={() => onClickCheckHandler()}>
-                {(use && privacy && ad) && '✔'}
-              </CheckBox>
+              {(use && privacy && ad)
+                ? <SelectCheckBox onClick={() => onClickCheckHandler()}>
+                  ✔
+                </SelectCheckBox>
+                : <CheckBox onClick={() => onClickCheckHandler()} />}
             </TermTopLane>
             <BottomLane>
               <ExpireText>
@@ -264,9 +272,11 @@ const ReservationPage = () => {
                 <ExpireSpan>(필수)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
-              <CheckBox onClick={() => onClickCheckHandler('use')}>
-                {(use) && '✔'}
-              </CheckBox>
+              {(use)
+                ? <SelectCheckBox onClick={() => onClickCheckHandler('use')}>
+                  ✔
+                </SelectCheckBox>
+                : <CheckBox onClick={() => onClickCheckHandler('use')} />}
             </BottomLane>
             <BottomLane>
               <ExpireText>
@@ -274,9 +284,11 @@ const ReservationPage = () => {
                 <ExpireSpan>(필수)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
-              <CheckBox onClick={() => onClickCheckHandler('privacy')}>
-                {(privacy) && '✔'}
-              </CheckBox>
+              {(privacy)
+                ? <SelectCheckBox onClick={() => onClickCheckHandler('privacy')}>
+                  ✔
+                </SelectCheckBox>
+                : <CheckBox onClick={() => onClickCheckHandler('privacy')} />}
             </BottomLane>
             <BottomLane>
               <ExpireText>
@@ -284,9 +296,11 @@ const ReservationPage = () => {
                 <ExpireSpan style={{ color: 'inherit' }}>(선택)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
-              <CheckBox onClick={() => onClickCheckHandler('ad')}>
-                {(ad) && '✔'}
-              </CheckBox>
+              {(ad)
+                ? <SelectCheckBox onClick={() => onClickCheckHandler('ad')}>
+                  ✔
+                </SelectCheckBox>
+                : <CheckBox onClick={() => onClickCheckHandler('ad')} />}
             </BottomLane>
           </TermContainer>
         </BannerContentWrapper>

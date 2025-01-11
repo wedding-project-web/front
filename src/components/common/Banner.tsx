@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import mainWedding from "../../assets/image/wedding-hall.jpg";
 import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
+import CalendarModal from "./CalendarModal";
+import { todayString, tomorrowString } from "../../utils/dateString";
 
 const BannerContainer = styled.section<{ $src: string }>`
   width: 100%;
@@ -113,7 +115,7 @@ const SearchButton = styled.a`
 
   &:hover {
     border: none;
-    background-color: #000000;
+    background-color: #333333;
   }
 `;
 
@@ -124,8 +126,8 @@ const Banner = () => {
 
   const [isOpen, setIsOpen] = useState<string | null>(null);
   const [reservation, setReservation] = useState<any>({
-    startDate: '2025.01.11 토',
-    endDate: '2025.01.12 일',
+    startDate: todayString(),
+    endDate: tomorrowString(),
     time: '11시',
     count: 200
   });
@@ -146,9 +148,15 @@ const Banner = () => {
         <BannerBottomWrapper>
           <SelectorBox>
             <SelectorLabel>예식 예정일</SelectorLabel>
-            <SelectButton>
+            <SelectButton onClick={() => onClickOpenHandler('calendar')}>
               {startDate} ~ {endDate}
               <Arrow>▽</Arrow>
+              {(isOpen === 'calendar')
+                && <CalendarModal
+                  startValue={startDate}
+                  endValue={endDate}
+                  state={reservation}
+                  action={setReservation} />}
             </SelectButton>
           </SelectorBox>
           <SideBar />
