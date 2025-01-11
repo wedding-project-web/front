@@ -5,7 +5,7 @@ const FooterContainer = styled.div`
   padding: 40px;
   display: flex;
   gap: 30px;
-  border: 1px solid black;
+  border-top: 1px solid lightgray;
 `;
 
 const ImgContainer = styled.div``;
@@ -27,6 +27,10 @@ const FirstContentsContainer = styled.div`
 const SecondContentsContainer = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+const ThirdContentsContainer = styled.div`
+  display: flex;
 `;
 const SubTitle = styled.span`
   font-weight: 700;
@@ -83,7 +87,9 @@ const Footer = () => {
             bm6161@naver.com
           </div>
         </SecondContentsContainer>
-        <div>Copyright© 웨딩 오월의 신부 All Rights Reserved.</div>
+        <ThirdContentsContainer>
+          <div>Copyright© 웨딩 오월의 신부 All Rights Reserved.</div>
+        </ThirdContentsContainer>
       </ContentsContainer>
       <TopClick>Top</TopClick>
     </FooterContainer>
