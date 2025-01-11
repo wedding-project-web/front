@@ -10,6 +10,7 @@ const HeaderContainer = styled.div<{ $bgcolor: string, $height: string }>`
   right: 0;
   top: 0;
   background-color: ${(props) => props.$bgcolor};
+  z-index: 20;
   transition: all 0.2s;
 `;
 
