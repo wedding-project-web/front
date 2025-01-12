@@ -25,7 +25,7 @@ const BannerContainer = styled.div<{ $src: string }>`
   overflow: hidden;
 
   ::after {
-    content: '';
+    content: "";
     width: 100%;
     position: absolute;
     top: 0;
@@ -371,24 +371,23 @@ const MoveButton = styled.a`
 `;
 
 const ReservationPage = () => {
-
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const startDate = urlParams.get('sd');
-  const endDate = urlParams.get('ed');
-  const time = urlParams.get('t');
-  const count = urlParams.get('c');
+  const startDate = urlParams.get("sd");
+  const endDate = urlParams.get("ed");
+  const time = urlParams.get("t");
+  const count = urlParams.get("c");
   console.log(startDate, endDate, time, count);
 
   const [weddingValue, setWeddingValue] = useState<any>({
-    name: '',
-    phone: '',
-    email: ''
+    name: "",
+    phone: "",
+    email: "",
   });
   const [check, setCheck] = useState<any>({
     use: false,
     privacy: false,
-    ad: false
+    ad: false,
   });
   const { name, phone, email } = weddingValue;
   const { use, privacy, ad } = check;
@@ -398,18 +397,19 @@ const ReservationPage = () => {
     const { name, value } = e.target;
     setWeddingValue({
       ...weddingValue,
-      [name]: value
+      [name]: value,
     });
   };
 
   const onClickCheckHandler = (key?: string) => {
     if (!key) {
-      if (use && privacy && ad) return setCheck({ use: false, privacy: false, ad: false });
+      if (use && privacy && ad)
+        return setCheck({ use: false, privacy: false, ad: false });
       return setCheck({ use: true, privacy: true, ad: true });
     }
-    if (key === 'use') return setCheck({ ...check, use: !use });
-    if (key === 'privacy') return setCheck({ ...check, privacy: !privacy });
-    if (key === 'ad') return setCheck({ ...check, ad: !ad });
+    if (key === "use") return setCheck({ ...check, use: !use });
+    if (key === "privacy") return setCheck({ ...check, privacy: !privacy });
+    if (key === "ad") return setCheck({ ...check, ad: !ad });
   };
 
   const handleReservation = async (e: any) => {
@@ -450,10 +450,10 @@ const ReservationPage = () => {
         <BannerContentWrapper>
           <EmptyContainer>
             <EmptyTitle>웨딩 오월의신부</EmptyTitle>
-            <MoveButton href='/'>예약 신청</MoveButton>
+            <MoveButton href="/">예약 신청</MoveButton>
           </EmptyContainer>
         </BannerContentWrapper>
-      )
+      );
     } else {
       return (
         <BannerContentWrapper>
@@ -465,21 +465,24 @@ const ReservationPage = () => {
                 value={name}
                 placeholder="예약자의 성함을 입력해주세요."
                 onChange={onChangeHandler}
-                autoComplete='off' />
+                autoComplete="off"
+              />
               <FormLabel>휴대폰 번호</FormLabel>
               <FormInput
                 name="phone"
                 value={phone}
                 placeholder="'-'을 제외한 휴대폰 번호을 입력해주세요."
                 onChange={onChangeHandler}
-                autoComplete='off' />
+                autoComplete="off"
+              />
               <FormLabel>이메일</FormLabel>
               <FormInput
                 name="email"
                 value={email}
                 placeholder="예약자의 이메일을 입력해주세요."
                 onChange={onChangeHandler}
-                autoComplete='off' />
+                autoComplete="off"
+              />
             </FormContainer>
             <InfoContainer>
               <InfoLabel>예약일</InfoLabel>
@@ -487,24 +490,22 @@ const ReservationPage = () => {
                 {startDate} ~ {endDate}
               </InfoText>
               <InfoLabel>예약시간</InfoLabel>
-              <InfoText>
-                {time}
-              </InfoText>
+              <InfoText>{time}</InfoText>
               <InfoLabel>예상 하객수</InfoLabel>
-              <InfoText>
-                {count} 명
-              </InfoText>
-              <ModifyButton href='/'>예약정보 수정하기</ModifyButton>
+              <InfoText>{count} 명</InfoText>
+              <ModifyButton href="/">예약정보 수정하기</ModifyButton>
             </InfoContainer>
           </TopContainer>
           <TermContainer>
             <TermTopLane>
               전체동의
-              {(use && privacy && ad)
-                ? <SelectCheckBox onClick={() => onClickCheckHandler()}>
+              {use && privacy && ad ? (
+                <SelectCheckBox onClick={() => onClickCheckHandler()}>
                   ✔
                 </SelectCheckBox>
-                : <CheckBox onClick={() => onClickCheckHandler()} />}
+              ) : (
+                <CheckBox onClick={() => onClickCheckHandler()} />
+              )}
             </TermTopLane>
             <BottomLane>
               <ExpireText>
@@ -512,11 +513,13 @@ const ReservationPage = () => {
                 <ExpireSpan>(필수)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
-              {(use)
-                ? <SelectCheckBox onClick={() => onClickCheckHandler('use')}>
+              {use ? (
+                <SelectCheckBox onClick={() => onClickCheckHandler("use")}>
                   ✔
                 </SelectCheckBox>
-                : <CheckBox onClick={() => onClickCheckHandler('use')} />}
+              ) : (
+                <CheckBox onClick={() => onClickCheckHandler("use")} />
+              )}
             </BottomLane>
             <BottomLane>
               <ExpireText>
@@ -524,50 +527,46 @@ const ReservationPage = () => {
                 <ExpireSpan>(필수)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
-              {(privacy)
-                ? <SelectCheckBox onClick={() => onClickCheckHandler('privacy')}>
+              {privacy ? (
+                <SelectCheckBox onClick={() => onClickCheckHandler("privacy")}>
                   ✔
                 </SelectCheckBox>
-                : <CheckBox onClick={() => onClickCheckHandler('privacy')} />}
+              ) : (
+                <CheckBox onClick={() => onClickCheckHandler("privacy")} />
+              )}
             </BottomLane>
             <BottomLane>
               <ExpireText>
                 광고성 정보 수신 동의
-                <ExpireSpan style={{ color: 'inherit' }}>(선택)</ExpireSpan>
+                <ExpireSpan style={{ color: "inherit" }}>(선택)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
-              {(ad)
-                ? <SelectCheckBox onClick={() => onClickCheckHandler('ad')}>
+              {ad ? (
+                <SelectCheckBox onClick={() => onClickCheckHandler("ad")}>
                   ✔
                 </SelectCheckBox>
-                : <CheckBox onClick={() => onClickCheckHandler('ad')} />}
+              ) : (
+                <CheckBox onClick={() => onClickCheckHandler("ad")} />
+              )}
             </BottomLane>
           </TermContainer>
-          {(
-            name === '' ||
-            phone === '' ||
-            email === '' ||
-            !use ||
-            !privacy
-          )
-            ? <DisableButton>
+          {name === "" || phone === "" || email === "" || !use || !privacy ? (
+            <DisableButton>예약 신청</DisableButton>
+          ) : (
+            <ReservationButton onClick={handleReservation}>
               예약 신청
-            </DisableButton>
-            : <ReservationButton onClick={handleReservation}>
-              예약 신청
-            </ReservationButton>}
+            </ReservationButton>
+          )}
         </BannerContentWrapper>
-      )
-    };
+      );
+    }
   };
 
   return (
     <ReservationContainer>
-      <BannerContainer $src={mainWedding}>
-        {infoFunc()}
-      </BannerContainer>
+      <BannerContainer $src={mainWedding}>{infoFunc()}</BannerContainer>
     </ReservationContainer>
-  )
+  );
 };
 
 export default ReservationPage;
