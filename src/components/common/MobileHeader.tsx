@@ -68,6 +68,8 @@ const SubNavContainer = styled.a`
   gap: 8px;
   border-top: 1px solid #e9e9e9;
   color: #ffffff;
+  font-family: "Montserrat", serif;
+  text-transform: uppercase;
 `;
 
 const MobileHeader = () => {
@@ -90,7 +92,7 @@ const MobileHeader = () => {
             Reservation
           </SubNavContainer>
           <SubNavContainer href='/wedding-promotion'>
-            스페셜 웨딩 프로모션
+            Wedding Promotion
           </SubNavContainer>
           <SubNavContainer href='/wedding-hall'>
             Wedding & Party
@@ -98,7 +100,7 @@ const MobileHeader = () => {
           <SubNavContainer href='/about-us'>
             About us
           </SubNavContainer>
-          <SubNavContainer>
+          <SubNavContainer style={{ fontFamily: 'inherit' }}>
             청첩장 용 다운로드
           </SubNavContainer>
         </SubHeaderContainer>}
