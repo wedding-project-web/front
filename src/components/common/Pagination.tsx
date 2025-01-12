@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Pagination from "react-js-pagination";
+import ReactPaginate from "react-paginate";
 import "./Paging.css";
 
 const Pagination = () => {
@@ -8,15 +8,20 @@ const Pagination = () => {
   const handlePageChange = (page: number) => {
     setPage(page);
   };
+
   return (
-    <Pagination
-      activePage={page} // 현재 페이지
-      itemsCountPerPage={10} // 한 페이지랑 보여줄 아이템 갯수
-      totalItemsCount={450} // 총 아이템 갯수
-      pageRangeDisplayed={5} // paginator의 페이지 범위
-      prevPageText={"‹"} // "이전"을 나타낼 텍스트
-      nextPageText={"›"} // "다음"을 나타낼 텍스트
-      onChange={handlePageChange} // 페이지 변경을 핸들링하는 함수
+    <ReactPaginate
+      pageCount={10}
+      pageRangeDisplayed={10}
+      marginPagesDisplayed={0}
+      breakLabel={""}
+      previousLabel={"이전"}
+      nextLabel={"다음"}
+      onPageChange={changePage}
+      containerClassName={"pagination-ul"}
+      activeClassName={"currentPage"}
+      previousClassName={"pageLabel-btn"}
+      nextClassName={"pageLabel-btn"}
     />
   );
 };
