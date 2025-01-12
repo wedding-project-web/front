@@ -412,18 +412,36 @@ const ReservationPage = () => {
     if (key === 'ad') return setCheck({ ...check, ad: !ad });
   };
 
-  const handleReservation = (e: any) => {
+  const handleReservation = async (e: any) => {
     e.preventDefault();
     e.stopPropagation();
+
     const data = {
       startDate,
       endDate,
       time,
       count,
-      ...weddingValue
+      use,
+      privacy,
+      ad,
+      ...weddingValue,
     };
-    const jsonData = JSON.stringify(data);
-    alert(`데이터 값은\n${jsonData}\n에용~ api 통신할 때 잘사용해보세요.`);
+
+    try {
+      const response = await fetch("http://localhost:8080/community/reservations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert(`예약 완료`);
+      }
+    } catch (err) {
+      alert(`예약 중 오류가 발생했습니다: ${err}`);
+    }
   };
 
   const infoFunc = () => {
