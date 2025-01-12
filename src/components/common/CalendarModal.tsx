@@ -9,7 +9,7 @@ const CalendarContainer = styled.div`
   width: 700px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   position: absolute;
   top: 40px;
   left: 0;
