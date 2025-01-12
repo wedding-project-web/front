@@ -8,6 +8,10 @@ const ReservationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
+
+  @media screen and (max-width: 840px) {
+    margin-top: 70px;
+  }
 `;
 
 const BannerContainer = styled.div<{ $src: string }>`
@@ -28,14 +32,14 @@ const BannerContainer = styled.div<{ $src: string }>`
     left: 0;
     bottom: 0;
     z-index: 1;
-    background-color: #22202080;
+    background-color: #222020a6;
   }
 `;
 
 const BannerContentWrapper = styled.div`
   width: 800px;
   position: absolute;
-  top: 0;
+  top: 100px;
   left: calc(50% - 400px);
   bottom: 0;
   z-index: 2;
@@ -45,6 +49,12 @@ const BannerContentWrapper = styled.div`
   align-items: start;
   gap: 30px;
   user-select: none;
+
+  @media screen and (max-width: 840px) {
+    width: 90%;
+    left: 5%;
+    top: 0;
+  }
 `;
 
 const TopContainer = styled.div`
@@ -53,6 +63,11 @@ const TopContainer = styled.div`
   justify-content: start;
   align-items: center;
   gap: 24px;
+
+  @media screen and (max-width: 840px) {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
 `;
 
 const FormContainer = styled.form`
@@ -63,12 +78,22 @@ const FormContainer = styled.form`
   justify-content: start;
   align-items: start;
   gap: 12px;
+
+  @media screen and (max-width: 840px) {
+    width: 100%;
+    min-width: 100%;
+    gap: 6px;
+  }
 `;
 
 const FormLabel = styled.label`
   font-size: 22px;
   color: #e0e0e0;
   padding-left: 4px;
+
+  @media screen and (max-width: 840px) {
+    font-size: 14px;
+  }
 `;
 
 const FormInput = styled.input`
@@ -90,6 +115,12 @@ const FormInput = styled.input`
   &:focus {
     border: 1px solid #ffffff;
   }
+
+  @media screen and (max-width: 840px) {
+    height: 38px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -99,17 +130,30 @@ const InfoContainer = styled.div`
   justify-content: start;
   align-items: center;
   gap: 10px;
+
+  @media screen and (max-width: 840px) {
+    gap: 4px;
+  }
 `;
 
 const InfoLabel = styled.label`
   font-size: 14px;
   color: #e0e0e0;
+
+  @media screen and (max-width: 840px) {
+    font-size: 12px;
+  }
 `;
 
 const InfoText = styled.p`
   font-size: 18px;
   color: #ffffff;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 840px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 `;
 
 const ModifyButton = styled.a`
@@ -125,6 +169,12 @@ const ModifyButton = styled.a`
     background-color: #333333;
     border: 1px solid #333333;
   }
+
+  @media screen and (max-width: 840px) {
+    font-size: 12px;
+    padding: 8px 12px;
+    margin-top: 10px;
+  }
 `;
 
 const TermContainer = styled.div`
@@ -135,6 +185,11 @@ const TermContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  @media screen and (max-width: 840px) {
+    padding: 24px;
+    gap: 8px;
+  }
 `;
 
 const TermTopLane = styled.div`
@@ -147,6 +202,11 @@ const TermTopLane = styled.div`
   font-weight: 700;
   padding: 0px 10px 20px 10px;
   border-bottom: 1px solid #a0a0a0;
+
+  @media screen and (max-width: 840px) {
+    font-size: 12px;
+    padding: 0px 4px 10px 4px;
+  }
 `;
 
 const CheckBox = styled.div`
@@ -159,6 +219,12 @@ const CheckBox = styled.div`
   border: 1px solid;
   border-radius: 2px;
   cursor: pointer;
+
+  @media screen and (max-width: 840px) {
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+  }
 `;
 
 const SelectCheckBox = styled(CheckBox)`
@@ -173,6 +239,10 @@ const BottomLane = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0px 10px;
+
+  @media screen and (max-width: 840px) {
+    padding: 0px 4px;
+  }
 `;
 
 const ExpireText = styled.div`
@@ -183,12 +253,20 @@ const ExpireText = styled.div`
   align-items: center;
   gap: 8px;
   cursor: pointer;
+
+  @media screen and (max-width: 840px) {
+    font-size: 12px;
+  }
 `;
 
 const ExpireSpan = styled.span`
   font-size: 16px;
   font-weight: 700;
   color: #f56a0e;
+
+  @media screen and (max-width: 840px) {
+    font-size: 12px;
+  }
 `;
 
 const ArrowIcon = styled.img`
@@ -196,6 +274,11 @@ const ArrowIcon = styled.img`
   height: 10px;
   object-fit: contain;
   margin-top: 2px;
+
+  @media screen and (max-width: 840px) {
+    width: 8px;
+    height: 8px;
+  }
 `;
 
 const ReservationButton = styled.button`
@@ -219,6 +302,72 @@ const ReservationButton = styled.button`
   &:active {
     background-color: #c94a0f;
   }
+
+  @media screen and (max-width: 840px) {
+    height: 38px;
+    font-size: 16px;
+  }
+`;
+
+const DisableButton = styled.button`
+  width: 100%;
+  height: 48px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #aaaaaa;
+  color: #e2e2e2;
+
+  @media screen and (max-width: 840px) {
+    height: 38px;
+    font-size: 16px;
+  }
+`;
+
+const EmptyContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+`;
+
+const EmptyTitle = styled.h1`
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+
+  @media screen and (max-width: 840px) {
+    font-size: 32px;
+  }
+`;
+
+const MoveButton = styled.a`
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  @media screen and (max-width: 840px) {
+    font-size: 18px;
+    width: 140px;
+    height: 140px;
+  }
 `;
 
 const ReservationPage = () => {
@@ -231,12 +380,27 @@ const ReservationPage = () => {
   const count = urlParams.get('c');
   console.log(startDate, endDate, time, count);
 
+  const [weddingValue, setWeddingValue] = useState<any>({
+    name: '',
+    phone: '',
+    email: ''
+  });
   const [check, setCheck] = useState<any>({
     use: false,
     privacy: false,
     ad: false
   });
+  const { name, phone, email } = weddingValue;
   const { use, privacy, ad } = check;
+  console.log(name, phone, email, use, privacy, ad);
+
+  const onChangeHandler = (e: any) => {
+    const { name, value } = e.target;
+    setWeddingValue({
+      ...weddingValue,
+      [name]: value
+    });
+  };
 
   const onClickCheckHandler = (key?: string) => {
     if (!key) {
@@ -248,21 +412,42 @@ const ReservationPage = () => {
     if (key === 'ad') return setCheck({ ...check, ad: !ad });
   };
 
-  return (
-    <ReservationContainer>
-      <BannerContainer $src={mainWedding}>
+  const infoFunc = () => {
+    if (!startDate || !endDate || !time || !count) {
+      return (
+        <BannerContentWrapper>
+          <EmptyContainer>
+            <EmptyTitle>웨딩 오월의신부</EmptyTitle>
+            <MoveButton href='/'>예약 신청</MoveButton>
+          </EmptyContainer>
+        </BannerContentWrapper>
+      )
+    } else {
+      return (
         <BannerContentWrapper>
           <TopContainer>
             <FormContainer>
               <FormLabel>성함</FormLabel>
               <FormInput
-                placeholder="예약자의 성함을 입력해주세요." />
+                name="name"
+                value={name}
+                placeholder="예약자의 성함을 입력해주세요."
+                onChange={onChangeHandler}
+                autoComplete='off' />
               <FormLabel>휴대폰 번호</FormLabel>
               <FormInput
-                placeholder="예약자의 휴대폰 번호를 입력해주세요." />
+                name="phone"
+                value={phone}
+                placeholder="'-'을 제외한 휴대폰 번호을 입력해주세요."
+                onChange={onChangeHandler}
+                autoComplete='off' />
               <FormLabel>이메일</FormLabel>
               <FormInput
-                placeholder="예약자의 이메일을 입력해주세요." />
+                name="email"
+                value={email}
+                placeholder="예약자의 이메일을 입력해주세요."
+                onChange={onChangeHandler}
+                autoComplete='off' />
             </FormContainer>
             <InfoContainer>
               <InfoLabel>예약일</InfoLabel>
@@ -326,10 +511,28 @@ const ReservationPage = () => {
                 : <CheckBox onClick={() => onClickCheckHandler('ad')} />}
             </BottomLane>
           </TermContainer>
-          <ReservationButton>
-            예약 신청
-          </ReservationButton>
+          {(
+            name === '' ||
+            phone === '' ||
+            email === '' ||
+            !use ||
+            !privacy
+          )
+            ? <DisableButton>
+              예약 신청
+            </DisableButton>
+            : <ReservationButton>
+              예약 신청
+            </ReservationButton>}
         </BannerContentWrapper>
+      )
+    };
+  };
+
+  return (
+    <ReservationContainer>
+      <BannerContainer $src={mainWedding}>
+        {infoFunc()}
       </BannerContainer>
     </ReservationContainer>
   )

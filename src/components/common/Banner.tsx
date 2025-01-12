@@ -45,6 +45,10 @@ const BannerTitle = styled.h1`
   font-size: 48px;
   font-weight: 700;
   color: #ffffff;
+
+  @media screen and (max-width: 980px) {
+    font-size: 24px;
+  }
 `;
 
 const BannerBottomWrapper = styled.div`
@@ -52,6 +56,11 @@ const BannerBottomWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 32px;
+
+  @media screen and (max-width: 980px) {
+    flex-direction: column;
+    gap: 24px;
+  }
 `;
 
 const SelectorBox = styled.div`
@@ -60,11 +69,19 @@ const SelectorBox = styled.div`
   justify-content: center;
   align-items: start;
   gap: 16px;
+
+  @media screen and (max-width: 980px) {
+    align-items: center;
+  }
 `;
 
 const SelectorLabel = styled.label`
   font-size: 18px;
   color: #d6d6d6;
+
+  @media screen and (max-width: 980px) {
+    font-size: 13px;
+  }
 `;
 
 const SelectButton = styled.button`
@@ -84,18 +101,30 @@ const SelectButton = styled.button`
   &:hover {
     color: #e9e9e9;
   }
+
+  @media screen and (max-width: 980px) {
+    font-size: 16px;
+  }
 `;
 
 const Arrow = styled.span`
   font-size: 24px;
   font-weight: 700;
   color: #ffffff;
+
+  @media screen and (max-width: 980px) {
+    font-size: 16px;
+  }
 `;
 
 const SideBar = styled.div`
   width: 1px;
   height: 50px;
   background-color: #d6d6d6;
+
+  @media screen and (max-width: 980px) {
+    height: 20px;
+  }
 `;
 
 const SearchButton = styled.a`
@@ -116,6 +145,14 @@ const SearchButton = styled.a`
   &:hover {
     border: none;
     background-color: #333333;
+  }
+
+  @media screen and (max-width: 980px) {
+    width: 120px;
+    height: 34px;
+    margin-left: 0px;
+    margin-top: 40px;
+    font-size: 16px;
   }
 `;
 
