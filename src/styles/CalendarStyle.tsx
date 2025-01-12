@@ -34,7 +34,7 @@ export const CalendarStyle = styled(Calendar)`
   /* 네비게이션 폰트 설정 */
   .react-calendar__navigation button {
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   /* 네비게이션 버튼 컬러 */
@@ -42,10 +42,17 @@ export const CalendarStyle = styled(Calendar)`
     background-color: white;
   }
 
+  .react-calendar__tile:disabled {
+    background-color: #fefefe;
+    abbr {
+      color: #e9e9e9 !important;
+    }
+  }
+
   /* 네비게이션 비활성화 됐을때 스타일 */
   .react-calendar__navigation button:disabled {
     background-color: white;
-    color: #333333;
+    color: #e9e9e9;
   }
 
   /* 년/월 상단 네비게이션 칸 크기 줄이기 */
@@ -107,8 +114,10 @@ export const CalendarStyle = styled(Calendar)`
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus,
   .react-calendar__tile--active {
-    background-color: #ffd7aa;
+    background-color: #ffca8e;
     border-radius: 0.3rem;
-    color: #ffffff !important;
+    abbr {
+      color: #ffffff !important;
+    }
   }
 `;
