@@ -412,6 +412,20 @@ const ReservationPage = () => {
     if (key === 'ad') return setCheck({ ...check, ad: !ad });
   };
 
+  const handleReservation = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const data = {
+      startDate,
+      endDate,
+      time,
+      count,
+      ...weddingValue
+    };
+    const jsonData = JSON.stringify(data);
+    alert(`데이터 값은\n${jsonData}\n에용~ api 통신할 때 잘사용해보세요.`);
+  };
+
   const infoFunc = () => {
     if (!startDate || !endDate || !time || !count) {
       return (
@@ -521,7 +535,7 @@ const ReservationPage = () => {
             ? <DisableButton>
               예약 신청
             </DisableButton>
-            : <ReservationButton>
+            : <ReservationButton onClick={handleReservation}>
               예약 신청
             </ReservationButton>}
         </BannerContentWrapper>
