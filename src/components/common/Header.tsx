@@ -81,9 +81,11 @@ const NavButton = styled.a<{ $height: string }>`
   display: flex;
   justify-content: start;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   transition: all 0.2s;
+  text-transform: uppercase;
+  font-family: "Montserrat", serif;
 
   &:hover {
     color: #f86723;
@@ -198,7 +200,7 @@ const Header = () => {
               <NavButton
                 href='/wedding-promotion'
                 $height={(scroll) ? '70px' : '90px'}>
-                스페셜 웨딩 프로모션
+                Wedding Promotion
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>

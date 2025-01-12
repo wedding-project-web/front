@@ -14,7 +14,13 @@ const CalendarContainer = styled.div`
   top: 40px;
   left: 0;
   z-index: 3;
-  background-color: #ffffffc3;
+
+  @media screen and (max-width: 980px) {
+    width: 300px;
+    flex-direction: column;
+    top: 30px;
+    left: -30px;
+  }
 `;
 
 const CalendarBox = styled.div`
