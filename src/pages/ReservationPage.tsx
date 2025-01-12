@@ -289,18 +289,18 @@ const ReservationButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f56a0e;
+  background-color: #166237;
   color: #ffffff;
   box-shadow: 2px 2px 4px 0px #33333380;
   transition: all 0.2s;
   cursor: pointer;
 
   &:hover {
-    background-color: #fd922d;
+    background-color: #35ad7b;
   }
 
   &:active {
-    background-color: #c94a0f;
+    background-color: #063616;
   }
 
   @media screen and (max-width: 840px) {
@@ -391,7 +391,6 @@ const ReservationPage = () => {
   });
   const { name, phone, email } = weddingValue;
   const { use, privacy, ad } = check;
-  console.log(name, phone, email, use, privacy, ad);
 
   const onChangeHandler = (e: any) => {
     const { name, value } = e.target;

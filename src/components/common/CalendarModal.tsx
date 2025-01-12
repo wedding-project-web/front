@@ -4,6 +4,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { format } from "date-fns";
 import { getDateString } from "../../utils/dateString";
+import { CalendarStyle } from "../../styles/CalendarStyle";
 
 const CalendarContainer = styled.div`
   width: 700px;
@@ -28,10 +29,6 @@ const CalendarBox = styled.div`
   height: 100%;
 `;
 
-const CalendarStyle = styled(Calendar)``;
-
-type ValuePiece = Date | null;
-type Value = ValuePiece | [ValuePiece, ValuePiece];
 interface CalendarModalProps {
   startValue: any;
   endValue: any;
@@ -44,19 +41,26 @@ const CalendarModal = ({ startValue, endValue, state, action }: CalendarModalPro
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
-  const [startDate, setStartDate] = useState<Value>(today);
-  const [endDate, setEndDate] = useState<Value>(tomorrow);
+  const [startDate, setStartDate] = useState<any>(today);
+  const [endDate, setEndDate] = useState<any>(tomorrow);
+
+  const nextTomorrow = new Date(startDate);
+  nextTomorrow.setDate(startDate.getDate() + 1)
 
   const handleEvent = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
-  const handleStartDateChange = (newDate: Value) => {
+  const handleStartDateChange = (newDate: any) => {
+    const nextDay = new Date(newDate);
+    nextDay.setDate(newDate.getDate() + 1);
+
     setStartDate(newDate);
+    setEndDate(nextDay);
   };
 
-  const handleEndDateChange = ( newDate: Value) => {
+  const handleEndDateChange = ( newDate: any) => {
     setEndDate(newDate);
   };
 
@@ -78,6 +82,7 @@ const CalendarModal = ({ startValue, endValue, state, action }: CalendarModalPro
           next2Label={null} // +1년 & +10년 이동 버튼 숨기기
           prev2Label={null} // -1년 & -10년 이동 버튼 숨기기
           minDetail="year" // 10년단위 년도 숨기기
+          minDate={today}
         />
       </CalendarBox>
       <CalendarBox>
@@ -92,6 +97,7 @@ const CalendarModal = ({ startValue, endValue, state, action }: CalendarModalPro
           next2Label={null} // +1년 & +10년 이동 버튼 숨기기
           prev2Label={null} // -1년 & -10년 이동 버튼 숨기기
           minDetail="year" // 10년단위 년도 숨기기
+          minDate={nextTomorrow}
         />
       </CalendarBox>
     </CalendarContainer>
