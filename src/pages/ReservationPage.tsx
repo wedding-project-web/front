@@ -8,7 +8,6 @@ const ReservationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  gap: 30px;
 `;
 
 const BannerContainer = styled.div<{ $src: string }>`
@@ -19,13 +18,14 @@ const BannerContainer = styled.div<{ $src: string }>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
 
   ::after {
     content: '';
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
     z-index: 1;
     background-color: #22202080;
@@ -33,22 +33,22 @@ const BannerContainer = styled.div<{ $src: string }>`
 `;
 
 const BannerContentWrapper = styled.div`
+  width: 800px;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: calc(50% - 400px);
   bottom: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 60px;
+  align-items: start;
+  gap: 30px;
   user-select: none;
 `;
 
 const TopContainer = styled.div`
-  width: 800px;
+  width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -56,8 +56,8 @@ const TopContainer = styled.div`
 `;
 
 const FormContainer = styled.form`
-  width: 400px;
-  min-width: 400px;
+  width: 350px;
+  min-width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -128,7 +128,7 @@ const ModifyButton = styled.a`
 `;
 
 const TermContainer = styled.div`
-  width: 800px;
+  width: 100%;
   padding: 40px;
   background-color: #ffffffc3;
   border-radius: 4px;
@@ -162,7 +162,7 @@ const CheckBox = styled.div`
 `;
 
 const SelectCheckBox = styled(CheckBox)`
-  background-color: #333333;
+  background-color: #f56a0e;
   color: #ffffff;
   border: none;
 `;
@@ -188,7 +188,7 @@ const ExpireText = styled.div`
 const ExpireSpan = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: #ce832e;
+  color: #f56a0e;
 `;
 
 const ArrowIcon = styled.img`
@@ -196,6 +196,29 @@ const ArrowIcon = styled.img`
   height: 10px;
   object-fit: contain;
   margin-top: 2px;
+`;
+
+const ReservationButton = styled.button`
+  width: 100%;
+  height: 48px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f56a0e;
+  color: #ffffff;
+  box-shadow: 2px 2px 4px 0px #33333380;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fd922d;
+  }
+
+  &:active {
+    background-color: #c94a0f;
+  }
 `;
 
 const ReservationPage = () => {
@@ -303,6 +326,9 @@ const ReservationPage = () => {
                 : <CheckBox onClick={() => onClickCheckHandler('ad')} />}
             </BottomLane>
           </TermContainer>
+          <ReservationButton>
+            예약 신청
+          </ReservationButton>
         </BannerContentWrapper>
       </BannerContainer>
     </ReservationContainer>

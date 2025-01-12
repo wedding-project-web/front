@@ -2,36 +2,43 @@ import { useRef, useState, useEffect } from "react";
 import logo from "../../assets/logo/logo.png";
 import styled from "@emotion/styled";
 
-const HeaderContainer = styled.div<{ $bgcolor: string, $height: string }>`
+const HeaderContainer = styled.div<{ $height: string, $opacity: string }>`
   height: ${(props) => props.$height};
   /* border: 1px solid black; */
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  background-color: ${(props) => props.$bgcolor};
+  background-color: ${(props) => props.$opacity};
   z-index: 20;
   transition: all 0.2s;
+  box-shadow: ${(props) => (props.$height === '90px') ? 'none' : '0px 2px 8px 0px #33333380'};
+
+  &:hover {
+    background-color: #ffffff;
+  }
 `;
 
 const FirstHeaderContainer = styled.div<{ $height: string }>`
+  width: 100%;
   height: ${(props) => props.$height};
   /* border: 1px solid black; */
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
   /* border: 3px solid blue; */
   display: flex;
   padding: 0px 20px;
 `;
 
+const LogoButton = styled.a`
+  width: 200px;
+  height: 90%;
+  cursor: pointer;
+`;
+
 const LogoContainer = styled.img`
   /* border: 1px solid red; */
-  width: 200px;
+  width: 100%;
   height: 100%;
   object-fit: contain;
-  cursor: pointer;
 `;
 
 const NavContainer = styled.div`
@@ -40,8 +47,8 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 68%;
-  margin-left: 120px;
+  width: 64%;
+  margin-left: 200px;
 `;
 
 const NavButtonBox = styled.div`
@@ -55,11 +62,11 @@ const NavButtonBox = styled.div`
   cursor: pointer;
 `;
 
-const NavButton = styled.a<{ $height: string, $color: string }>`
+const NavButton = styled.a<{ $height: string }>`
   width: 100%;
   height: ${(props) => props.$height};
   min-height: ${(props) => props.$height};
-  color: ${(props) => props.color};
+  color: #333333;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -68,7 +75,7 @@ const NavButton = styled.a<{ $height: string, $color: string }>`
   transition: all 0.2s;
 
   &:hover {
-    color: #cc6d41;
+    color: #f86723;
   }
 `;
 
@@ -103,21 +110,37 @@ const HeaderBackground = styled.div`
   transition: all 0.2s;
 `;
 
+const DownloadButton = styled.button`
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: #f86723;
+  color: #ffffff;
+  cursor: pointer;
+`;
+
+const Icon = styled.div`
+  width: 18px;
+  height: 18px;
+  background-color: #e9e9e9;
+`;
+
 const Header = () => {
-  const hollRef = useRef<HTMLDivElement>(null);
-  const banquetRef = useRef<HTMLDivElement>(null);
-  const reservationRef = useRef<HTMLDivElement>(null);
-  const communityRef = useRef<HTMLDivElement>(null);
-  const locationRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-  const [isHover, setIsHover] = useState<boolean>(false);
-  const [scroll, setScroll] = useState<boolean>(window.scrollY > 200);
+
+  const [scroll, setScroll] = useState<boolean>(window.scrollY > 0);
 
   useEffect(() => {
     const scrollEvent = () => {
       const y = window.scrollY;
-      if (y > 200) { setScroll(true) }
-      else { setScroll(false) };
+      if (y > 0) {
+        setScroll(true)
+      } else {
+        setScroll(false)
+      };
     };
 
     document.addEventListener('scroll', scrollEvent);
@@ -127,119 +150,47 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (
-      !bgRef.current ||
-      !hollRef.current ||
-      !banquetRef.current ||
-      !reservationRef.current ||
-      !communityRef.current ||
-      !locationRef.current
-    )
-      return;
-    if (isHover) {
-      hollRef.current.style.display = "flex";
-      banquetRef.current.style.display = "flex";
-      reservationRef.current.style.display = "flex";
-      communityRef.current.style.display = "flex";
-      locationRef.current.style.display = "flex";
-      bgRef.current.style.transform = "translateY(400px)";
-    } else {
-      hollRef.current.style.display = "none";
-      banquetRef.current.style.display = "none";
-      reservationRef.current.style.display = "none";
-      communityRef.current.style.display = "none";
-      locationRef.current.style.display = "none";
-      bgRef.current.style.transform = "translateY(0px)";
-    }
-  }, [isHover]);
-
   return (
     <HeaderContainer
-      $bgcolor={(scroll) ? '#ffffff' : 'transparent'}
-      $height={(scroll) ? '80px' : '100px'}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}>
-      <HeaderBackground
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        ref={bgRef} />
+      $height={(scroll) ? '70px' : '90px'}
+      $opacity={(scroll) ? '#ffffff' : '#ffffffce'}>
+      <HeaderBackground />
       <FirstHeaderContainer $height={(scroll) ? '80px' : '100px'}>
-        <LogoContainer
-          src={logo}
-          alt="Logo" />
+        <LogoButton href="/">
+          <LogoContainer
+            src={logo}
+            alt="Logo" />
+        </LogoButton>
         <NavContainer>
           <NavButtonBox>
             <NavButton
-              $color={(scroll) ? '#000000' : '#ffffff'}
-              $height={(scroll) ? '80px' : '100px'}>
+              $height={(scroll) ? '70px' : '90px'}>
               Reservation
             </NavButton>
-            <FirstSubMenuContainer
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              ref={hollRef}>
-              <SubMenuButton>웨딩홀</SubMenuButton>
-              <SubMenuButton>신부대기실</SubMenuButton>
-              <SubMenuButton>폐백실</SubMenuButton>
-              <SubMenuButton>드레스실</SubMenuButton>
-              <SubMenuButton>식순안내</SubMenuButton>
-            </FirstSubMenuContainer>
           </NavButtonBox>
           <NavButtonBox>
             <NavButton
-              $color={(scroll) ? '#000000' : '#ffffff'}
-              $height={(scroll) ? '80px' : '100px'}>
+              $height={(scroll) ? '70px' : '90px'}>
               스페셜 웨딩 프로모션
             </NavButton>
-            <FirstSubMenuContainer 
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              ref={banquetRef}>
-              <SubMenuButton>Banquet</SubMenuButton>
-            </FirstSubMenuContainer>
           </NavButtonBox>
           <NavButtonBox>
             <NavButton
-              $color={(scroll) ? '#000000' : '#ffffff'}
-              $height={(scroll) ? '80px' : '100px'}>
+              $height={(scroll) ? '70px' : '90px'}>
               Wedding & Party
             </NavButton>
-            <FirstSubMenuContainer
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              ref={reservationRef}>
-              <SubMenuButton>Reservation</SubMenuButton>
-            </FirstSubMenuContainer>
           </NavButtonBox>
           <NavButtonBox>
             <NavButton
-              $color={(scroll) ? '#000000' : '#ffffff'}
-              $height={(scroll) ? '80px' : '100px'}>
+              $height={(scroll) ? '70px' : '90px'}>
               About us
             </NavButton>
-            <FirstSubMenuContainer
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              ref={communityRef}>
-              <SubMenuButton>웨딩후기</SubMenuButton>
-              <SubMenuButton>이벤트</SubMenuButton>
-              <SubMenuButton>뉴스</SubMenuButton>
-            </FirstSubMenuContainer>
           </NavButtonBox>
-          <NavButtonBox>
-            <NavButton
-              $color={(scroll) ? '#000000' : '#ffffff'}
-              $height={(scroll) ? '80px' : '100px'}>
-              청첩장 용 약도 다운
-            </NavButton>
-            <FirstSubMenuContainer
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              ref={locationRef}>
-              <SubMenuButton>Location</SubMenuButton>
-            </FirstSubMenuContainer>
-          </NavButtonBox>
+          <DownloadButton>
+            {/* 아래에 Icon에 다운 아이콘 사용 */}
+            <Icon />
+            청첩장 용 다운로드
+          </DownloadButton>
         </NavContainer>
       </FirstHeaderContainer>
     </HeaderContainer>
