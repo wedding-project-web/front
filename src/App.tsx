@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage";
 import ReservationPage from "./pages/ReservationPage";
 import WeddingAndPartyPage from "./pages/WeddingAndPartyPage";
 import AboutUsPage from "./pages/AboutUsPage";
+import SpecialWeddingPromotion from "./pages/SpecialWeddingPromotion";
 
 const App = () => {
   return (
@@ -17,6 +18,10 @@ const App = () => {
 
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/reservation" element={<ReservationPage />} />
+            <Route
+              path="/wedding-promotion"
+              element={<SpecialWeddingPromotion />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
