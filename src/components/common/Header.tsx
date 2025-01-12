@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from "../../assets/logo/logo.png";
 import styled from "@emotion/styled";
+import { useParams } from "react-router-dom";
 
 const HeaderContainer = styled.div<{ $height: string }>`
   height: ${(props) => props.$height};
@@ -74,10 +75,19 @@ const NavButtonBox = styled.div`
   cursor: pointer;
 `;
 
-const NavButton = styled.a<{ $height: string }>`
+const NavUnderBar = styled.div`
+  width: 100%;
+  height: 4px;
+  background-color: #0e6333;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+`;
+
+const NavButton = styled.a<{ $color: string , $height: string }>`
   height: ${(props) => props.$height};
   min-height: ${(props) => props.$height};
-  color: #333333;
+  color: ${(props) => props.$color};
   display: flex;
   justify-content: start;
   align-items: center;
@@ -86,9 +96,10 @@ const NavButton = styled.a<{ $height: string }>`
   transition: all 0.2s;
   text-transform: uppercase;
   font-family: "Montserrat", serif;
+  position: relative;
 
   &:hover {
-    color: #f86723;
+    color: #0e6333;
   }
 
   @media screen and (max-width: 1200px) {
@@ -135,7 +146,7 @@ const DownloadButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  background-color: #f86723;
+  background-color: #166237;
   color: #ffffff;
   cursor: pointer;
 
@@ -159,6 +170,7 @@ const Icon = styled.div`
 
 const Header = () => {
 
+  const path = window.location.pathname;
   const [scroll, setScroll] = useState<boolean>(window.scrollY > 0);
 
   useEffect(() => {
@@ -192,29 +204,37 @@ const Header = () => {
             <NavButtonBox>
               <NavButton
                 href='/reservation'
+                $color={(path === '/reservation') ? '#166237' : '#333333'}
                 $height={(scroll) ? '70px' : '90px'}>
                 Reservation
+                {(path === '/reservation') && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>
               <NavButton
                 href='/wedding-promotion'
+                $color={(path === '/wedding-promotion') ? '#166237' : '#333333'}
                 $height={(scroll) ? '70px' : '90px'}>
                 Wedding Promotion
+                {(path === '/wedding-promotion') && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>
               <NavButton
                 href='/wedding-hall'
+                $color={(path === '/wedding-hall') ? '#166237' : '#333333'}
                 $height={(scroll) ? '70px' : '90px'}>
                 Wedding & Party
+                {(path === '/wedding-hall') && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>
               <NavButton
                 href='/about-us'
+                $color={(path === '/about-us') ? '#166237' : '#333333'}
                 $height={(scroll) ? '70px' : '90px'}>
                 About us
+                {(path === '/about-us') && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <DownloadButton>
