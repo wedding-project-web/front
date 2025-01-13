@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import Pagination from "../components/common/Pagination";
 
 const PageContainer = styled.div`
-  padding: 0px 0px 100px 0px;
+  padding: 0px 0px 90px 0px;
 `;
 
 const TitleContainer = styled.div`
   background-color: #fdffed;
-  margin-top: 100px;
+  margin-top: 90px;
   padding: 100px;
   display: flex;
   flex-direction: column;

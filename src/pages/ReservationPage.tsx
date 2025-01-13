@@ -11,7 +11,7 @@ const ReservationContainer = styled.div`
   justify-content: start;
 
   @media screen and (max-width: 840px) {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 `;
 
@@ -133,27 +133,27 @@ const InfoContainer = styled.div`
   gap: 10px;
 
   @media screen and (max-width: 840px) {
-    gap: 4px;
+    gap: 8px;
   }
 `;
 
 const InfoLabel = styled.label`
-  font-size: 14px;
+  font-size: 16px;
   color: #e0e0e0;
 
   @media screen and (max-width: 840px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
 const InfoText = styled.p`
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 
   @media screen and (max-width: 840px) {
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -293,6 +293,7 @@ const ReservationButton = styled.button`
   background-color: #f56a0e;
   color: #ffffff;
   box-shadow: 2px 2px 4px 0px #33333380;
+  border-radius: 4px;
   transition: all 0.2s;
   cursor: pointer;
 
@@ -306,7 +307,7 @@ const ReservationButton = styled.button`
 
   @media screen and (max-width: 840px) {
     height: 38px;
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -318,12 +319,13 @@ const DisableButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 4px;
   background-color: #aaaaaa;
   color: #e2e2e2;
 
   @media screen and (max-width: 840px) {
     height: 38px;
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -502,7 +504,7 @@ const ReservationPage = () => {
               <InfoText>{time}</InfoText>
               <InfoLabel>예상 하객수</InfoLabel>
               <InfoText>{count} 명</InfoText>
-              <ModifyButton href="/">예약정보 수정하기</ModifyButton>
+              <ModifyButton href="/">예약정보 수정</ModifyButton>
             </InfoContainer>
           </TopContainer>
           <TermContainer>

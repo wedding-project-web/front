@@ -205,7 +205,7 @@ const Header = () => {
                 $height={scroll ? "70px" : "90px"}
               >
                 Wedding Promotion
-                {path === "/wedding-promotion" && <NavUnderBar />}
+                {path.includes("/wedding-promotion") && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>

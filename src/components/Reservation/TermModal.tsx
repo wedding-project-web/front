@@ -30,6 +30,11 @@ const TermModalContainer = styled.section`
   transition: all 0.2s;
   padding: 40px 20px;
   user-select: none;
+  overflow-y: auto;
+
+  @media screen and (max-width: 840px) {
+    width: 90%;
+  }
 `;
 
 const TopLane = styled.div`
@@ -95,7 +100,6 @@ const TermContentBox = styled.p`
   padding: 16px;
   border: 1px solid #e9e9e9;
   border-radius: 10px;
-  overflow-y: auto;
 `;
 
 const AgreeButtonWrapper = styled.div`
@@ -115,6 +119,10 @@ const AgreeButton = styled.button<{ $color: string }>`
   justify-content: end;
   align-items: center;
   gap: 8px;
+
+  &:hover {
+    color: #33333380;
+  }
 `;
 
 const CheckBox = styled.span<{ $border: string, $bgcolor: string }>`
