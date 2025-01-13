@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import logo from "../../assets/logo/logo.png";
+// import logo from "../../assets/logo/logo.jpg";
 
 const FooterContainer = styled.div`
   padding: 40px;
@@ -8,7 +8,10 @@ const FooterContainer = styled.div`
   border-top: 1px solid lightgray;
 `;
 
-const ImgContainer = styled.div``;
+const ImgContainer = styled.div`
+  width: 100px;
+  height: 70px;
+`;
 
 const ContentsContainer = styled.div`
   color: #b4b4b4;
@@ -50,9 +53,7 @@ const TopClick = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
-      <ImgContainer>
-        <img src={logo} alt="Logo" />
-      </ImgContainer>
+      <ImgContainer>{/* <img src={logo} alt="Logo" /> */}</ImgContainer>
       <ContentsContainer>
         <FirstContentsContainer>
           <SubTitle>웨딩 오월의 신부</SubTitle>
