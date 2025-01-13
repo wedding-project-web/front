@@ -6,37 +6,74 @@ const FooterContainer = styled.div`
   display: flex;
   gap: 30px;
   border-top: 1px solid lightgray;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    gap: 20px;
+  }
 `;
 
 const ImgContainer = styled.div`
   width: 100px;
   height: 70px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 60px;
+  }
 `;
 
 const ContentsContainer = styled.div`
   color: #b4b4b4;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
   font-size: 18px;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
 `;
 
 const FirstContentsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 `;
 
 const SecondContentsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 `;
 
 const ThirdContentsContainer = styled.div`
-  display: flex;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
 `;
+
 const SubTitle = styled.span`
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const TopClick = styled.div`
@@ -49,12 +86,22 @@ const TopClick = styled.div`
   justify-content: center;
   margin-left: auto;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 const IconTop = styled.img`
   width: 20px;
   height: 20px;
+
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 `;
+
 const Footer = () => {
   const handleScrollToTop = () => {
     window.scrollTo({
