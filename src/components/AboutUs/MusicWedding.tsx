@@ -19,9 +19,7 @@ const Img = styled.img`
   height: 100%;
 `;
 
-const FirstContentTitleContainer = styled.div`
-  /* border: 1px solid black; */
-`;
+const FirstContentTitleContainer = styled.div``;
 const FirstContentTitle = styled.div`
   font-size: 30px;
   /* border: 3px solid yellow; */
@@ -42,9 +40,10 @@ const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   /* border: 1px solid red; */
-  justify-content: end;
+  justify-content: center;
   padding: 0px 130px 0px 130px;
   gap: 60px;
+  line-height: 30px;
 `;
 
 const MusicWedding = () => {
@@ -52,8 +51,10 @@ const MusicWedding = () => {
     <Container>
       <ContentsContainer>
         <FirstContentTitleContainer>
-          <FirstContentTitle>BRIDE OF MAY WEDDING STORY</FirstContentTitle>
-          <FirstContentTitle>오월의 신부 웨딩 이야기</FirstContentTitle>
+          <FirstContentTitle>
+            BRIDE OF MAY WEDDING STORY
+            <br /> 오월의 신부 웨딩 이야기
+          </FirstContentTitle>
         </FirstContentTitleContainer>
         <FirstContentsContainer>
           <FirstContents>

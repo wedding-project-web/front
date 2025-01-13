@@ -13,6 +13,7 @@ const SubContainer = styled.div`
   gap: 30px;
   justify-content: center;
   padding: 0px 0px 0px 50px;
+  font-family: "Montserrat", serif;
 `;
 
 const ImgSlideContainer = styled.div`
