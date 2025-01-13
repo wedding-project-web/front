@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { format } from "date-fns";
 import { getDateString } from "../../utils/dateString";
@@ -30,13 +29,11 @@ const CalendarBox = styled.div`
 `;
 
 interface CalendarModalProps {
-  startValue: any;
-  endValue: any;
   state: any;
   action: React.Dispatch<React.SetStateAction<any>>;
 };
 
-const CalendarModal = ({ startValue, endValue, state, action }: CalendarModalProps) => {
+const CalendarModal = ({ state, action }: CalendarModalProps) => {
 
   const today = new Date();
   const tomorrow = new Date(today);
@@ -74,9 +71,9 @@ const CalendarModal = ({ startValue, endValue, state, action }: CalendarModalPro
         <CalendarStyle
           value={startDate}
           onChange={handleStartDateChange}
-          formatDay={(locale, date) => format(date, "d")} // 일 제거, 숫자만 보이게
-          formatYear={(locale, date) => format(date, "yyyy")} // 네비게이션에서 숫자 연도만 보이게
-          formatMonthYear={(locale, date) => format(date, "yyyy. MM")} // 네비게이션에서 2023. 12처럼 보이게 설정
+          formatDay={(_, date) => format(date, "d")} // 일 제거, 숫자만 보이게
+          formatYear={(_, date) => format(date, "yyyy")} // 네비게이션에서 숫자 연도만 보이게
+          formatMonthYear={(_, date) => format(date, "yyyy. MM")} // 네비게이션에서 2023. 12처럼 보이게 설정
           calendarType="gregory" // 일요일 부터 시작
           showNeighboringMonth={false} // 전달, 다음달 날짜 숨기기
           next2Label={null} // +1년 & +10년 이동 버튼 숨기기
@@ -89,9 +86,9 @@ const CalendarModal = ({ startValue, endValue, state, action }: CalendarModalPro
         <CalendarStyle
           value={endDate}
           onChange={handleEndDateChange}
-          formatDay={(locale, date) => format(date, "d")} // 일 제거, 숫자만 보이게
-          formatYear={(locale, date) => format(date, "yyyy")} // 네비게이션에서 숫자 연도만 보이게
-          formatMonthYear={(locale, date) => format(date, "yyyy. MM")} // 네비게이션에서 2023. 12처럼 보이게 설정
+          formatDay={(_, date) => format(date, "d")} // 일 제거, 숫자만 보이게
+          formatYear={(_, date) => format(date, "yyyy")} // 네비게이션에서 숫자 연도만 보이게
+          formatMonthYear={(_, date) => format(date, "yyyy. MM")} // 네비게이션에서 2023. 12처럼 보이게 설정
           calendarType="gregory" // 일요일 부터 시작
           showNeighboringMonth={false} // 전달, 다음달 날짜 숨기기
           next2Label={null} // +1년 & +10년 이동 버튼 숨기기

@@ -190,8 +190,6 @@ const Banner = () => {
               <Arrow>▽</Arrow>
               {(isOpen === 'calendar')
                 && <CalendarModal
-                  startValue={startDate}
-                  endValue={endDate}
                   state={reservation}
                   action={setReservation} />}
             </SelectButton>

@@ -73,6 +73,7 @@ const SubNavContainer = styled.a`
 `;
 
 const MobileHeader = () => {
+  
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (

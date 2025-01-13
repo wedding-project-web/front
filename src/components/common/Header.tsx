@@ -32,7 +32,7 @@ const FirstHeaderContainer = styled.nav<{ $height: string }>`
 
 const LogoButton = styled.a`
   width: 200px;
-  height: 90%;
+  height: 80%;
   cursor: pointer;
 
   @media screen and (max-width: 1200px) {
@@ -44,7 +44,7 @@ const LogoContainer = styled.img`
   /* border: 1px solid red; */
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const NavContainer = styled.div<{ $height: string }>`
