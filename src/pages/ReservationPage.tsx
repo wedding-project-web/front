@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import mainWedding from "../assets/image/wedding-hall.jpg";
 import { useState } from "react";
 import right from "../assets/icon/arrow-right.png";
+import TermModal from "../components/Reservation/TermModal";
 
 const ReservationContainer = styled.div`
   width: 100%;
@@ -289,18 +290,18 @@ const ReservationButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #166237;
+  background-color: #f56a0e;
   color: #ffffff;
   box-shadow: 2px 2px 4px 0px #33333380;
   transition: all 0.2s;
   cursor: pointer;
 
   &:hover {
-    background-color: #35ad7b;
+    background-color: #eb9760;
   }
 
   &:active {
-    background-color: #063616;
+    background-color: #994309;
   }
 
   @media screen and (max-width: 840px) {
@@ -377,8 +378,7 @@ const ReservationPage = () => {
   const endDate = urlParams.get("ed");
   const time = urlParams.get("t");
   const count = urlParams.get("c");
-  console.log(startDate, endDate, time, count);
-
+  
   const [weddingValue, setWeddingValue] = useState<any>({
     name: "",
     phone: "",
@@ -391,7 +391,7 @@ const ReservationPage = () => {
   });
   const { name, phone, email } = weddingValue;
   const { use, privacy, ad } = check;
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [termOpen, setTermOpen] = useState<number>(0);
 
   const onChangeHandler = (e: any) => {
     const { name, value } = e.target;
@@ -446,6 +446,11 @@ const ReservationPage = () => {
     } catch (err) {
       alert(`예약 중 오류가 발생했습니다: ${err}`);
     }
+  };
+
+  const handleTermOpen = (key: number) => {
+    if (termOpen !== 0) return setTermOpen(0);
+    setTermOpen(key);
   };
 
   const infoFunc = () => {
@@ -503,7 +508,7 @@ const ReservationPage = () => {
           <TermContainer>
             <TermTopLane>
               전체동의
-              {use && privacy && ad ? (
+              {privacy ? (
                 <SelectCheckBox onClick={() => onClickCheckHandler()}>
                   ✔
                 </SelectCheckBox>
@@ -526,7 +531,7 @@ const ReservationPage = () => {
               )}
             </BottomLane> */}
             <BottomLane>
-              <ExpireText>
+              <ExpireText onClick={() => handleTermOpen(2)}>
                 개인정보 처리방침
                 <ExpireSpan onClick={privacyOnClick}>(필수)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
@@ -554,7 +559,7 @@ const ReservationPage = () => {
               )}
             </BottomLane> */}
           </TermContainer>
-          {name === "" || phone === "" || email === "" || !use || !privacy ? (
+          {name === "" || phone === "" || email === "" || !privacy ? (
             <DisableButton>예약 신청</DisableButton>
           ) : (
             <ReservationButton onClick={handleReservation}>
@@ -569,6 +574,11 @@ const ReservationPage = () => {
   return (
     <ReservationContainer>
       <BannerContainer $src={mainWedding}>{infoFunc()}</BannerContainer>
+      <TermModal
+        termOpen={termOpen}
+        setTermOpen={setTermOpen}
+        check={check}
+        setCheck={setCheck} />
     </ReservationContainer>
   );
 };
