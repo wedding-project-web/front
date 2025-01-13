@@ -13,6 +13,7 @@ const SubContainer = styled.div`
   gap: 30px;
   justify-content: center;
   padding: 0px 0px 0px 50px;
+  font-family: "Montserrat", serif;
 `;
 
 const ImgSlideContainer = styled.div`
@@ -31,6 +32,8 @@ const GalleryContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  align-items: flex-start;
+  margin: 30px 0px 0px 0px;
 `;
 
 const GalleryContents = styled.div`
@@ -57,6 +60,7 @@ const ArrowContainer = styled.div`
   display: flex;
   gap: 30px;
   justify-content: center;
+  margin: 50px 0px 0px 0px;
 `;
 
 const LeftArrow = styled.div`

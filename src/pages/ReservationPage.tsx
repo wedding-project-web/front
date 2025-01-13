@@ -391,6 +391,7 @@ const ReservationPage = () => {
   });
   const { name, phone, email } = weddingValue;
   const { use, privacy, ad } = check;
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const onChangeHandler = (e: any) => {
     const { name, value } = e.target;
@@ -411,6 +412,7 @@ const ReservationPage = () => {
     if (key === "ad") return setCheck({ ...check, ad: !ad });
   };
 
+  const privacyOnClick = () => {};
   const handleReservation = async (e: any) => {
     e.preventDefault();
     e.stopPropagation();
@@ -427,13 +429,16 @@ const ReservationPage = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/community/reservations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "http://localhost:8080/community/reservations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         alert(`예약 완료`);
@@ -506,7 +511,7 @@ const ReservationPage = () => {
                 <CheckBox onClick={() => onClickCheckHandler()} />
               )}
             </TermTopLane>
-            <BottomLane>
+            {/* <BottomLane>
               <ExpireText>
                 이용약관 동의
                 <ExpireSpan>(필수)</ExpireSpan>
@@ -519,11 +524,11 @@ const ReservationPage = () => {
               ) : (
                 <CheckBox onClick={() => onClickCheckHandler("use")} />
               )}
-            </BottomLane>
+            </BottomLane> */}
             <BottomLane>
               <ExpireText>
                 개인정보 처리방침
-                <ExpireSpan>(필수)</ExpireSpan>
+                <ExpireSpan onClick={privacyOnClick}>(필수)</ExpireSpan>
                 <ArrowIcon src={right} alt="화살표" />
               </ExpireText>
               {privacy ? (
@@ -534,7 +539,7 @@ const ReservationPage = () => {
                 <CheckBox onClick={() => onClickCheckHandler("privacy")} />
               )}
             </BottomLane>
-            <BottomLane>
+            {/* <BottomLane>
               <ExpireText>
                 광고성 정보 수신 동의
                 <ExpireSpan style={{ color: "inherit" }}>(선택)</ExpireSpan>
@@ -547,7 +552,7 @@ const ReservationPage = () => {
               ) : (
                 <CheckBox onClick={() => onClickCheckHandler("ad")} />
               )}
-            </BottomLane>
+            </BottomLane> */}
           </TermContainer>
           {name === "" || phone === "" || email === "" || !use || !privacy ? (
             <DisableButton>예약 신청</DisableButton>

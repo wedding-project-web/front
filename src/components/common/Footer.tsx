@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-// import logo from "../../assets/logo/logo.jpg";
+import top from "../../assets/icon/up-arrow.png";
 
 const FooterContainer = styled.div`
   padding: 40px;
@@ -42,15 +42,27 @@ const SubTitle = styled.span`
 const TopClick = styled.div`
   width: 50px;
   height: 50px;
-  background-color: lightgray;
+  background-color: #f4f4f4;
   border-radius: 50%;
   align-items: center;
   display: flex;
   justify-content: center;
   margin-left: auto;
+  cursor: pointer;
 `;
 
+const IconTop = styled.img`
+  width: 20px;
+  height: 20px;
+`;
 const Footer = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <FooterContainer>
       <ImgContainer>{/* <img src={logo} alt="Logo" /> */}</ImgContainer>
@@ -92,7 +104,9 @@ const Footer = () => {
           <div>Copyright© 웨딩 오월의 신부 All Rights Reserved.</div>
         </ThirdContentsContainer>
       </ContentsContainer>
-      <TopClick>Top</TopClick>
+      <TopClick onClick={handleScrollToTop}>
+        <IconTop src={top} />
+      </TopClick>
     </FooterContainer>
   );
 };

@@ -1,85 +1,180 @@
 import styled from "@emotion/styled";
 import first from "../assets/image/first.jpg";
 import { useNavigate } from "react-router-dom";
+import Pagination from "../components/common/Pagination";
 
 const PageContainer = styled.div`
   padding: 0px 0px 100px 0px;
 `;
+
 const TitleContainer = styled.div`
-  background-color: #fbfff2;
+  background-color: #fdffed;
   margin-top: 100px;
   padding: 100px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    padding: 50px;
+    margin-top: 50px;
+  }
 `;
 
 const Title = styled.div`
   font-size: 30px;
   color: #166237;
+  font-family: "Montserrat", serif;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const SubContainer = styled.div`
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 50px;
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 `;
 
 const FirstContent = styled.div`
   color: #166237;
   font-size: 30px;
+  font-family: "Montserrat", serif;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const SecondContent = styled.div`
   color: #166237;
   font-size: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
+
 const ThirdContent = styled.div`
   font-size: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const EventsContainer = styled.div`
-  border: 1px solid blue;
   width: 1195px;
   margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Event = styled.div`
-  border: 1px solid red;
-  display: flex;
   font-size: 18px;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px;
+  font-family: "Montserrat", serif;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 const ImagesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  border: 1px solid black;
-  width: 1195px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ImgContainer = styled.div`
   height: 385px;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+
+  @media (max-width: 480px) {
+    height: 250px;
+  }
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const ImageTitle = styled.div`
-  border: 1px solid black;
   display: flex;
   justify-content: start;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const Icon = styled.div`
-  color: gray;
+  color: lightgray;
   font-size: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
+
 const SpecialWeddingPromotion = () => {
   const navigate = useNavigate();
 
@@ -98,56 +193,18 @@ const SpecialWeddingPromotion = () => {
       <EventsContainer>
         <Event>Event</Event>
         <ImagesContainer>
-          <ImgContainer onClick={() => navigate("/wedding-promotion-detail")}>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
-          <ImgContainer>
-            <Img src={first} />
-            <ImageTitle>00000</ImageTitle>
-          </ImgContainer>
+          {Array.from({ length: 12 }).map((_, index) => (
+            <ImgContainer
+              key={index}
+              onClick={() => navigate("/wedding-promotion-detail")}
+            >
+              <Img src={first} />
+              <ImageTitle>00000</ImageTitle>
+            </ImgContainer>
+          ))}
         </ImagesContainer>
       </EventsContainer>
+      <Pagination />
     </PageContainer>
   );
 };

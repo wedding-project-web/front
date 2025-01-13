@@ -18,19 +18,20 @@ const ImgContainer = styled.div`
   display: flex;
   justify-content: center; /* 이미지 중앙 정렬 */
   align-items: center; /* 세로 중앙 정렬 */
-  /* width: 100%; 부모 컨테이너의 너비에 맞춤 */
-  min-height: 100vdh;
+  width: 100%;
+  height: 100dvh;
 `;
 
 const MainImg = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const SubTitle = styled.div`
   font-size: 50px;
   margin: 50px 0px 0px 0px;
+  font-family: "Montserrat", serif;
 `;
 const ContentsContainer = styled.div`
   display: flex;
@@ -51,27 +52,26 @@ const SubContainer = styled.div`
   gap: 30px;
   justify-content: center;
   padding: 0px 0px 0px 50px;
-  /* border: 1px solid black; */
+  font-family: "Montserrat", serif;
 `;
 
 const ImgSlideContainer = styled.div`
   display: flex;
   width: 100%;
   margin: 50px 0px 0px 0px;
-  /* border: 1px solid black; */
 `;
 
 const ImgGalleryContainer = styled.div`
   font-size: 50px;
   width: 70%;
-  /* border: 1px solid black; */
 `;
 const GalleryContentsContainer = styled.div`
   font-size: 25px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  /* border: 1px solid black; */
+  align-items: flex-start;
+  margin: 30px 0px 0px 0px;
 `;
 
 const GalleryContents = styled.div`
@@ -98,6 +98,7 @@ const ArrowContainer = styled.div`
   display: flex;
   gap: 30px;
   justify-content: center;
+  margin: 50px 0px 0px 0px;
 `;
 
 const LeftArrow = styled.div`

@@ -7,33 +7,80 @@ const TitleContainer = styled.div`
   background-color: #fbfff2;
   margin-top: 100px;
   padding: 100px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 50px;
+    margin-top: 50px;
+  }
 `;
 
 const Title = styled.div`
   font-size: 30px;
   color: #166237;
+  font-family: "Montserrat", serif;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const SubContainer = styled.div`
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 50px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
-const IconContainer = styled.div``;
+const IconContainer = styled.div`
+  margin: 0px 0px 30px 0px;
+
+  img {
+    width: 60px;
+    height: 60px;
+
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+`;
+
 const FirstContent = styled.div`
   color: #166237;
   font-size: 20px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const SecondContent = styled.div`
   color: #166237;
   font-size: 30px;
+  font-family: "Montserrat", serif;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
+
 const ThirdContent = styled.div`
   font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 const AboutUsPage = () => {
@@ -44,7 +91,7 @@ const AboutUsPage = () => {
       </TitleContainer>
       <SubContainer>
         <IconContainer>
-          <img src={quotes} />
+          <img src={quotes} alt="Quotes Icon" />
         </IconContainer>
         <FirstContent>새로운 웨딩 문화의 시작</FirstContent>
         <SecondContent>New Wedding Culture</SecondContent>

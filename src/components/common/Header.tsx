@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import logo from "../../assets/logo/logo.png";
+import logo from "../../assets/logo/logo.jpg";
 import styled from "@emotion/styled";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const HeaderContainer = styled.div<{ $height: string }>`
   height: ${(props) => props.$height};
@@ -13,7 +13,8 @@ const HeaderContainer = styled.div<{ $height: string }>`
   background-color: #ffffff;
   z-index: 20;
   transition: all 0.2s;
-  box-shadow: ${(props) => (props.$height === '90px') ? 'none' : '0px 2px 8px 0px #33333380'};
+  box-shadow: ${(props) =>
+    props.$height === "90px" ? "none" : "0px 2px 8px 0px #33333380"};
 `;
 
 const FirstHeaderContainer = styled.nav<{ $height: string }>`
@@ -84,7 +85,7 @@ const NavUnderBar = styled.div`
   left: 0;
 `;
 
-const NavButton = styled.a<{ $color: string , $height: string }>`
+const NavButton = styled.a<{ $color: string; $height: string }>`
   height: ${(props) => props.$height};
   min-height: ${(props) => props.$height};
   color: ${(props) => props.$color};
@@ -157,19 +158,7 @@ const DownloadButton = styled.button`
   }
 `;
 
-const Icon = styled.div`
-  width: 18px;
-  height: 18px;
-  background-color: #e9e9e9;
-
-  @media screen and (max-width: 1200px) {
-    width: 10px;
-    height: 10px;
-  }
-`;
-
 const Header = () => {
-
   const path = window.location.pathname;
   const [scroll, setScroll] = useState<boolean>(window.scrollY > 0);
 
@@ -177,71 +166,69 @@ const Header = () => {
     const scrollEvent = () => {
       const y = window.scrollY;
       if (y > 0) {
-        setScroll(true)
+        setScroll(true);
       } else {
-        setScroll(false)
-      };
+        setScroll(false);
+      }
     };
 
-    document.addEventListener('scroll', scrollEvent);
+    document.addEventListener("scroll", scrollEvent);
 
     return () => {
-      document.removeEventListener('scroll', scrollEvent);
+      document.removeEventListener("scroll", scrollEvent);
     };
   }, []);
 
   return (
-    <HeaderContainer $height={(scroll) ? '70px' : '90px'}>
+    <HeaderContainer $height={scroll ? "70px" : "90px"}>
       <HeaderBackground />
-      <FirstHeaderContainer $height={(scroll) ? '80px' : '100px'}>
+      <FirstHeaderContainer $height={scroll ? "80px" : "100px"}>
         <LogoButton href="/">
-          <LogoContainer
-            src={logo}
-            alt="Logo" />
+          <LogoContainer src={logo} alt="Logo" />
         </LogoButton>
-        <NavContainer $height={(scroll) ? '70px' : '90px'}>
+        <NavContainer $height={scroll ? "70px" : "90px"}>
           <NavInContainer>
             <NavButtonBox>
               <NavButton
-                href='/reservation'
-                $color={(path === '/reservation') ? '#166237' : '#333333'}
-                $height={(scroll) ? '70px' : '90px'}>
+                href="/reservation"
+                $color={path === "/reservation" ? "#166237" : "#333333"}
+                $height={scroll ? "70px" : "90px"}
+              >
                 Reservation
-                {(path === '/reservation') && <NavUnderBar />}
+                {path === "/reservation" && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>
               <NavButton
-                href='/wedding-promotion'
-                $color={(path === '/wedding-promotion') ? '#166237' : '#333333'}
-                $height={(scroll) ? '70px' : '90px'}>
+                href="/wedding-promotion"
+                $color={path === "/wedding-promotion" ? "#166237" : "#333333"}
+                $height={scroll ? "70px" : "90px"}
+              >
                 Wedding Promotion
-                {(path === '/wedding-promotion') && <NavUnderBar />}
+                {path === "/wedding-promotion" && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>
               <NavButton
-                href='/wedding-hall'
-                $color={(path === '/wedding-hall') ? '#166237' : '#333333'}
-                $height={(scroll) ? '70px' : '90px'}>
+                href="/wedding-hall"
+                $color={path === "/wedding-hall" ? "#166237" : "#333333"}
+                $height={scroll ? "70px" : "90px"}
+              >
                 Wedding & Party
-                {(path === '/wedding-hall') && <NavUnderBar />}
+                {path === "/wedding-hall" && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
             <NavButtonBox>
               <NavButton
-                href='/about-us'
-                $color={(path === '/about-us') ? '#166237' : '#333333'}
-                $height={(scroll) ? '70px' : '90px'}>
+                href="/about-us"
+                $color={path === "/about-us" ? "#166237" : "#333333"}
+                $height={scroll ? "70px" : "90px"}
+              >
                 About us
-                {(path === '/about-us') && <NavUnderBar />}
+                {path === "/about-us" && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
-            <DownloadButton>
-              {/* 아래에 Icon에 다운 아이콘 사용 */}
-              <Icon />
-              청첩장 용 다운로드
-            </DownloadButton>
+            <DownloadButton>청첩장 용 다운로드</DownloadButton>
           </NavInContainer>
         </NavContainer>
       </FirstHeaderContainer>
