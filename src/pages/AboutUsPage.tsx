@@ -40,7 +40,7 @@ const AboutUsPage = () => {
   return (
     <div>
       <TitleContainer>
-        <Title>오월의 정원 STORY</Title>
+        <Title>MAY STORY</Title>
       </TitleContainer>
       <SubContainer>
         <IconContainer>

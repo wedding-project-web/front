@@ -6,6 +6,7 @@ import ReservationPage from "./pages/ReservationPage";
 import WeddingAndPartyPage from "./pages/WeddingAndPartyPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import SpecialWeddingPromotion from "./pages/SpecialWeddingPromotion";
+import SpecialWeddingPromotionDetailPage from "./pages/SpecialWeddingPromotionDetailPage";
 
 const App = () => {
   return (
@@ -21,6 +22,10 @@ const App = () => {
             <Route
               path="/wedding-promotion"
               element={<SpecialWeddingPromotion />}
+            />
+            <Route
+              path="/wedding-promotion-detail"
+              element={<SpecialWeddingPromotionDetailPage />}
             />
           </Route>
         </Routes>

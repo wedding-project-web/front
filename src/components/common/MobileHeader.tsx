@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import weddingLogo from "../../assets/logo/logo.png";
+import weddingLogo from "../../assets/logo/logo.jpg";
 import { useState } from "react";
 
 const MobileHeaderContainer = styled.header`
@@ -73,7 +73,6 @@ const SubNavContainer = styled.a`
 `;
 
 const MobileHeader = () => {
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -82,30 +81,25 @@ const MobileHeader = () => {
         <LogoContainer href="/">
           <LogoImage src={weddingLogo} />
         </LogoContainer>
-        <ListButton onClick={() => setIsOpen(!isOpen)}>
-          Icon
-        </ListButton>
+        <ListButton onClick={() => setIsOpen(!isOpen)}>Icon</ListButton>
       </HeaderWrapper>
-      {(isOpen)
-        && <SubHeaderContainer>
-          <SubNavContainer href='/reservation'>
-            Reservation
-          </SubNavContainer>
-          <SubNavContainer href='/wedding-promotion'>
+      {isOpen && (
+        <SubHeaderContainer>
+          <SubNavContainer href="/reservation">Reservation</SubNavContainer>
+          <SubNavContainer href="/wedding-promotion">
             Wedding Promotion
           </SubNavContainer>
-          <SubNavContainer href='/wedding-hall'>
+          <SubNavContainer href="/wedding-hall">
             Wedding & Party
           </SubNavContainer>
-          <SubNavContainer href='/about-us'>
-            About us
-          </SubNavContainer>
-          <SubNavContainer style={{ fontFamily: 'inherit' }}>
+          <SubNavContainer href="/about-us">About us</SubNavContainer>
+          <SubNavContainer style={{ fontFamily: "inherit" }}>
             청첩장 용 다운로드
           </SubNavContainer>
-        </SubHeaderContainer>}
+        </SubHeaderContainer>
+      )}
     </MobileHeaderContainer>
-  )
+  );
 };
 
 export default MobileHeader;

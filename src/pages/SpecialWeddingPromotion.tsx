@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import first from "../assets/image/first.jpg";
+import { useNavigate } from "react-router-dom";
 
 const PageContainer = styled.div`
   padding: 0px 0px 100px 0px;
@@ -80,6 +81,8 @@ const Icon = styled.div`
   font-size: 30px;
 `;
 const SpecialWeddingPromotion = () => {
+  const navigate = useNavigate();
+
   return (
     <PageContainer>
       <TitleContainer>
@@ -92,11 +95,10 @@ const SpecialWeddingPromotion = () => {
         <Icon>X</Icon>
         <ThirdContent>오월의 신부 다양한 프로모션을 진행합니다.</ThirdContent>
       </SubContainer>
-
       <EventsContainer>
         <Event>Event</Event>
         <ImagesContainer>
-          <ImgContainer>
+          <ImgContainer onClick={() => navigate("/wedding-promotion-detail")}>
             <Img src={first} />
             <ImageTitle>00000</ImageTitle>
           </ImgContainer>
