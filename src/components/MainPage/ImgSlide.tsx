@@ -4,8 +4,8 @@ import front from "../../assets/image/10. 웨딩홀 정면.jpg";
 import bridal from "../../assets/image/신부대기실.jpg";
 import banquet from "../../assets/image/14 연회장.jpg";
 import { useState } from "react";
-import leftArrow from "../../assets/icon/arrow-left.png";
-import rightArrow from "../../assets/icon/arrow-right.png";
+import leftArrow from "../../assets/icon/chevron-left.svg";
+import rightArrow from "../../assets/icon/chevron-right.svg";
 
 const SubContainer = styled.div`
   display: flex;
@@ -85,6 +85,11 @@ const RightArrow = styled.div`
   cursor: pointer;
 `;
 
+const Arrow = styled.img`
+  width: 32px;
+  height: 32px;
+`;
+
 const ImgSlide = () => {
   const images = [front, bridal, banquet]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -131,10 +136,10 @@ const ImgSlide = () => {
         </GalleryContentsContainer>
         <ArrowContainer>
           <LeftArrow onClick={handlePrev}>
-            <img src={leftArrow} alt="Previous" />
+            <Arrow src={leftArrow} alt="Previous" />
           </LeftArrow>
           <RightArrow onClick={handleNext}>
-            <img src={rightArrow} alt="Next" />
+            <Arrow src={rightArrow} alt="Next" />
           </RightArrow>
         </ArrowContainer>
       </SubContainer>

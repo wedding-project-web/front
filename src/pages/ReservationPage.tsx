@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import mainWedding from "../assets/image/wedding-hall.jpg";
 import { useState } from "react";
-import right from "../assets/icon/arrow-right.png";
+import right from "../assets/icon/chevron-right.svg";
 import TermModal from "../components/Reservation/TermModal";
 
 const ReservationContainer = styled.div`
@@ -271,14 +271,14 @@ const ExpireSpan = styled.span`
 `;
 
 const ArrowIcon = styled.img`
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   margin-top: 2px;
 
   @media screen and (max-width: 840px) {
-    width: 8px;
-    height: 8px;
+    width: 14px;
+    height: 14px;
   }
 `;
 

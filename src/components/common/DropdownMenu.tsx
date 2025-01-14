@@ -8,13 +8,19 @@ const DropdownMenuContainer = styled.ul`
   justify-content: start;
   align-items: start;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow-y: auto;
   position: absolute;
   top: 50px;
   left: -10px;
   z-index: 3;
   padding: 10px 0px;
+  box-shadow: 2px 2px 8px 0px #33333380;
+
+  @media screen and (max-width: 840px) {
+    top: 30px;
+    left: -50px;
+  }
 `;
 
 const DropdownMenuLane = styled.li`

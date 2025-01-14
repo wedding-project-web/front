@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
-import weddingLogo from "../../assets/logo/logo.jpg";
+import weddingLogo from "../../assets/logo/logo.png";
 import { useState } from "react";
+import Hambug from "./Hambug";
+import Download from "../../assets/icon/download-white.svg";
 
 const MobileHeaderContainer = styled.header`
   width: 100%;
@@ -24,8 +26,8 @@ const HeaderWrapper = styled.div`
 `;
 
 const LogoContainer = styled.a`
-  width: 120px;
-  height: 80%;
+  width: 160px;
+  height: 90%;
 `;
 
 const LogoImage = styled.img`
@@ -35,13 +37,14 @@ const LogoImage = styled.img`
 `;
 
 const ListButton = styled.button`
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 const SubHeaderContainer = styled.nav`
@@ -50,7 +53,7 @@ const SubHeaderContainer = styled.nav`
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  background-color: #e75632;
+  background-color: #166237;
   position: fixed;
   top: 70px;
   left: 0;
@@ -70,6 +73,17 @@ const SubNavContainer = styled.a`
   color: #ffffff;
   font-family: "Montserrat", serif;
   text-transform: uppercase;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: #bebebe;
+  }
+`;
+
+const DownloadIcon = styled.img`
+  width: 14px;
+  height: 14px;
 `;
 
 const MobileHeader = () => {
@@ -82,7 +96,9 @@ const MobileHeader = () => {
         <LogoContainer href="/">
           <LogoImage src={weddingLogo} />
         </LogoContainer>
-        <ListButton onClick={() => setIsOpen(!isOpen)}>Icon</ListButton>
+        <ListButton onClick={() => setIsOpen(!isOpen)}>
+          <Hambug isOpen={isOpen} />
+        </ListButton>
       </HeaderWrapper>
       {isOpen && (
         <SubHeaderContainer>
@@ -95,6 +111,7 @@ const MobileHeader = () => {
           </SubNavContainer>
           <SubNavContainer href="/about-us">About us</SubNavContainer>
           <SubNavContainer style={{ fontFamily: "inherit" }}>
+            <DownloadIcon src={Download} alt='download' />
             청첩장 용 다운로드
           </SubNavContainer>
         </SubHeaderContainer>

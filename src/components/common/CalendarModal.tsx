@@ -14,6 +14,7 @@ const CalendarContainer = styled.div`
   top: 40px;
   left: 0;
   z-index: 3;
+  box-shadow: 2px 2px 8px 0px #33333380;
 
   @media screen and (max-width: 980px) {
     width: 300px;

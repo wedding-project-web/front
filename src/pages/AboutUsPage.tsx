@@ -5,8 +5,8 @@ import MusicWedding from "../components/AboutUs/MusicWedding";
 
 const TitleContainer = styled.div`
   background-color: #fbfff2;
-  margin-top: 100px;
-  padding: 100px;
+  margin-top: 90px;
+  padding: 90px;
   text-align: center;
 
   @media (max-width: 768px) {
