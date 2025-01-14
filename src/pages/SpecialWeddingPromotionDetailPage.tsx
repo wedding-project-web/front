@@ -9,7 +9,7 @@ const PageContainer = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    padding: 100px 0px 0px 0px;
+    padding: 100px 0px 30px 0px;
   }
 `;
 

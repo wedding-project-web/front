@@ -22,6 +22,7 @@ const Title = styled.div`
 
   @media (max-width: 768px) {
     font-size: 24px;
+    line-height: 1.7;
   }
 `;
 
@@ -38,15 +39,18 @@ const SubContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
-  margin: 0px 0px 30px 0px;
+  margin: 0 0 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
-    width: 60px;
-    height: 60px;
+    max-width: 100%; /* 부모 크기에 맞게 이미지 조정 */
+    height: auto; /* 이미지 종횡비 유지 */
+    display: block; /* inline 요소 문제 방지 */
 
     @media (max-width: 768px) {
-      width: 40px;
-      height: 40px;
+      max-width: 80px; /* 작은 화면에서도 적절한 크기 */
     }
   }
 `;
@@ -87,7 +91,10 @@ const AboutUsPage = () => {
   return (
     <div>
       <TitleContainer>
-        <Title>MAY STORY</Title>
+        <Title>
+          MAY STORY
+          <br /> 오월의 신부 이야기
+        </Title>
       </TitleContainer>
       <SubContainer>
         <IconContainer>
