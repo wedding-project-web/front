@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import first from "../assets/image/first.jpg";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../components/common/Pagination";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const PageContainer = styled.div`
   padding: 0px 0px 90px 0px;
@@ -189,6 +191,24 @@ const PaginationContainer = styled.div`
 const SpecialWeddingPromotion = () => {
   const navigate = useNavigate();
 
+  // 사진 데이터를 저장할 state
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // 비동기 함수 정의
+    const fetchImages = async () => {
+      try {
+        // GET 요청으로 사진 데이터 가져오기
+        const response = await axios.get("https://localhost:8080/community");
+        console.log("Fetched Images:", response.data);
+        setImages(response.data); // 가져온 데이터를 state에 저장
+      } catch (err) {
+        console.error("Failed to fetch images:", err);
+      }
+    };
+
+    fetchImages(); // 함수 호출
+  }, []); // 빈 배열로 마운트 시 한 번만 실행
   return (
     <PageContainer>
       <TitleContainer>
