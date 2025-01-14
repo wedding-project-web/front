@@ -16,10 +16,27 @@ const PageContainer = styled.div`
 
 const ImgContainer = styled.div`
   display: flex;
-  justify-content: center; /* 이미지 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
+  position: relative;
+
+  ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #22202080;
+    height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
 `;
 
 const MainImg = styled.img`
@@ -28,22 +45,90 @@ const MainImg = styled.img`
   object-fit: cover;
 `;
 
+const Title = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  z-index: 2;
+  font-family: "Montserrat", serif;
+  text-align: center;
+  transform: translate(-50%, -50%);
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+`;
+
 const SubTitle = styled.div`
   font-size: 50px;
-  margin: 50px 0px 0px 0px;
+  margin: 150px 0px 0px 0px;
   font-family: "Montserrat", serif;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+    margin: 80px 0px 0px 0px;
+  }
 `;
+
 const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
   gap: 30px;
-  margin: 50px 0px 0px 0px;
+  margin: 80px 0px 0px 0px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin: 40px 0px 0px 0px;
+    gap: 20px;
+    padding: 0 20px;
+  }
 `;
 
 const MainContent = styled.div`
   color: #166237;
   font-size: 35px;
+  margin: 50px 0px 100px 0px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin: 30px 0px 60px 0px;
+  }
+`;
+
+const ImgSlideContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 50px 0px 0px 0px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0px 0px 0px;
+  }
+`;
+
+const ImgGalleryContainer = styled.div`
+  font-size: 50px;
+  width: 70%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 40px;
+  }
+`;
+
+const Img = styled.img`
+  width: 100%;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const SubContainer = styled.div`
@@ -53,18 +138,23 @@ const SubContainer = styled.div`
   justify-content: center;
   padding: 0px 0px 0px 50px;
   font-family: "Montserrat", serif;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 0 20px;
+    align-items: center;
+  }
 `;
 
-const ImgSlideContainer = styled.div`
-  display: flex;
-  width: 100%;
-  margin: 50px 0px 0px 0px;
-`;
-
-const ImgGalleryContainer = styled.div`
+const GalleryContents = styled.div`
+  color: black;
   font-size: 50px;
-  width: 70%;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
+
 const GalleryContentsContainer = styled.div`
   font-size: 25px;
   display: flex;
@@ -72,25 +162,26 @@ const GalleryContentsContainer = styled.div`
   gap: 30px;
   align-items: flex-start;
   margin: 30px 0px 0px 0px;
-`;
 
-const GalleryContents = styled.div`
-  color: black;
-  font-size: 50px;
-`;
-
-const Img = styled.img`
-  width: 100%;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    gap: 20px;
+    align-items: center;
+  }
 `;
 
 const UnderlinedText = styled.div`
-  text-decoration: underline; /* 밑줄 추가 */
-  text-decoration-color: #ababab; /* 밑줄 색상 설정 */
-  cursor: pointer; /* 클릭 가능한 느낌을 주기 위해 포인터 추가 */
+  text-decoration: underline;
+  text-decoration-color: #ababab;
+  cursor: pointer;
 
   &:hover {
-    color: #166237; /* hover 시 글씨 색 변경 */
-    text-decoration-color: #166237; /* 밑줄 색도 hover 시 변경 */
+    color: #166237;
+    text-decoration-color: #166237;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
@@ -99,6 +190,11 @@ const ArrowContainer = styled.div`
   gap: 30px;
   justify-content: center;
   margin: 50px 0px 0px 0px;
+
+  @media (max-width: 768px) {
+    margin: 20px 0 0 0;
+    gap: 20px;
+  }
 `;
 
 const LeftArrow = styled.div`
@@ -109,6 +205,11 @@ const LeftArrow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const RightArrow = styled.div`
@@ -119,6 +220,11 @@ const RightArrow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 const WeddingAndPartyPage = () => {
   const images = [back, front, bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
@@ -137,14 +243,16 @@ const WeddingAndPartyPage = () => {
   };
 
   const handleSelectImage = (index: number) => {
-    setCurrentIndex(index); // 선택한 index로 currentIndex 설정
+    setCurrentIndex(index);
   };
 
   return (
     <PageContainer>
       <ImgContainer>
         <MainImg src={mainWedding} />
+        <Title>WEDDING & PARTY</Title>
       </ImgContainer>
+
       <SubTitle>WEDDING & PARTY</SubTitle>
 
       <ContentsContainer>
