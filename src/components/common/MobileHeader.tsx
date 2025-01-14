@@ -15,6 +15,7 @@ const MobileHeaderContainer = styled.header`
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  box-shadow: 0px 2px 6px 0px #33333333;
 `;
 
 const HeaderWrapper = styled.div`
@@ -54,6 +55,7 @@ const SubHeaderContainer = styled.nav`
   justify-content: start;
   align-items: start;
   background-color: #166237;
+  box-shadow: 0px 2px 6px 0px #33333333;
   position: fixed;
   top: 70px;
   left: 0;

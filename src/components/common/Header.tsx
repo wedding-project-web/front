@@ -13,6 +13,7 @@ const HeaderContainer = styled.div<{ $height: string }>`
   background-color: #ffffff;
   z-index: 20;
   transition: all 0.2s;
+  user-select: none;
   box-shadow: ${(props) =>
     props.$height === "90px" ? "none" : "0px 2px 8px 0px #33333380"};
 
