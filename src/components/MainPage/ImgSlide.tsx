@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-// import back from "../assets/image/10. 예식홀-후면.jpg";
 import front from "../../assets/image/10. 웨딩홀 정면.jpg";
 import bridal from "../../assets/image/신부대기실.jpg";
 import banquet from "../../assets/image/14 연회장.jpg";
