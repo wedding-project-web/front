@@ -14,35 +14,65 @@ const SubContainer = styled.div`
   justify-content: center;
   padding: 0px 0px 0px 50px;
   font-family: "Montserrat", serif;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    gap: 20px;
+    align-items: center;
+  }
 `;
 
 const ImgSlideContainer = styled.div`
   display: flex;
   width: 100%;
   margin: 50px 0px 0px 0px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ImgGalleryContainer = styled.div`
   font-size: 50px;
   width: 70%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const GalleryContentsContainer = styled.div`
   font-size: 25px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   align-items: flex-start;
   margin: 30px 0px 0px 0px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    align-items: center;
+  }
 `;
 
 const GalleryContents = styled.div`
   color: black;
   font-size: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    text-align: center;
+  }
 `;
 
 const Img = styled.img`
   width: 100%;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const UnderlinedText = styled.div`
@@ -54,6 +84,10 @@ const UnderlinedText = styled.div`
     color: #166237;
     text-decoration-color: #166237;
   }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const ArrowContainer = styled.div`
@@ -61,6 +95,11 @@ const ArrowContainer = styled.div`
   gap: 30px;
   justify-content: center;
   margin: 50px 0px 0px 0px;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+    margin: 30px 0px 0px 0px;
+  }
 `;
 
 const LeftArrow = styled.div`
@@ -72,6 +111,11 @@ const LeftArrow = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const RightArrow = styled.div`
@@ -83,11 +127,21 @@ const RightArrow = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const Arrow = styled.img`
   width: 32px;
   height: 32px;
+
+  @media (max-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const ImgSlide = () => {

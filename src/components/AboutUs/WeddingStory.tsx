@@ -4,57 +4,91 @@ import second from "../../assets/image/second.jpg";
 const FirstImgContentsContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 100px 0px 100px 0px;
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+  }
 `;
 
 const ImgContainer = styled.div`
   width: 380px;
   height: 550px;
-  /* border: 2px solid blue; */
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: auto;
+  }
 `;
 
 const Img = styled.img`
   width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지 비율 유지 및 크기 조정 */
+
+  @media (max-width: 768px) {
+    object-fit: contain;
+  }
 `;
 
-const FirstContentTitleContainer = styled.div``;
+const FirstContentTitleContainer = styled.div`
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
 
 const FirstContentTitle = styled.div`
   font-size: 30px;
-
-  /* border: 3px solid yellow; */
   color: #a68a00;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: 1.7;
+  }
 `;
 
 const FirstContentsContainer = styled.div`
-  /* border: 1px solid red; */
   gap: 20px;
   display: flex;
   flex-direction: column;
 `;
+
 const FirstContents = styled.div`
-  /* border: 1px solid black; */
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 130px 0px 130px;
+  padding: 0 130px;
   gap: 60px;
   line-height: 30px;
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+    gap: 30px;
+    line-height: 24px;
+  }
 `;
 
 const WeddingStory = () => {
   return (
     <FirstImgContentsContainer>
       <ImgContainer>
-        <Img src={second} />
+        <Img src={second} alt="Wedding Story" />
       </ImgContainer>
       <ContentsContainer>
         <FirstContentTitleContainer>
-          <FirstContentTitle>BRIDE OF MAY WEDDING STORY</FirstContentTitle>
-          <FirstContentTitle>오월의 신부 웨딩 이야기</FirstContentTitle>
+          <FirstContentTitle>
+            BRIDE OF MAY WEDDING STORY
+            <br />
+            오월의 신부 웨딩 이야기
+          </FirstContentTitle>
         </FirstContentTitleContainer>
         <FirstContentsContainer>
           <FirstContents>

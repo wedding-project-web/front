@@ -6,11 +6,23 @@ const FooterContainer = styled.div`
   display: flex;
   gap: 30px;
   border-top: 1px solid lightgray;
+  flex-wrap: wrap; /* 반응형 레이아웃: 줄바꿈 허용 */
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+  }
 `;
 
 const ImgContainer = styled.div`
   width: 100px;
   height: 70px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 60px;
+  }
 `;
 
 const ContentsContainer = styled.div`
@@ -19,25 +31,49 @@ const ContentsContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   font-size: 18px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    gap: 15px;
+  }
 `;
 
 const FirstContentsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   gap: 10px;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+    gap: 10px;
+  }
 `;
 
 const SecondContentsContainer = styled.div`
   display: flex;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const ThirdContentsContainer = styled.div`
   display: flex;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const SubTitle = styled.span`
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 16px; /* 작은 화면에서 폰트 크기 조정 */
+  }
 `;
 
 const TopClick = styled.div`
@@ -50,11 +86,21 @@ const TopClick = styled.div`
   justify-content: center;
   margin-left: auto;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px; /* 아이콘 크기 축소 */
+  }
 `;
 
 const IconTop = styled.img`
   width: 24px;
   height: 24px;
+
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 20px; /* 아이콘 크기 조정 */
+  }
 `;
 
 const Footer = () => {

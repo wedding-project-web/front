@@ -152,6 +152,7 @@ const GalleryContents = styled.div`
 
   @media (max-width: 768px) {
     font-size: 24px;
+    margin: 20px 0px 0px 0px;
   }
 `;
 
@@ -192,7 +193,7 @@ const ArrowContainer = styled.div`
   margin: 50px 0px 0px 0px;
 
   @media (max-width: 768px) {
-    margin: 20px 0 0 0;
+    margin: 20px 0 20px 0;
     gap: 20px;
   }
 `;

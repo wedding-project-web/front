@@ -124,10 +124,12 @@ const ImagesContainer = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
   }
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
+    padding: 20px;
   }
 `;
 
@@ -175,6 +177,15 @@ const Icon = styled.div`
   }
 `;
 
+const PaginationContainer = styled.div`
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
+`;
 const SpecialWeddingPromotion = () => {
   const navigate = useNavigate();
 
@@ -204,7 +215,9 @@ const SpecialWeddingPromotion = () => {
           ))}
         </ImagesContainer>
       </EventsContainer>
-      <Pagination />
+      <PaginationContainer>
+        <Pagination />
+      </PaginationContainer>
     </PageContainer>
   );
 };
