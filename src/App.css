@@ -2,4 +2,5 @@
   min-height: 100dvh;
   text-align: center;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }

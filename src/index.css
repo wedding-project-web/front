@@ -349,3 +349,13 @@ table {
     /* zoom: 0.7; */
   }
 }
+
+::selection {
+  background-color: #64c5b1;
+  color: #FEFEFE;
+}
+
+::-moz-selection {
+  background-color: #64c5b1;
+  color: #FEFEFE;
+}

@@ -6,6 +6,8 @@ const HambugIcon = styled.div<{ $open: boolean }>`
   position: relative;
   background-color: ${(props) => (props.$open ? 'transparent' : '#6e6e6e')};
   border-radius: 2px;
+  pointer-events: none;
+  user-select: none;
 
   &::before,
   &::after {
