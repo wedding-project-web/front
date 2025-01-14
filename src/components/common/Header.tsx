@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import logo from "../../assets/logo/logo.jpg";
+import logo from "../../assets/logo/logo.png";
 import styled from "@emotion/styled";
-// import { useParams } from "react-router-dom";
+import Download from "../../assets/icon/download-white.svg";
 
 const HeaderContainer = styled.div<{ $height: string }>`
   height: ${(props) => props.$height};
@@ -15,6 +15,10 @@ const HeaderContainer = styled.div<{ $height: string }>`
   transition: all 0.2s;
   box-shadow: ${(props) =>
     props.$height === "90px" ? "none" : "0px 2px 8px 0px #33333380"};
+
+  @media screen and (max-width: 1200px) {
+    height: 70px;
+  }
 `;
 
 const FirstHeaderContainer = styled.nav<{ $height: string }>`
@@ -27,13 +31,18 @@ const FirstHeaderContainer = styled.nav<{ $height: string }>`
 
   @media screen and (max-width: 1200px) {
     padding: 0px 20px;
+    height: 70px;
   }
 `;
 
 const LogoButton = styled.a`
-  width: 200px;
+  width: 300px;
   height: 80%;
   cursor: pointer;
+
+  @media screen and (max-width: 1440px) {
+    width: 200px;
+  }
 
   @media screen and (max-width: 1200px) {
     width: 140px;
@@ -44,7 +53,7 @@ const LogoContainer = styled.img`
   /* border: 1px solid red; */
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 const NavContainer = styled.div<{ $height: string }>`
@@ -55,6 +64,10 @@ const NavContainer = styled.div<{ $height: string }>`
   align-items: center;
   width: 100%;
   transition: all 0.2s;
+
+  @media screen and (max-width: 1200px) {
+    height: 70px;
+  }
 `;
 
 const NavInContainer = styled.div`
@@ -103,8 +116,14 @@ const NavButton = styled.a<{ $color: string; $height: string }>`
     color: #0e6333;
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1440px) {
     font-size: 14px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    font-size: 10px;
+    height: 70px;
+    min-height: 70px;
   }
 `;
 
@@ -156,6 +175,11 @@ const DownloadButton = styled.button`
     font-size: 10px;
     gap: 4px;
   }
+`;
+
+const DownloadIcon = styled.img`
+  width: 14px;
+  height: 14px;
 `;
 
 const Header = () => {
@@ -228,7 +252,10 @@ const Header = () => {
                 {path === "/about-us" && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
-            <DownloadButton>청첩장 용 다운로드</DownloadButton>
+            <DownloadButton>
+              <DownloadIcon src={Download} alt='download' />
+              청첩장 용 다운로드
+            </DownloadButton>
           </NavInContainer>
         </NavContainer>
       </FirstHeaderContainer>

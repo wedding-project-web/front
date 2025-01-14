@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import top from "../../assets/icon/up-arrow.png";
+import top from "../../assets/icon/arrow-up.svg";
 
 const FooterContainer = styled.div`
   padding: 40px;
@@ -53,8 +53,8 @@ const TopClick = styled.div`
 `;
 
 const IconTop = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 `;
 
 const Footer = () => {

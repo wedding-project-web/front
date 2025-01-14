@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import mainWedding from "../../assets/image/wedding-hall.jpg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 import CalendarModal from "./CalendarModal";
 import { todayString, tomorrowString } from "../../utils/dateString";
+import ChevronDown from "../../assets/icon/chevron-down-white.svg";
+import ChevronUp from "../../assets/icon/chevron-up-white.svg";
 
 const BannerContainer = styled.section<{ $src: string }>`
   width: 100%;
@@ -59,7 +61,7 @@ const BannerBottomWrapper = styled.div`
 
   @media screen and (max-width: 980px) {
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
   }
 `;
 
@@ -80,7 +82,7 @@ const SelectorLabel = styled.label`
   color: #d6d6d6;
 
   @media screen and (max-width: 980px) {
-    font-size: 13px;
+    font-size: 14px;
   }
 `;
 
@@ -103,7 +105,7 @@ const SelectButton = styled.button`
   }
 
   @media screen and (max-width: 980px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -115,6 +117,11 @@ const Arrow = styled.span`
   @media screen and (max-width: 980px) {
     font-size: 16px;
   }
+`;
+
+const ArrowImg = styled.img`
+  width: 32px;
+  height: 32px;
 `;
 
 const SideBar = styled.div`
@@ -158,6 +165,10 @@ const SearchButton = styled.a`
 
 const Banner = () => {
 
+  const calendarRef = useRef<HTMLButtonElement>(null);
+  const firstDropdownRef = useRef<HTMLButtonElement>(null);
+  const secondDropdownRef = useRef<HTMLButtonElement>(null);
+
   const timeList = ['11시', '13시', '15시'];
   const countList = [200, 300, 400];
 
@@ -178,6 +189,22 @@ const Banner = () => {
     setIsOpen(value);
   };
 
+  useEffect(() => {
+    const handleClick = (e: any) => {
+      if ((calendarRef.current && !calendarRef.current.contains(e.target))
+        && (firstDropdownRef.current && !firstDropdownRef.current.contains(e.target))
+        && (secondDropdownRef.current && !secondDropdownRef.current.contains(e.target))) {
+        setIsOpen(null);
+      };
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   return (
     <BannerContainer $src={mainWedding}>
       <BannerContentWrapper>
@@ -185,9 +212,11 @@ const Banner = () => {
         <BannerBottomWrapper>
           <SelectorBox>
             <SelectorLabel>예식 예정일</SelectorLabel>
-            <SelectButton onClick={() => onClickOpenHandler('calendar')}>
+            <SelectButton ref={calendarRef} onClick={() => onClickOpenHandler('calendar')}>
               {startDate} ~ {endDate}
-              <Arrow>▽</Arrow>
+              <Arrow>
+                <ArrowImg src={(isOpen === 'calendar') ? ChevronUp : ChevronDown} alt="chevron" />
+              </Arrow>
               {(isOpen === 'calendar')
                 && <CalendarModal
                   state={reservation}
@@ -197,9 +226,11 @@ const Banner = () => {
           <SideBar />
           <SelectorBox>
             <SelectorLabel>예식 시간</SelectorLabel>
-            <SelectButton onClick={() => onClickOpenHandler('time')}>
+            <SelectButton ref={firstDropdownRef} onClick={() => onClickOpenHandler('time')}>
               {time}
-              <Arrow>▽</Arrow>
+              <Arrow>
+                <ArrowImg src={(isOpen === 'time') ? ChevronUp : ChevronDown} alt="chevron" />
+              </Arrow>
               {(isOpen === 'time')
                 && <DropdownMenu
                   option={timeList}
@@ -212,9 +243,11 @@ const Banner = () => {
           <SideBar />
           <SelectorBox>
             <SelectorLabel>예상 하객수</SelectorLabel>
-            <SelectButton onClick={() => onClickOpenHandler('count')}>
+            <SelectButton ref={secondDropdownRef} onClick={() => onClickOpenHandler('count')}>
               {count} 명
-              <Arrow>▽</Arrow>
+              <Arrow>
+                <ArrowImg src={(isOpen === 'count') ? ChevronUp : ChevronDown} alt="chevron" />
+              </Arrow>
               {(isOpen === 'count')
                 && <DropdownMenu
                   option={countList}

@@ -1,5 +1,7 @@
 import ReactPaginate from "react-paginate";
 import styled from "@emotion/styled";
+import left from "../../assets/icon/chevron-left.svg";
+import right from "../../assets/icon/chevron-right.svg";
 
 const PaginationContainer = styled.div`
   .pagination-ul {
@@ -62,6 +64,11 @@ const PaginationContainer = styled.div`
   }
 `;
 
+const Icon = styled.img`
+  width: 18px;
+  height: 18px;
+`;
+
 const Pagination = () => {
   return (
     <PaginationContainer>
@@ -70,8 +77,8 @@ const Pagination = () => {
         pageRangeDisplayed={10}
         marginPagesDisplayed={0}
         breakLabel={""}
-        previousLabel={"<"}
-        nextLabel={">"}
+        previousLabel={<Icon src={left} />}
+        nextLabel={<Icon src={right} />}
         containerClassName={"pagination-ul"}
         activeClassName={"currentPage"}
         previousClassName={"pageLabel-btn"}

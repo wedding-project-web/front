@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useEffect, useRef } from "react";
+import CloseIcon from "../../assets/icon/x-gray.svg";
 
 const TermModalBackground = styled.div`
   position: fixed;
@@ -37,13 +38,6 @@ const TermModalContainer = styled.section`
   }
 `;
 
-const TopLane = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const TermModalTitleWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -75,15 +69,20 @@ const Essential = styled.span`
 const CloseButton = styled.button`
   width: 24px;
   height: 24px;
-  font-size: 20px;
-  font-weight: 700;
   background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #cccccc;
   transition: all 0.2s;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
+`;
+
+const Close = styled.img`
+  width: 24px;
+  height: 24px;
 
   &:hover {
     color: #333333;
@@ -119,10 +118,6 @@ const AgreeButton = styled.button<{ $color: string }>`
   justify-content: end;
   align-items: center;
   gap: 8px;
-
-  &:hover {
-    color: #33333380;
-  }
 `;
 
 const CheckBox = styled.span<{ $border: string, $bgcolor: string }>`
@@ -185,16 +180,14 @@ const TermModal = ({ termOpen, setTermOpen, check, setCheck }: TermModalProps) =
   return (
     <TermModalBackground ref={backRef} onClick={() => setTermOpen(0)}>
       <TermModalContainer ref={modalRef} onClick={clickEventStopping}>
-        <TopLane>
-          <TermModalTitleWrapper>
-            <CheckIcon $color={(privacy) ? '#f56a0e' : '#cccccc'}>✔</CheckIcon>
-            개인정보 처리방침
-            <Essential>(필수)</Essential>
-          </TermModalTitleWrapper>
-          <CloseButton onClick={() => setTermOpen(0)}>
-            X
-          </CloseButton>
-        </TopLane>
+        <CloseButton onClick={() => setTermOpen(0)}>
+          <Close src={CloseIcon} alt="close" />
+        </CloseButton>
+        <TermModalTitleWrapper>
+          <CheckIcon $color={(privacy) ? '#f56a0e' : '#cccccc'}>✔</CheckIcon>
+          개인정보 처리방침
+          <Essential>(필수)</Essential>
+        </TermModalTitleWrapper>
         <TermContentBox>
           {`■ 수집하는 개인정보 항목
 
