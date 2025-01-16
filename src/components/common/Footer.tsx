@@ -6,12 +6,11 @@ const FooterContainer = styled.div`
   display: flex;
   gap: 30px;
   border-top: 1px solid lightgray;
-  flex-wrap: wrap; /* 반응형 레이아웃: 줄바꿈 허용 */
+  flex-wrap: wrap; /* 콘텐츠가 줄바꿈 되도록 유지 */
 
   @media (max-width: 768px) {
     padding: 20px;
     gap: 20px;
-    flex-direction: column; /* 모바일에서는 세로 배치 */
   }
 `;
 
@@ -33,30 +32,29 @@ const ContentsContainer = styled.div`
   font-size: 18px;
 
   @media (max-width: 768px) {
-    font-size: 16px;
-    gap: 15px;
+    font-size: 16px; /* 글씨 크기만 조정 */
+    width: 100%; /* 모바일에서 너비를 부모에 맞춤 */
   }
 `;
 
 const FirstContentsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 10px;
-  flex-wrap: wrap; /* 줄바꿈 허용 */
+  flex-wrap: wrap; /* 줄바꿈 유지 */
 
   @media (max-width: 768px) {
-    flex-direction: column; /* 모바일에서는 세로 배치 */
-    gap: 10px;
+    gap: 8px; /* 모바일에서 간격 조정 */
   }
 `;
 
 const SecondContentsContainer = styled.div`
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* 줄바꿈 유지 */
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 8px;
+    gap: 8px; /* 모바일에서 간격 조정 */
   }
 `;
 
@@ -64,7 +62,7 @@ const ThirdContentsContainer = styled.div`
   display: flex;
 
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 14px; /* 작은 화면에서 글씨 크기만 조정 */
   }
 `;
 
@@ -72,7 +70,7 @@ const SubTitle = styled.span`
   font-weight: 700;
 
   @media (max-width: 768px) {
-    font-size: 16px; /* 작은 화면에서 폰트 크기 조정 */
+    font-size: 16px; /* 작은 화면에서 글씨 크기만 조정 */
   }
 `;
 
