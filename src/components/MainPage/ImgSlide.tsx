@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
-import front from "../../assets/image/10. 웨딩홀 정면.jpg";
+import virginRoad from "../../assets/image/10. 웨딩홀 정면.jpg";
+import weddingHallStage from "../../assets/image/10. 웨딩홀 정면.jpg";
 import bridal from "../../assets/image/신부대기실.jpg";
-import banquet from "../../assets/image/14 연회장.jpg";
+import banquet1 from "../../assets/image/14 연회장.jpg";
+import banquet2 from "../../assets/image/14 연회장2.jpg";
 import { useState } from "react";
 import leftArrow from "../../assets/icon/chevron-left.svg";
 import rightArrow from "../../assets/icon/chevron-right.svg";
@@ -144,7 +146,7 @@ const Arrow = styled.img`
 `;
 
 const ImgSlide = () => {
-  const images = [front, bridal, banquet]; // 보여줄 이미지 배열
+  const images = [virginRoad, weddingHallStage, bridal, banquet1, banquet2]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -175,16 +177,19 @@ const ImgSlide = () => {
         <GalleryContents>Gallery of Hall</GalleryContents>
         <GalleryContentsContainer>
           <UnderlinedText onClick={() => handleSelectImage(0)}>
-            Wedding Hall Back
+            Virgin Road
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(1)}>
-            Wedding Hall Front
+            Wedding Hall Stage
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(2)}>
             Bridal Room
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(3)}>
-            Banquet Hall
+            Banquet Hall 1
+          </UnderlinedText>
+          <UnderlinedText onClick={() => handleSelectImage(4)}>
+            Banquet Hall 2
           </UnderlinedText>
         </GalleryContentsContainer>
         <ArrowContainer>
