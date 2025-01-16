@@ -17,7 +17,7 @@ const BannerContainer = styled.section<{ $src: string }>`
   background-repeat: no-repeat;
 
   ::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -164,44 +164,55 @@ const SearchButton = styled.a`
 `;
 
 const Banner = () => {
-
   const calendarRef = useRef<HTMLButtonElement>(null);
   const firstDropdownRef = useRef<HTMLButtonElement>(null);
   const secondDropdownRef = useRef<HTMLButtonElement>(null);
 
-  const timeList = ['11시', '13시', '15시'];
-  const countList = [200, 300, 400];
+  const timeList = [
+    "11시",
+    "12시 20분",
+    "13시 50분",
+    "15시 20분",
+    "16시 50분",
+    "18시 20분",
+  ];
+  const countList = [200, 250, 300, 350, 400];
 
   const [isOpen, setIsOpen] = useState<string | null>(null);
   const [reservation, setReservation] = useState<any>({
     startDate: todayString(),
     endDate: tomorrowString(),
-    time: '11시',
-    count: 200
+    time: "11시",
+    count: 200,
   });
   const { startDate, endDate, time, count } = reservation;
 
   const onClickOpenHandler = (value: string) => {
     if (isOpen) {
       if (isOpen === value) return setIsOpen(null);
-      return setIsOpen(value)
-    };
+      return setIsOpen(value);
+    }
     setIsOpen(value);
   };
 
   useEffect(() => {
     const handleClick = (e: any) => {
-      if ((calendarRef.current && !calendarRef.current.contains(e.target))
-        && (firstDropdownRef.current && !firstDropdownRef.current.contains(e.target))
-        && (secondDropdownRef.current && !secondDropdownRef.current.contains(e.target))) {
+      if (
+        calendarRef.current &&
+        !calendarRef.current.contains(e.target) &&
+        firstDropdownRef.current &&
+        !firstDropdownRef.current.contains(e.target) &&
+        secondDropdownRef.current &&
+        !secondDropdownRef.current.contains(e.target)
+      ) {
         setIsOpen(null);
-      };
+      }
     };
 
-    document.addEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
 
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener("click", handleClick);
     };
   }, []);
 
@@ -212,58 +223,81 @@ const Banner = () => {
         <BannerBottomWrapper>
           <SelectorBox>
             <SelectorLabel>예식 예정일</SelectorLabel>
-            <SelectButton ref={calendarRef} onClick={() => onClickOpenHandler('calendar')}>
+            <SelectButton
+              ref={calendarRef}
+              onClick={() => onClickOpenHandler("calendar")}
+            >
               {startDate} ~ {endDate}
               <Arrow>
-                <ArrowImg src={(isOpen === 'calendar') ? ChevronUp : ChevronDown} alt="chevron" />
+                <ArrowImg
+                  src={isOpen === "calendar" ? ChevronUp : ChevronDown}
+                  alt="chevron"
+                />
               </Arrow>
-              {(isOpen === 'calendar')
-                && <CalendarModal
-                  state={reservation}
-                  action={setReservation} />}
+              {isOpen === "calendar" && (
+                <CalendarModal state={reservation} action={setReservation} />
+              )}
             </SelectButton>
           </SelectorBox>
           <SideBar />
           <SelectorBox>
             <SelectorLabel>예식 시간</SelectorLabel>
-            <SelectButton ref={firstDropdownRef} onClick={() => onClickOpenHandler('time')}>
+            <SelectButton
+              ref={firstDropdownRef}
+              onClick={() => onClickOpenHandler("time")}
+            >
               {time}
               <Arrow>
-                <ArrowImg src={(isOpen === 'time') ? ChevronUp : ChevronDown} alt="chevron" />
+                <ArrowImg
+                  src={isOpen === "time" ? ChevronUp : ChevronDown}
+                  alt="chevron"
+                />
               </Arrow>
-              {(isOpen === 'time')
-                && <DropdownMenu
+              {isOpen === "time" && (
+                <DropdownMenu
                   option={timeList}
-                  value={'time'}
+                  value={"time"}
                   state={reservation}
                   action={setReservation}
-                  openAction={setIsOpen} />}
+                  openAction={setIsOpen}
+                />
+              )}
             </SelectButton>
           </SelectorBox>
           <SideBar />
           <SelectorBox>
             <SelectorLabel>예상 하객수</SelectorLabel>
-            <SelectButton ref={secondDropdownRef} onClick={() => onClickOpenHandler('count')}>
+            <SelectButton
+              ref={secondDropdownRef}
+              onClick={() => onClickOpenHandler("count")}
+            >
               {count} 명
               <Arrow>
-                <ArrowImg src={(isOpen === 'count') ? ChevronUp : ChevronDown} alt="chevron" />
+                <ArrowImg
+                  src={isOpen === "count" ? ChevronUp : ChevronDown}
+                  alt="chevron"
+                />
               </Arrow>
-              {(isOpen === 'count')
-                && <DropdownMenu
+              {isOpen === "count" && (
+                <DropdownMenu
                   option={countList}
-                  value={'count'}
+                  value={"count"}
                   state={reservation}
                   action={setReservation}
-                  openAction={setIsOpen} />}
+                  openAction={setIsOpen}
+                />
+              )}
             </SelectButton>
           </SelectorBox>
-          <SearchButton href={`/reservation?sd=${startDate}&ed=${endDate}&t=${time}&c=${count}`}>
+          <SearchButton
+            href={`/reservation?sd=${startDate}&ed=${endDate}&t=${time}&c=${count}`}
+          >
             Search
           </SearchButton>
         </BannerBottomWrapper>
       </BannerContentWrapper>
     </BannerContainer>
-  )
+  );
 };
 
 export default Banner;
