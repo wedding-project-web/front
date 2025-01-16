@@ -85,6 +85,7 @@ const ContentsContainer = styled.div`
     margin: 40px 0px 0px 0px;
     gap: 20px;
     padding: 0 20px;
+    line-height: 1.5;
   }
 `;
 
@@ -257,20 +258,18 @@ const WeddingAndPartyPage = () => {
       <SubTitle>WEDDING & PARTY</SubTitle>
 
       <ContentsContainer>
+        <div>여유롭고 낭만적이면서 프라이빗한 공간이 연출되는 단독 웨딩 홀</div>
         <div>
-          01여유롭고 낭만적이면서 프라이빗한 공간이 연출되는 단독 웨딩 홀
-        </div>
-        <div>
-          02차별화된 우아함과 격식을 통해 신랑, 신부님의 품격을 한층 돋보이게
+          차별화된 우아함과 격식을 통해 신랑, 신부님의 품격을 한층 돋보이게
           해드리겠습니다.
         </div>
         <div>
-          03산뜻한 야외 가든을 연상케하는 아름다운 웨딩홀이면서 대규모 컨벤션홀
+          산뜻한 야외 가든을 연상케하는 아름다운 웨딩홀이면서 대규모 컨벤션홀
           무대조명 못지않은 화려한 프리미엄 단독홀에서 특별한 하우스 예식을
           기대해보셔도 좋습니다.
         </div>
         <div>
-          04러블리한 플라워 데코레이션을 풍성하게 연출하여 싱그러운 야외예식을
+          러블리한 플라워 데코레이션을 풍성하게 연출하여 싱그러운 야외예식을
           연상케하는 상상 이상의 아름다움
         </div>
         <MainContent>

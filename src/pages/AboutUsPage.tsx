@@ -112,25 +112,35 @@ const ThirdContent = styled.div`
   }
 `;
 
-const LocationContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 50px;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-`;
 const XIcon = styled.div`
   width: 30px;
   height: 30px;
   color: lightgray;
 `;
 
+const LocationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 50px;
+  align-items: center;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    gap: 20px;
+  }
+`;
+
 const LocationImg = styled.img`
   width: 600px;
+  max-width: 100%;
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+  }
 `;
 const AboutUsPage = () => {
   // 현재 선택된 탭 상태 관리
