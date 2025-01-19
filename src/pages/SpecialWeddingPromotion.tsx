@@ -216,14 +216,18 @@ const SpecialWeddingPromotion = () => {
 
   const fetchPageData = async (lastId: number, limit: number) => {
     try {
-      const serverPath = apiKey;
+      // const serverPath = apiKey;
+      // TODO:: path env 수정 좀! 바뀜
+      const serverPath = "http://43.201.68.53:8080";
 
       // TODO:: 페이지 네이션 lastId, limit 넣어주셈
       // TODO:: lastId는 첫번째 페이지면 0부터 넣어주셈
       const response = await fetch(
         `${serverPath}/community/?lastId=${lastId}&limit=${limit}`
       );
+
       const data = await response.json();  // 데이터를 한번만 받음
+      console.log('q3werqwdifcnqwoei',data);
       return data;
     } catch (error) {
       console.error("Error fetching data:", error);
