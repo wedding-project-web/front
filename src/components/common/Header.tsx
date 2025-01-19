@@ -207,32 +207,32 @@ const Header = () => {
   }, []);
 
 
-  const downloadFile = async  () => {
-    const zip = new JSZip();
+  const downloadFile = async () => {
+    // S3 URL을 포함한 파일 목록
     const files = [
       {
-        url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-        name: 'dummy.pdf'
+        url: 'https://image-maridmay.s3.ap-northeast-2.amazonaws.com/location.zip', // S3 ZIP 파일 링크
+        name: '청첩장용 약도.zip'
       },
-      {
-        url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-        name: 'dummy.pdf'
-      }
-    ]
+    ];
+
     for (const file of files) {
       try {
-        const response = await fetch(file.url);
-        const blob = await response.blob();
-        zip.file(file.name, blob); // ZIP에 파일 추가
+        const response = await fetch(file.url);  // S3 URL로 파일을 가져옵니다.
+
+        // 오류 처리
+        if (!response.ok) {
+          throw new Error(`Failed to fetch ${file.url}`);
+        }
+
+        const blob = await response.blob();  // 응답을 Blob으로 변환
+        saveAs(blob, file.name);  // 파일 다운로드 (이 파일을 바로 다운로드)
       } catch (error) {
         console.error(`Failed to fetch ${file.url}:`, error);
       }
     }
+  };
 
-    zip.generateAsync({ type: "blob" }).then((content) => {
-      saveAs(content, "maps.zip"); // 파일 다운로드
-    });
-  }
 
   return (
     <HeaderContainer $height={scroll ? "70px" : "90px"}>

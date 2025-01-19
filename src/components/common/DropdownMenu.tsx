@@ -54,7 +54,6 @@ const DropdownMenu = ({ option, value, state, action, openAction }: DropdownMenu
       [value]: item
     });
     openAction(null);
-    console.log(value, item);
   };
 
   return (

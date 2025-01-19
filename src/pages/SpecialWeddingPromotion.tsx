@@ -188,9 +188,9 @@ const PaginationContainer = styled.div`
 `;
 
 interface Promotion {
-  eventId: string;
-  eventImage: string;
-  eventTitle: string;
+  communityId: string;
+  image_url: string;
+  title: string;
 }
 
 const apiKey = import.meta.env.REACT_APP_SERVER_URL;
@@ -207,7 +207,7 @@ const SpecialWeddingPromotion = () => {
       // TODO:: 밑에 넣어두긴 했는데 바꿔주셈 243번째 줄 페이지네이션도 바꿔주셈 막 넣음
       const result = await fetchPageData(currentPage, itemsPerPage);
       if (result) {
-        setImages(result.promotions);
+        setImages(result);
         setTotalPages(Math.ceil(result.total / itemsPerPage));
       }
     };
@@ -219,11 +219,12 @@ const SpecialWeddingPromotion = () => {
       const serverPath = apiKey;
 
       // TODO:: 페이지 네이션 lastId, limit 넣어주셈
+      // TODO:: lastId는 첫번째 페이지면 0부터 넣어주셈
       const response = await fetch(
         `${serverPath}/community/?lastId=${lastId}&limit=${limit}`
       );
-      console.log(response);
-      return await response.json();
+      const data = await response.json();  // 데이터를 한번만 받음
+      return data;
     } catch (error) {
       console.error("Error fetching data:", error);
       return null;
@@ -245,15 +246,18 @@ const SpecialWeddingPromotion = () => {
       <EventsContainer>
         <Event>Event</Event>
         <ImagesContainer>
-          {images.map((item, index) => (
-            <ImgContainer
-              key={index}
-              // onClick={() => navigate(`/wedding-promotion-detail/${item.eventId}`)}
-            >
-              <Img src={item.eventImage} alt={item.eventTitle} />
-              <ImageTitle>{item.eventTitle}</ImageTitle>
-            </ImgContainer>
-          ))}
+          {images.length > 0 ? (
+              images.map((item, index) => (
+                  // TODO :: 내가 이미지 url 보낼께 s3 url로 보냄
+                  // TODO :: 이미지 클릭시 상세 페이지로 이동 고 느낌
+                  <ImgContainer key={index}>
+                    <ImageTitle>{item.title}</ImageTitle>
+                  </ImgContainer>
+              ))
+          ) : (
+              // TODO:: 이미지 없을때 이 문구 띄워죠 그냥 중간에 대충 넣어도됨 니멋대로
+              <div>No images available</div>
+          )}
         </ImagesContainer>
       </EventsContainer>
       <PaginationContainer>

@@ -142,8 +142,8 @@ const SpecialWeddingPromotionDetailPage = () => {
       const serverPath ='http://13.209.6.98:8080';
       const response = await fetch(`${serverPath}/community/${communityId}/read`);
         const data = await response.json();
-        console.log(data);
         // TODO:: 데이터 받아서 뿌려주기
+      return data;
     } catch (error) {
       console.error(error);
     }
