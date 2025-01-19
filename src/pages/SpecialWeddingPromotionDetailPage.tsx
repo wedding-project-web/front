@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import first from "../assets/image/first.jpg";
 import { useNavigate } from "react-router-dom";
+import {useEffect} from "react";
 
 const PageContainer = styled.div`
   padding: 150px 0px 0px 0px;
@@ -129,6 +130,24 @@ const Container = styled.div`
 
 const SpecialWeddingPromotionDetailPage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // TODO :: 전 페이지에서 커뮤니티 아이디 받아서 상세 페이지 렌더링
+    detailPromotion(1);
+  }, []);
+
+  const detailPromotion = async (communityId:number) => {
+    try {
+      // TODO :: env로 바꾸주셈
+      const serverPath ='http://13.209.6.98:8080';
+      const response = await fetch(`${serverPath}/community/${communityId}/read`);
+        const data = await response.json();
+        console.log(data);
+        // TODO:: 데이터 받아서 뿌려주기
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <PageContainer>

@@ -202,6 +202,7 @@ const SpecialWeddingPromotion = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            // TODO:: 밑에 넣어두긴 했는데 바꿔주셈 243번째 줄 페이지네이션도 바꿔주셈 막 넣음
             const result = await fetchPageData(currentPage, itemsPerPage);
             if (result) {
                 setImages(result.promotions);
@@ -211,11 +212,16 @@ const SpecialWeddingPromotion = () => {
         fetchData();
     }, [currentPage]);
 
-    const fetchPageData = async (page: number, limit: number) => {
+    const fetchPageData = async (lastId: number, limit: number) => {
         try {
+            // TODO :: env로 바꿔주셈
+            const serverPath ='http://13.209.6.98:8080';
+
+            // TODO:: 페이지 네이션 lastId, limit 넣어주셈
             const response = await fetch(
-                `http://localhost:8080/community/reservations?page=${page}&limit=${limit}`
+                `${serverPath}/community/?lastId=${lastId}&limit=${limit}`
             );
+            console.log(response);
             return await response.json();
         } catch (error) {
             console.error("Error fetching data:", error);
