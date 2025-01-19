@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
 import logo from "../../assets/logo/logo.png";
 import styled from "@emotion/styled";
 import Download from "../../assets/icon/download-white.svg";
@@ -204,6 +206,34 @@ const Header = () => {
     };
   }, []);
 
+
+  const downloadFile = async  () => {
+    const zip = new JSZip();
+    const files = [
+      {
+        url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+        name: 'dummy.pdf'
+      },
+      {
+        url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+        name: 'dummy.pdf'
+      }
+    ]
+    for (const file of files) {
+      try {
+        const response = await fetch(file.url);
+        const blob = await response.blob();
+        zip.file(file.name, blob); // ZIP에 파일 추가
+      } catch (error) {
+        console.error(`Failed to fetch ${file.url}:`, error);
+      }
+    }
+
+    zip.generateAsync({ type: "blob" }).then((content) => {
+      saveAs(content, "maps.zip"); // 파일 다운로드
+    });
+  }
+
   return (
     <HeaderContainer $height={scroll ? "70px" : "90px"}>
       <HeaderBackground />
@@ -253,7 +283,7 @@ const Header = () => {
                 {path === "/about-us" && <NavUnderBar />}
               </NavButton>
             </NavButtonBox>
-            <DownloadButton>
+            <DownloadButton onClick={downloadFile}>
               <DownloadIcon src={Download} alt='download' />
               청첩장 용 다운로드
             </DownloadButton>

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import first from "../assets/image/first.jpg";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Pagination from "../components/common/Pagination";
+import {useEffect, useState} from "react";
 
 const PageContainer = styled.div`
   padding: 0px 0px 90px 0px;
@@ -186,40 +186,74 @@ const PaginationContainer = styled.div`
     padding: 20px;
   }
 `;
-const SpecialWeddingPromotion = () => {
-  const navigate = useNavigate();
 
-  return (
-    <PageContainer>
-      <TitleContainer>
-        <Title>Special Wedding Promotion</Title>
-        <Title>오월의 신부 프로모션</Title>
-      </TitleContainer>
-      <SubContainer>
-        <FirstContent>Promotion</FirstContent>
-        <SecondContent>오월의 신부 프로모션</SecondContent>
-        <Icon>X</Icon>
-        <ThirdContent>오월의 신부 다양한 프로모션을 진행합니다.</ThirdContent>
-      </SubContainer>
-      <EventsContainer>
-        <Event>Event</Event>
-        <ImagesContainer>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <ImgContainer
-              key={index}
-              onClick={() => navigate("/wedding-promotion-detail")}
-            >
-              <Img src={first} />
-              <ImageTitle>00000</ImageTitle>
-            </ImgContainer>
-          ))}
-        </ImagesContainer>
-      </EventsContainer>
-      <PaginationContainer>
-        <Pagination />
-      </PaginationContainer>
-    </PageContainer>
-  );
+interface Promotion {
+    eventId: string;
+    eventImage: string;
+    eventTitle: string;
+}
+
+const SpecialWeddingPromotion = () => {
+    const navigate = useNavigate();
+    const [images, setImages] = useState<Promotion[]>([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const itemsPerPage = 12;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetchPageData(currentPage, itemsPerPage);
+            if (result) {
+                setImages(result.promotions);
+                setTotalPages(Math.ceil(result.total / itemsPerPage));
+            }
+        };
+        fetchData();
+    }, [currentPage]);
+
+    const fetchPageData = async (page: number, limit: number) => {
+        try {
+            const response = await fetch(
+                `http://localhost:8080/community/reservations?page=${page}&limit=${limit}`
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            return null;
+        }
+    };
+
+    return (
+        <PageContainer>
+            <TitleContainer>
+                <Title>Special Wedding Promotion</Title>
+                <Title>오월의 신부 프로모션</Title>
+            </TitleContainer>
+            <SubContainer>
+                <FirstContent>Promotion</FirstContent>
+                <SecondContent>오월의 신부 프로모션</SecondContent>
+                <Icon>X</Icon>
+                <ThirdContent>오월의 신부 다양한 프로모션을 진행합니다.</ThirdContent>
+            </SubContainer>
+            <EventsContainer>
+                <Event>Event</Event>
+                <ImagesContainer>
+                    {images.map((item, index) => (
+                        <ImgContainer
+                            key={index}
+                            // onClick={() => navigate(`/wedding-promotion-detail/${item.eventId}`)}
+                        >
+                            <Img src={item.eventImage} alt={item.eventTitle} />
+                            <ImageTitle>{item.eventTitle}</ImageTitle>
+                        </ImgContainer>
+                    ))}
+                </ImagesContainer>
+            </EventsContainer>
+            <PaginationContainer>
+                <Pagination/>
+            </PaginationContainer>
+        </PageContainer>
+    );
 };
 
 export default SpecialWeddingPromotion;
