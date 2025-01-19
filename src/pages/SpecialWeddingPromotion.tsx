@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import {useNavigate} from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Pagination from "../components/common/Pagination";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const PageContainer = styled.div`
   padding: 0px 0px 90px 0px;
@@ -188,78 +188,83 @@ const PaginationContainer = styled.div`
 `;
 
 interface Promotion {
-    eventId: string;
-    eventImage: string;
-    eventTitle: string;
+  eventId: string;
+  eventImage: string;
+  eventTitle: string;
 }
 
+const apiKey = import.meta.env.REACT_APP_SERVER_URL;
+
 const SpecialWeddingPromotion = () => {
-    const navigate = useNavigate();
-    const [images, setImages] = useState<Promotion[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const itemsPerPage = 12;
+  // const navigate = useNavigate();
+  const [images, setImages] = useState<Promotion[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 12;
 
-    useEffect(() => {
-        const fetchData = async () => {
-            // TODO:: 밑에 넣어두긴 했는데 바꿔주셈 243번째 줄 페이지네이션도 바꿔주셈 막 넣음
-            const result = await fetchPageData(currentPage, itemsPerPage);
-            if (result) {
-                setImages(result.promotions);
-                setTotalPages(Math.ceil(result.total / itemsPerPage));
-            }
-        };
-        fetchData();
-    }, [currentPage]);
-
-    const fetchPageData = async (lastId: number, limit: number) => {
-        try {
-            // TODO :: env로 바꿔주셈
-            const serverPath ='http://13.209.6.98:8080';
-
-            // TODO:: 페이지 네이션 lastId, limit 넣어주셈
-            const response = await fetch(
-                `${serverPath}/community/?lastId=${lastId}&limit=${limit}`
-            );
-            console.log(response);
-            return await response.json();
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            return null;
-        }
+  useEffect(() => {
+    const fetchData = async () => {
+      // TODO:: 밑에 넣어두긴 했는데 바꿔주셈 243번째 줄 페이지네이션도 바꿔주셈 막 넣음
+      const result = await fetchPageData(currentPage, itemsPerPage);
+      if (result) {
+        setImages(result.promotions);
+        setTotalPages(Math.ceil(result.total / itemsPerPage));
+      }
     };
+    fetchData();
+  }, [currentPage]);
 
-    return (
-        <PageContainer>
-            <TitleContainer>
-                <Title>Special Wedding Promotion</Title>
-                <Title>오월의 신부 프로모션</Title>
-            </TitleContainer>
-            <SubContainer>
-                <FirstContent>Promotion</FirstContent>
-                <SecondContent>오월의 신부 프로모션</SecondContent>
-                <Icon>X</Icon>
-                <ThirdContent>오월의 신부 다양한 프로모션을 진행합니다.</ThirdContent>
-            </SubContainer>
-            <EventsContainer>
-                <Event>Event</Event>
-                <ImagesContainer>
-                    {images.map((item, index) => (
-                        <ImgContainer
-                            key={index}
-                            // onClick={() => navigate(`/wedding-promotion-detail/${item.eventId}`)}
-                        >
-                            <Img src={item.eventImage} alt={item.eventTitle} />
-                            <ImageTitle>{item.eventTitle}</ImageTitle>
-                        </ImgContainer>
-                    ))}
-                </ImagesContainer>
-            </EventsContainer>
-            <PaginationContainer>
-                <Pagination/>
-            </PaginationContainer>
-        </PageContainer>
-    );
+  const fetchPageData = async (lastId: number, limit: number) => {
+    try {
+      const serverPath = apiKey;
+
+      // TODO:: 페이지 네이션 lastId, limit 넣어주셈
+      const response = await fetch(
+        `${serverPath}/community/?lastId=${lastId}&limit=${limit}`
+      );
+      console.log(response);
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    }
+  };
+
+  return (
+    <PageContainer>
+      <TitleContainer>
+        <Title>Special Wedding Promotion</Title>
+        <Title>오월의 신부 프로모션</Title>
+      </TitleContainer>
+      <SubContainer>
+        <FirstContent>Promotion</FirstContent>
+        <SecondContent>오월의 신부 프로모션</SecondContent>
+        <Icon>X</Icon>
+        <ThirdContent>오월의 신부 다양한 프로모션을 진행합니다.</ThirdContent>
+      </SubContainer>
+      <EventsContainer>
+        <Event>Event</Event>
+        <ImagesContainer>
+          {images.map((item, index) => (
+            <ImgContainer
+              key={index}
+              // onClick={() => navigate(`/wedding-promotion-detail/${item.eventId}`)}
+            >
+              <Img src={item.eventImage} alt={item.eventTitle} />
+              <ImageTitle>{item.eventTitle}</ImageTitle>
+            </ImgContainer>
+          ))}
+        </ImagesContainer>
+      </EventsContainer>
+      <PaginationContainer>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </PaginationContainer>
+    </PageContainer>
+  );
 };
 
 export default SpecialWeddingPromotion;

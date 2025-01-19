@@ -69,20 +69,31 @@ const Icon = styled.img`
   height: 18px;
 `;
 
-const Pagination = () => {
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (selectedPage: number) => void;
+}
+
+const Pagination = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) => {
   return (
     <PaginationContainer>
       <ReactPaginate
-        pageCount={10}
-        pageRangeDisplayed={10}
-        marginPagesDisplayed={0}
-        breakLabel={""}
-        previousLabel={<Icon src={left} />}
-        nextLabel={<Icon src={right} />}
-        containerClassName={"pagination-ul"}
-        activeClassName={"currentPage"}
-        previousClassName={"pageLabel-btn"}
-        nextClassName={"pageLabel-btn"}
+        pageCount={totalPages} // 총 페이지 수
+        pageRangeDisplayed={5} // 페이지 버튼 개수
+        marginPagesDisplayed={2} // 양쪽에 표시될 페이지 버튼 개수
+        breakLabel={""} // 중간 페이지 버튼은 숨김
+        previousLabel={<Icon src={left} />} // 이전 버튼
+        nextLabel={<Icon src={right} />} // 다음 버튼
+        containerClassName={"pagination-ul"} // 전체 리스트의 클래스 이름
+        activeClassName={"currentPage"} // 현재 페이지의 클래스 이름
+        previousClassName={"pageLabel-btn"} // 이전 버튼 클래스
+        nextClassName={"pageLabel-btn"} // 다음 버튼 클래스
+        onPageChange={(data) => onPageChange(data.selected + 1)} // 페이지 변경 시 호출될 함수
       />
     </PaginationContainer>
   );

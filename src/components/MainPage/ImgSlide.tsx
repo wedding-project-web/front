@@ -78,8 +78,10 @@ const Img = styled.img`
 
 const UnderlinedText = styled.div`
   text-decoration: underline;
-  text-decoration-color: #ababab;
+  text-decoration-color: lightgray;
   cursor: pointer;
+  text-underline-offset: 6px; /* 밑줄과 텍스트 사이의 간격을 추가 */
+  margin-bottom: 8px; /* 텍스트 아래 간격 추가 */
 
   &:hover {
     color: #166237;
@@ -177,19 +179,19 @@ const ImgSlide = () => {
         <GalleryContents>Gallery of Hall</GalleryContents>
         <GalleryContentsContainer>
           <UnderlinedText onClick={() => handleSelectImage(0)}>
-            Virgin Road
+            버진로드
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(1)}>
-            Wedding Hall Stage
+            웨딩홀 스테이지
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(2)}>
-            Bridal Room
+            신부대기실
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(3)}>
-            Banquet Hall 1
+            연회장1
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(4)}>
-            Banquet Hall 2
+            연회장2
           </UnderlinedText>
         </GalleryContentsContainer>
         <ArrowContainer>

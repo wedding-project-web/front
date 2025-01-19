@@ -7,7 +7,6 @@ import banquet from "../assets/image/14 연회장.jpg";
 import secondBanquet from "../assets/image/14 연회장2.jpg";
 import leftArrow from "../assets/icon/arrow-left.png";
 import rightArrow from "../assets/icon/arrow-right.png";
-
 import { useState } from "react";
 
 const PageContainer = styled.div`
