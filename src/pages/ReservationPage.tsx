@@ -431,8 +431,11 @@ const ReservationPage = () => {
     };
 
     try {
+      // TODO:: 여기도 바꿔줘 ㅎ 미안 ㅜ
+      const serverPath = "http://43.201.68.53:8080";
+
       const response = await fetch(
-        "http://localhost:8080/community/reservations",
+        `${serverPath}/community/reservations`,
         {
           method: "POST",
           headers: {
