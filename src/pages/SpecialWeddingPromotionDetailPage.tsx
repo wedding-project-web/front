@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import first from "../assets/image/first.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { getWeddingPromotionDetailApi } from "../api/weddingPromotion";
@@ -134,16 +134,18 @@ const Container = styled.div`
 
 const SpecialWeddingPromotionDetailPage = () => {
   const navigate = useNavigate();
-  const communityId = useRecoilValue(weddingPromotionId);
+  const { communityId } = useParams();
+  const id = Number(communityId);
 
   const kakaoOnClick = () => {
     window.location.href = "https://open.kakao.com/o/sf42cs8g";
   };
 
   const { isLoading, error, data } = useQuery(
-    ["weddingPromotionDetailData", communityId],
-    () => getWeddingPromotionDetailApi(communityId),
+    ["weddingPromotionDetailData", id],
+    () => getWeddingPromotionDetailApi(id),
     {
+      enabled: !!id,
       refetchOnWindowFocus: false,
     }
   );
@@ -153,14 +155,13 @@ const SpecialWeddingPromotionDetailPage = () => {
   if (error) {
     console.log(error);
   }
-
   return (
     <PageContainer>
       <Container>
         <Event>Event</Event>
         <SubTitle>2026년 3월 예식 예약 상담 open</SubTitle>
         <ImgContainer>
-          <Img src={first} />
+          <Img src={data?.data?.image_url} />
         </ImgContainer>
         <KakaoContainer onClick={kakaoOnClick}>
           <KakaoButton target="_blank" rel="noopener noreferrer">
