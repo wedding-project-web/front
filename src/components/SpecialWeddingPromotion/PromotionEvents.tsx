@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { weddingPromotionId } from "../../store/weddingPromotionId";
 
 const EventsContainer = styled.div`
   width: 1195px;
@@ -60,7 +63,10 @@ const ErrorMessage = styled.div`
 `;
 
 const ImgContainer = styled.div`
+  width: 385px;
   height: 385px;
+  margin-top: 20px; /* 이미지 위에 간격 */
+  margin-bottom: 20px; /* 이미지 아래에 간격 */
 
   @media (max-width: 768px) {
     height: 300px;
@@ -71,6 +77,10 @@ const ImgContainer = styled.div`
   }
 `;
 
+const PromotionImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
 const ImageTitle = styled.div`
   display: flex;
   justify-content: start;
@@ -89,15 +99,25 @@ interface Props {
 }
 
 const PromotionEvents = ({ data }: Props) => {
+  const navigate = useNavigate();
+  console.log(data.data, "datadata");
+
+  const handleImageClick = (communityId: number) => {
+    navigate(`/wedding-promotion-detail/${communityId}`);
+  };
+
   return (
     <EventsContainer>
       <Event>Event</Event>
       <ImagesContainer>
         {data.length > 0 ? (
-          data.map((item, index) => (
-            // TODO :: 내가 이미지 url 보낼께 s3 url로 보냄
-            // TODO :: 이미지 클릭시 상세 페이지로 이동 고 느낌
+          data.map((item: any, index: any) => (
             <ImgContainer key={index}>
+              <PromotionImg
+                src={item.image_url}
+                alt={item.title}
+                onClick={() => handleImageClick(item.communityId)}
+              />
               <ImageTitle>{item.title}</ImageTitle>
             </ImgContainer>
           ))

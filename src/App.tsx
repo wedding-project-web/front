@@ -30,7 +30,7 @@ const App = () => {
                   element={<SpecialWeddingPromotion />}
                 />
                 <Route
-                  path="/wedding-promotion-detail"
+                  path="/wedding-promotion-detail/:communityId"
                   element={<SpecialWeddingPromotionDetailPage />}
                 />
               </Route>

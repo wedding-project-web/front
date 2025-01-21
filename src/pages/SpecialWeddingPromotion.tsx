@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useQuery } from "react-query";
 import { useRecoilValue } from "recoil";
 import { getWeddingPromotionApi } from "../api/weddingPromotion";
-import Pagination from "../components/common/Paging";
+import Pagination from "../components/common/Paging/Paging";
 import PromotionEvents from "../components/SpecialWeddingPromotion/PromotionEvents";
 import SpecialTitle from "../components/SpecialWeddingPromotion/SpecialTitle";
 import SubTitle from "../components/SpecialWeddingPromotion/SubTitle";
@@ -13,6 +13,7 @@ const PageContainer = styled.div`
 `;
 
 const PaginationContainer = styled.div`
+  padding: 90px 0px 0px 0px;
   @media (max-width: 768px) {
     padding: 20px;
   }
@@ -43,7 +44,7 @@ const SpecialWeddingPromotion = () => {
     <PageContainer>
       <SpecialTitle />
       <SubTitle />
-      <PromotionEvents data={data} />
+      <PromotionEvents data={data?.data} />
       <PaginationContainer>
         <Pagination />
       </PaginationContainer>

@@ -3,8 +3,9 @@ import styled from "@emotion/styled";
 // import left from "../../assets/icon/chevron-left.svg";
 // import right from "../../assets/icon/chevron-right.svg";
 import { useRecoilState } from "recoil";
-import { pagination } from "../../store/pagination";
+import { pagination } from "../../../store/pagination";
 import Pagination from "react-js-pagination";
+import "../Paging/paging.css";
 
 const PaginationContainer = styled.div`
   .pagination-ul {

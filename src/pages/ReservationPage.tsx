@@ -432,13 +432,16 @@ const ReservationPage = () => {
     };
 
     try {
-      const response = await fetch(`${serverPath}/community/reservations`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "http://43.201.68.53:8080/community/reservations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         alert(`예약 완료`);
