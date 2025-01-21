@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 // import right from "../../assets/icon/chevron-right.svg";
 import { useRecoilState } from "recoil";
 import { pagination } from "../../store/pagination";
+import Pagination from "react-js-pagination";
 
 const PaginationContainer = styled.div`
   .pagination-ul {
@@ -77,7 +78,7 @@ const PaginationContainer = styled.div`
 //   onPageChange: (selectedPage: number) => void;
 // }
 
-const Pagination = () => {
+const Paging = () => {
   const [page, setPage] = useRecoilState<number>(pagination);
 
   const handlePageChange = (page: number) => {
@@ -99,4 +100,4 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+export default Paging;

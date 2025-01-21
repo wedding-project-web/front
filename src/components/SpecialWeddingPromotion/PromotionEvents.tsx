@@ -84,13 +84,17 @@ const ImageTitle = styled.div`
   }
 `;
 
-const PromotionEvents = () => {
+interface Props {
+  data: any;
+}
+
+const PromotionEvents = ({ data }: Props) => {
   return (
     <EventsContainer>
       <Event>Event</Event>
       <ImagesContainer>
-        {images.length > 0 ? (
-          images.map((item, index) => (
+        {data.length > 0 ? (
+          data.map((item, index) => (
             // TODO :: 내가 이미지 url 보낼께 s3 url로 보냄
             // TODO :: 이미지 클릭시 상세 페이지로 이동 고 느낌
             <ImgContainer key={index}>
