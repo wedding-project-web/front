@@ -50,6 +50,7 @@ const GalleryContentsContainer = styled.div`
   gap: 20px;
   align-items: flex-start;
   margin: 30px 0px 0px 0px;
+  font-family: "Pretendard";
 
   @media (max-width: 768px) {
     font-size: 18px;

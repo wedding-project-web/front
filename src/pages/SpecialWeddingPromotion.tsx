@@ -121,6 +121,9 @@ const ImagesContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -133,6 +136,18 @@ const ImagesContainer = styled.div`
   }
 `;
 
+const ErrorMessage = styled.div`
+  font-size: 25px;
+  padding: 20px;
+  margin: 0 auto;
+  grid-column: 1 / -1; /* 모든 열을 차지하도록 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* 적당한 높이 설정 */
+  font-family: "Montserrat", serif;
+`;
+
 const ImgContainer = styled.div`
   height: 385px;
 
@@ -143,12 +158,6 @@ const ImgContainer = styled.div`
   @media (max-width: 480px) {
     height: 250px;
   }
-`;
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 const ImageTitle = styled.div`
@@ -193,7 +202,7 @@ interface Promotion {
   title: string;
 }
 
-const apiKey = import.meta.env.REACT_APP_SERVER_URL;
+const serverPath = import.meta.env.REACT_APP_SERVER_URL;
 
 const SpecialWeddingPromotion = () => {
   // const navigate = useNavigate();
@@ -216,18 +225,14 @@ const SpecialWeddingPromotion = () => {
 
   const fetchPageData = async (lastId: number, limit: number) => {
     try {
-      // const serverPath = apiKey;
-      // TODO:: path env 수정 좀! 바뀜
-      const serverPath = "http://43.201.68.53:8080";
-
       // TODO:: 페이지 네이션 lastId, limit 넣어주셈
       // TODO:: lastId는 첫번째 페이지면 0부터 넣어주셈
       const response = await fetch(
         `${serverPath}/community/?lastId=${lastId}&limit=${limit}`
       );
 
-      const data = await response.json();  // 데이터를 한번만 받음
-      console.log('q3werqwdifcnqwoei',data);
+      const data = await response.json(); // 데이터를 한번만 받음
+      console.log("q3werqwdifcnqwoei", data);
       return data;
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -251,16 +256,15 @@ const SpecialWeddingPromotion = () => {
         <Event>Event</Event>
         <ImagesContainer>
           {images.length > 0 ? (
-              images.map((item, index) => (
-                  // TODO :: 내가 이미지 url 보낼께 s3 url로 보냄
-                  // TODO :: 이미지 클릭시 상세 페이지로 이동 고 느낌
-                  <ImgContainer key={index}>
-                    <ImageTitle>{item.title}</ImageTitle>
-                  </ImgContainer>
-              ))
+            images.map((item, index) => (
+              // TODO :: 내가 이미지 url 보낼께 s3 url로 보냄
+              // TODO :: 이미지 클릭시 상세 페이지로 이동 고 느낌
+              <ImgContainer key={index}>
+                <ImageTitle>{item.title}</ImageTitle>
+              </ImgContainer>
+            ))
           ) : (
-              // TODO:: 이미지 없을때 이 문구 띄워죠 그냥 중간에 대충 넣어도됨 니멋대로
-              <div>No images available</div>
+            <ErrorMessage>No Promotion</ErrorMessage>
           )}
         </ImagesContainer>
       </EventsContainer>
