@@ -1,7 +1,9 @@
-import ReactPaginate from "react-paginate";
+// import ReactPaginate from "react-paginate";
 import styled from "@emotion/styled";
-import left from "../../assets/icon/chevron-left.svg";
-import right from "../../assets/icon/chevron-right.svg";
+// import left from "../../assets/icon/chevron-left.svg";
+// import right from "../../assets/icon/chevron-right.svg";
+import { useRecoilState } from "recoil";
+import { pagination } from "../../store/pagination";
 
 const PaginationContainer = styled.div`
   .pagination-ul {
@@ -64,36 +66,34 @@ const PaginationContainer = styled.div`
   }
 `;
 
-const Icon = styled.img`
-  width: 18px;
-  height: 18px;
-`;
+// const Icon = styled.img`
+//   width: 18px;
+//   height: 18px;
+// `;
 
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (selectedPage: number) => void;
-}
+// interface PaginationProps {
+//   currentPage: number;
+//   totalPages: number;
+//   onPageChange: (selectedPage: number) => void;
+// }
 
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: PaginationProps) => {
+const Pagination = () => {
+  const [page, setPage] = useRecoilState<number>(pagination);
+
+  const handlePageChange = (page: number) => {
+    setPage(page);
+    window.scrollTo(0, 0);
+  };
   return (
     <PaginationContainer>
-      <ReactPaginate
-        pageCount={totalPages} // 총 페이지 수
-        pageRangeDisplayed={5} // 페이지 버튼 개수
-        marginPagesDisplayed={2} // 양쪽에 표시될 페이지 버튼 개수
-        breakLabel={""} // 중간 페이지 버튼은 숨김
-        previousLabel={<Icon src={left} />} // 이전 버튼
-        nextLabel={<Icon src={right} />} // 다음 버튼
-        containerClassName={"pagination-ul"} // 전체 리스트의 클래스 이름
-        activeClassName={"currentPage"} // 현재 페이지의 클래스 이름
-        previousClassName={"pageLabel-btn"} // 이전 버튼 클래스
-        nextClassName={"pageLabel-btn"} // 다음 버튼 클래스
-        onPageChange={(data) => onPageChange(data.selected + 1)} // 페이지 변경 시 호출될 함수
+      <Pagination
+        activePage={page}
+        itemsCountPerPage={20}
+        totalItemsCount={450}
+        pageRangeDisplayed={5}
+        prevPageText={"‹"}
+        nextPageText={"›"}
+        onChange={handlePageChange}
       />
     </PaginationContainer>
   );

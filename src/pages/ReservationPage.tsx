@@ -374,13 +374,14 @@ const MoveButton = styled.a`
 `;
 
 const ReservationPage = () => {
+  const serverPath = import.meta.env.REACT_APP_SERVER_URL;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const startDate = urlParams.get("sd");
   const endDate = urlParams.get("ed");
   const time = urlParams.get("t");
   const count = urlParams.get("c");
-  
+
   const [weddingValue, setWeddingValue] = useState<any>({
     name: "",
     phone: "",
@@ -431,22 +432,17 @@ const ReservationPage = () => {
     };
 
     try {
-      // TODO:: 여기도 바꿔줘 ㅎ 미안 ㅜ
-      const serverPath = "http://43.201.68.53:8080";
-
-      const response = await fetch(
-        `${serverPath}/community/reservations`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch(`${serverPath}/community/reservations`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       if (response.ok) {
         alert(`예약 완료`);
+        console.log("예약완료", response.ok);
       }
     } catch (err) {
       alert(`예약 중 오류가 발생했습니다: ${err}`);
@@ -521,20 +517,7 @@ const ReservationPage = () => {
                 <CheckBox onClick={() => onClickCheckHandler()} />
               )}
             </TermTopLane>
-            {/* <BottomLane>
-              <ExpireText>
-                이용약관 동의
-                <ExpireSpan>(필수)</ExpireSpan>
-                <ArrowIcon src={right} alt="화살표" />
-              </ExpireText>
-              {use ? (
-                <SelectCheckBox onClick={() => onClickCheckHandler("use")}>
-                  ✔
-                </SelectCheckBox>
-              ) : (
-                <CheckBox onClick={() => onClickCheckHandler("use")} />
-              )}
-            </BottomLane> */}
+
             <BottomLane>
               <ExpireText onClick={() => handleTermOpen(2)}>
                 개인정보 처리방침
@@ -549,20 +532,6 @@ const ReservationPage = () => {
                 <CheckBox onClick={() => onClickCheckHandler("privacy")} />
               )}
             </BottomLane>
-            {/* <BottomLane>
-              <ExpireText>
-                광고성 정보 수신 동의
-                <ExpireSpan style={{ color: "inherit" }}>(선택)</ExpireSpan>
-                <ArrowIcon src={right} alt="화살표" />
-              </ExpireText>
-              {ad ? (
-                <SelectCheckBox onClick={() => onClickCheckHandler("ad")}>
-                  ✔
-                </SelectCheckBox>
-              ) : (
-                <CheckBox onClick={() => onClickCheckHandler("ad")} />
-              )}
-            </BottomLane> */}
           </TermContainer>
           {name === "" || phone === "" || email === "" || !privacy ? (
             <DisableButton>예약 신청</DisableButton>
@@ -583,7 +552,8 @@ const ReservationPage = () => {
         termOpen={termOpen}
         setTermOpen={setTermOpen}
         check={check}
-        setCheck={setCheck} />
+        setCheck={setCheck}
+      />
     </ReservationContainer>
   );
 };
