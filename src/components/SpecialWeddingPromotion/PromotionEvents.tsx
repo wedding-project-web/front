@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { weddingPromotionId } from "../../store/weddingPromotionId";
 
 const EventsContainer = styled.div`
   width: 1195px;

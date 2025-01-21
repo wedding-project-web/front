@@ -374,7 +374,7 @@ const MoveButton = styled.a`
 `;
 
 const ReservationPage = () => {
-  const serverPath = import.meta.env.REACT_APP_SERVER_URL;
+  // const serverPath = import.meta.env.REACT_APP_SERVER_URL;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const startDate = urlParams.get("sd");

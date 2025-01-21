@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import logo from "../../assets/logo/logo.png";
 import styled from "@emotion/styled";
@@ -206,33 +205,31 @@ const Header = () => {
     };
   }, []);
 
-
   const downloadFile = async () => {
     // S3 URL을 포함한 파일 목록
     const files = [
       {
-        url: 'https://image-maridmay.s3.ap-northeast-2.amazonaws.com/location.zip', // S3 ZIP 파일 링크
-        name: '청첩장용 약도.zip'
+        url: "https://image-maridmay.s3.ap-northeast-2.amazonaws.com/location.zip", // S3 ZIP 파일 링크
+        name: "청첩장용 약도.zip",
       },
     ];
 
     for (const file of files) {
       try {
-        const response = await fetch(file.url);  // S3 URL로 파일을 가져옵니다.
+        const response = await fetch(file.url); // S3 URL로 파일을 가져옵니다.
 
         // 오류 처리
         if (!response.ok) {
           throw new Error(`Failed to fetch ${file.url}`);
         }
 
-        const blob = await response.blob();  // 응답을 Blob으로 변환
-        saveAs(blob, file.name);  // 파일 다운로드 (이 파일을 바로 다운로드)
+        const blob = await response.blob(); // 응답을 Blob으로 변환
+        saveAs(blob, file.name); // 파일 다운로드 (이 파일을 바로 다운로드)
       } catch (error) {
         console.error(`Failed to fetch ${file.url}:`, error);
       }
     }
   };
-
 
   return (
     <HeaderContainer $height={scroll ? "70px" : "90px"}>
@@ -284,7 +281,7 @@ const Header = () => {
               </NavButton>
             </NavButtonBox>
             <DownloadButton onClick={downloadFile}>
-              <DownloadIcon src={Download} alt='download' />
+              <DownloadIcon src={Download} alt="download" />
               청첩장 용 다운로드
             </DownloadButton>
           </NavInContainer>

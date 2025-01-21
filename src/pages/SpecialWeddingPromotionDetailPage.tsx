@@ -1,11 +1,7 @@
 import styled from "@emotion/styled";
-import first from "../assets/image/first.jpg";
 import { useNavigate, useParams } from "react-router-dom";
-// import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { getWeddingPromotionDetailApi } from "../api/weddingPromotion";
-import { weddingPromotionId } from "../store/weddingPromotionId";
-import { useRecoilValue } from "recoil";
 
 const PageContainer = styled.div`
   padding: 150px 0px 0px 0px;
