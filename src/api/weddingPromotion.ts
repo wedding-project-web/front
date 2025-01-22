@@ -10,5 +10,5 @@ export const getWeddingPromotionApi = async (page: number) => {
 export const getWeddingPromotionDetailApi = async (communityId: number) => {
   const res = await instance.get(`/community/${communityId}/read`);
   console.log("res", res);
-  return;
+  return res.data;
 };

@@ -151,13 +151,14 @@ const SpecialWeddingPromotionDetailPage = () => {
   if (error) {
     console.log(error);
   }
+
   return (
     <PageContainer>
       <Container>
         <Event>Event</Event>
         <SubTitle>2026년 3월 예식 예약 상담 open</SubTitle>
         <ImgContainer>
-          <Img src={data?.data?.image_url} />
+          <Img src={data?.image_url} />
         </ImgContainer>
         <KakaoContainer onClick={kakaoOnClick}>
           <KakaoButton target="_blank" rel="noopener noreferrer">
