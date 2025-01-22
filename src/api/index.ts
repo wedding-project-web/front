@@ -4,8 +4,8 @@ import axios from "axios";
 
 const host =
   window.location.hostname === "localhost"
-    ? import.meta.env.VITE_APP_SERVER_URL
-    : "api";
+    ? "http://localhost:8080"
+    : import.meta.env.VITE_APP_SERVER_URL;
 
 export const instance = axios.create({
   baseURL: host,
