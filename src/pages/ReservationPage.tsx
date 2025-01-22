@@ -374,7 +374,6 @@ const MoveButton = styled.a`
 `;
 
 const ReservationPage = () => {
-  // const serverPath = import.meta.env.REACT_APP_SERVER_URL;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const startDate = urlParams.get("sd");
@@ -431,17 +430,16 @@ const ReservationPage = () => {
       ...weddingValue,
     };
 
+    const serverPath = import.meta.env.VITE_APP_SERVER_URL;
+
     try {
-      const response = await fetch(
-        "http://43.201.68.53:8080/community/reservations",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch(`${serverPath}/community/reservations`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       if (response.ok) {
         alert(`예약 완료`);
