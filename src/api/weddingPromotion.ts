@@ -1,4 +1,4 @@
-import { instance, communityInstance } from ".";
+import { communityInstance } from ".";
 
 // 웨딩 프로모션 조회
 export const getWeddingPromotionApi = async (page: number) => {
