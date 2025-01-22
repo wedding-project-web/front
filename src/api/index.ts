@@ -4,11 +4,18 @@ import axios from "axios";
 
 const host =
   window.location.hostname === "localhost"
-    ? "http://localhost:8080"
-    : import.meta.env.VITE_APP_SERVER_URL;
+    ? import.meta.env.VITE_APP_SERVER_URL
+    : `community`;
 
-export const instance = axios.create({
-  baseURL: host,
+export const communityInstance = axios.create({
+  baseURL: host
 });
 
-export default instance;
+export const instance = axios.create({
+  baseURL: import.meta.env.VITE_APP_SERVER_URL,
+});
+
+export default {
+  instance,
+  communityInstance
+};
