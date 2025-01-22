@@ -2,8 +2,8 @@ import instance from ".";
 
 // 웨딩 프로모션 조회
 export const getWeddingPromotionApi = async (page: number) => {
-  const res = await instance.get(`/community/?page=${page}`);
-  console.log("res", res);
+  const res = await instance.get(`/community?page=${page}`);
+  console.log("res", res, import.meta.env.VITE_APP_SERVER_URL);
   return res;
 };
 
