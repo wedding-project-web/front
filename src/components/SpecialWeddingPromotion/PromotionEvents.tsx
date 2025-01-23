@@ -98,7 +98,6 @@ interface Props {
 
 const PromotionEvents = ({ data }: Props) => {
   const navigate = useNavigate();
-  console.log(data.data, "datadata");
 
   const handleImageClick = (communityId: number) => {
     navigate(`/wedding-promotion-detail/${communityId}`);

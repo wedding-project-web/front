@@ -430,7 +430,7 @@ const ReservationPage = () => {
       ...weddingValue,
     };
 
-    const serverPath = import.meta.env.VITE_APP_SERVER_URL;
+    const serverPath = 'https://api.marieedemay.com/';
 
     try {
       const response = await fetch(`${serverPath}/community/reservations`, {
@@ -443,7 +443,6 @@ const ReservationPage = () => {
 
       if (response.ok) {
         alert(`예약 완료`);
-        console.log("예약완료", response.ok);
       }
     } catch (err) {
       alert(`예약 중 오류가 발생했습니다: ${err}`);

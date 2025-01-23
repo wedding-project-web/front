@@ -147,9 +147,7 @@ const SpecialWeddingPromotionDetailPage = () => {
   );
 
   if (isLoading) return <div>로딩중</div>;
-  console.log("웨딩프로모션디테일 ", data);
   if (error) {
-    console.log(error);
   }
 
   return (

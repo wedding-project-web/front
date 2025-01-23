@@ -35,7 +35,6 @@ const SpecialWeddingPromotion = () => {
   );
 
   if (isLoading) return <div>로딩중</div>;
-  console.log("웨딩프로모션 사이트", data);
   if (error) {
     console.log(error);
   }
