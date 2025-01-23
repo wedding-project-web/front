@@ -12,7 +12,7 @@ import axios from "axios";
 // });
 
 export const instance = axios.create({
-  baseURL:'https://api.marieedemay.com/',
+  baseURL:'https://api.marieedemay.com',
 });
 
 export default instance;

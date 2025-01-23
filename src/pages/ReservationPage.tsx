@@ -430,7 +430,7 @@ const ReservationPage = () => {
       ...weddingValue,
     };
 
-    const serverPath = 'https://api.marieedemay.com/';
+    const serverPath = 'https://api.marieedemay.com';
 
     try {
       const response = await fetch(`${serverPath}/community/reservations`, {
