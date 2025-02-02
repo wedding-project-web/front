@@ -88,19 +88,20 @@ const MusicWedding = () => {
       <ContentsContainer>
         <FirstContentTitleContainer>
           <FirstContentTitle>
-            BRIDE OF MAY WEDDING STORY
-            <br /> 오월의 신부 웨딩 이야기
+            Nature Inspired Wedding
+            {/*<br /> 메리드 메이 웨딩 이야기*/}
           </FirstContentTitle>
         </FirstContentTitleContainer>
         <FirstContentsContainer>
           <FirstContents>
-            서울 강남의 쉼터 율현공원과 탄천이 어우러지는 곳으로 <br />
-            싱그러운 자연의 품 속에서 <br />
-            따뜻한 색감을 담아내고 있습니다. <br />
+            아름다운 나무들과 청량한 하늘이 함께하여<br />
+            마치 야외가든에 와있는 듯한 로맨틱한 분위기를 연출합니다. <br />
           </FirstContents>
+          자연의 선물을 받은 공간, 마리드메이는
+          도심을 벗어나 자연과 하나된 웨딩홀을 선사하고 싶습니다.
           <FirstContents>
-            자연의 선물을 받은 공간, 빌라드지디 수서는 <br />
-            도심을 벗어나 자연과 하나된 웨딩홀을 선사하고 싶습니다.
+            자연의 선물을 받은 공간, 마리드메이는 <br/>
+            도심을 벗어나 자연과 하나된 웨딩홀을 선사하고 싶습니다.<br/>
           </FirstContents>
         </FirstContentsContainer>
       </ContentsContainer>

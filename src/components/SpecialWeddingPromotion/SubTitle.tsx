@@ -71,9 +71,9 @@ const SubTitle = () => {
   return (
     <SubContainer>
       <FirstContent>Promotion</FirstContent>
-      <SecondContent>오월의 신부 프로모션</SecondContent>
+      <SecondContent>메리드 메이 프로모션</SecondContent>
       <Icon>X</Icon>
-      <ThirdContent>오월의 신부 다양한 프로모션을 진행합니다.</ThirdContent>
+      <ThirdContent>메리드 메이 다양한 프로모션을 진행합니다.</ThirdContent>
     </SubContainer>
   );
 };

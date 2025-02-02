@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import second from "../../assets/image/second.jpg";
+import second from "../../assets/image/about-1.png"
 
 const FirstImgContentsContainer = styled.div`
   display: flex;
@@ -87,18 +87,19 @@ const WeddingStory = () => {
           <FirstContentTitle>
             BRIDE OF MAY WEDDING STORY
             <br />
-            오월의 신부 웨딩 이야기
+            메리드 메이 웨딩 이야기
           </FirstContentTitle>
         </FirstContentTitleContainer>
         <FirstContentsContainer>
           <FirstContents>
-            서울 강남의 쉼터 율현공원과 탄천이 어우러지는 곳으로 <br />
-            싱그러운 자연의 품 속에서 <br />
-            따뜻한 색감을 담아내고 있습니다. <br />
+            마리드메이는 많은 신랑신부님의 가장 아름다운 첫날을 <br />
+            가장 행복하게 시작하실 수 있도록 <br />
+            오월의신부를 시작으로 약 30년간 함께해오고 있습니다. <br />
           </FirstContents>
           <FirstContents>
-            자연의 선물을 받은 공간, 빌라드지디 수서는 <br />
-            도심을 벗어나 자연과 하나된 웨딩홀을 선사하고 싶습니다.
+            마리드메이는 전문적인 웨딩 서비스와 세심한 디자인으로 <br/>
+            신랑신부님만의 특별한 하루를 아름답고 완벽하게 함께합니다.<br/>
+            신뢰와 품격으로 보답하는 마리드메이입니다.
           </FirstContents>
         </FirstContentsContainer>
       </ContentsContainer>

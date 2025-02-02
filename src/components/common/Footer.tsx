@@ -114,7 +114,7 @@ const Footer = () => {
       <ImgContainer>{/* <img src={logo} alt="Logo" /> */}</ImgContainer>
       <ContentsContainer>
         <FirstContentsContainer>
-          <SubTitle>웨딩 오월의 신부</SubTitle>
+          <SubTitle>웨딩 메리드 메이</SubTitle>
           <div>
             <SubTitle>대표 </SubTitle>
             김지영 외 1
@@ -147,7 +147,7 @@ const Footer = () => {
           </div>
         </SecondContentsContainer>
         <ThirdContentsContainer>
-          <div>Copyright© 웨딩 오월의 신부 All Rights Reserved.</div>
+          <div>Copyright© 웨딩 메리드 메이 All Rights Reserved.</div>
         </ThirdContentsContainer>
       </ContentsContainer>
       <TopClick onClick={handleScrollToTop}>

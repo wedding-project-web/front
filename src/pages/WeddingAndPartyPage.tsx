@@ -228,7 +228,7 @@ const RightArrow = styled.div`
   }
 `;
 const WeddingAndPartyPage = () => {
-  const images = [back, front, bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
+  const images = [back, front,mainWedding, bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -263,8 +263,11 @@ const WeddingAndPartyPage = () => {
           해드리겠습니다.
         </div>
         <div>
-          산뜻한 야외 가든을 연상케하는 아름다운 웨딩홀이면서 대규모 컨벤션홀
-          무대조명 못지않은 화려한 프리미엄 단독홀에서 특별한 하우스 예식을
+          산뜻한 야외 가든을 연상케하는 아름다운 웨딩 베뉴이면서 대규모 컨벤션홀
+          무대조명 못지않은
+        </div>
+        <div>
+          화려한 프리미엄 단독홀에서 특별한 하우스 예식을
           기대해보셔도 좋습니다.
         </div>
         <div>
@@ -279,7 +282,7 @@ const WeddingAndPartyPage = () => {
       <ImgSlideContainer>
         <ImgGalleryContainer>
           <Img
-            src={images[currentIndex]}
+              src={images[currentIndex]}
             alt={`Wedding Hall ${currentIndex + 1}`}
           />
         </ImgGalleryContainer>
@@ -287,19 +290,22 @@ const WeddingAndPartyPage = () => {
           <GalleryContents>Gallery of Hall</GalleryContents>
           <GalleryContentsContainer>
             <UnderlinedText onClick={() => handleSelectImage(0)}>
-              wedding hall
+              Aisle
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(1)}>
-              wedding hall
+              Hall Stage
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(2)}>
-              bridal
+              Wedding Venue Stage
+            </UnderlinedText>
+            <UnderlinedText onClick={() => handleSelectImage(2)}>
+              Bridal Room
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(3)}>
-              banquet hall
+              Banquet Hall 1
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(4)}>
-              banquet hall
+              Banquet Hall 2
             </UnderlinedText>
           </GalleryContentsContainer>
           <ArrowContainer>

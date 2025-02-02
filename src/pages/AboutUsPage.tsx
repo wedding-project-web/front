@@ -149,7 +149,7 @@ const AboutUsPage = () => {
   return (
     <div>
       <TitleContainer>
-        <Title>오월의 신부 이야기</Title>
+        <Title>메리드 메이 이야기</Title>
       </TitleContainer>
 
       {/* 탭 */}
@@ -158,7 +158,7 @@ const AboutUsPage = () => {
           active={activeTab === "story"}
           onClick={() => setActiveTab("story")}
         >
-          오월의 신부 이야기
+          메리드 메이 이야기
         </Tab>
         <Tab
           active={activeTab === "location"}
@@ -177,8 +177,8 @@ const AboutUsPage = () => {
           <FirstContent>새로운 웨딩 문화의 시작</FirstContent>
           <SecondContent>New Wedding Culture</SecondContent>
           <ThirdContent>
-            웨딩홀 안에서 시작되는 이야기가 아닌 신랑신부의 이야기에서 시작되는
-            웨딩, <br />그 이야기의 새로운 시작을 오월의 신부에서 만들어갑니다.
+            웨딩 베뉴 안에서 시작되는 이야기가 아닌 신랑신부의 이야기에서 시작되는
+            웨딩, <br />그 이야기의 새로운 시작을 메리드 메이에서 만들어갑니다.
           </ThirdContent>
           <WeddingStory />
           <MusicWedding />
@@ -190,10 +190,10 @@ const AboutUsPage = () => {
           <FirstContent>
             Location
             <br />
-            오월의 신부 오시는 길
+            메리드 메이 오시는 길
           </FirstContent>
           <XIcon>X</XIcon>
-          <ThirdContent>오월의 신부 오시는 길을 안내해드립니다</ThirdContent>
+          <ThirdContent>메리드 메이 오시는 길을 안내해드립니다</ThirdContent>
           <LocationImg src={location} />
         </LocationContainer>
       )}

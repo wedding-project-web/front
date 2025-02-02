@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import virginRoad from "../../assets/image/10. 웨딩홀 정면.jpg";
+import virginRoad from "../../assets/image/10. 예식홀-후면.jpg";
 import weddingHallStage from "../../assets/image/10. 웨딩홀 정면.jpg";
 import bridal from "../../assets/image/신부대기실.jpg";
 import banquet1 from "../../assets/image/14 연회장.jpg";
@@ -7,6 +7,7 @@ import banquet2 from "../../assets/image/14 연회장2.jpg";
 import { useState } from "react";
 import leftArrow from "../../assets/icon/chevron-left.svg";
 import rightArrow from "../../assets/icon/chevron-right.svg";
+import weddingHall from "../../assets/image/wedding-hall.jpg";
 
 const SubContainer = styled.div`
   display: flex;
@@ -149,7 +150,7 @@ const Arrow = styled.img`
 `;
 
 const ImgSlide = () => {
-  const images = [virginRoad, weddingHallStage, bridal, banquet1, banquet2]; // 보여줄 이미지 배열
+  const images = [virginRoad, weddingHall,weddingHallStage, bridal, banquet1, banquet2]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -180,19 +181,22 @@ const ImgSlide = () => {
         <GalleryContents>Gallery of Hall</GalleryContents>
         <GalleryContentsContainer>
           <UnderlinedText onClick={() => handleSelectImage(0)}>
-            버진로드
+            Aisle
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(1)}>
-            웨딩홀 스테이지
+            Hall Stage
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(2)}>
-            신부대기실
+            Wedding Venue Stage
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(3)}>
-            연회장1
+            Bridal Room
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(4)}>
-            연회장2
+            Banquet Hall 1
+          </UnderlinedText>
+          <UnderlinedText onClick={() => handleSelectImage(5)}>
+            Banquet Hall 2
           </UnderlinedText>
         </GalleryContentsContainer>
         <ArrowContainer>

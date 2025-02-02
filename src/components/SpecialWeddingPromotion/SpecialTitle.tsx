@@ -46,7 +46,7 @@ const SpecialTitle = () => {
   return (
     <TitleContainer>
       <Title>Special Wedding Promotion</Title>
-      <SubTitle>오월의 신부 프로모션</SubTitle>
+      <SubTitle>메리드 메이 프로모션</SubTitle>
     </TitleContainer>
   );
 };
