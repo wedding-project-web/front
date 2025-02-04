@@ -290,13 +290,13 @@ const WeddingAndPartyPage = () => {
           <GalleryContents>Gallery of Hall</GalleryContents>
           <GalleryContentsContainer>
             <UnderlinedText onClick={() => handleSelectImage(0)}>
-              Aisle
+              Virgin Road
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(1)}>
               Hall Stage
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(2)}>
-              Wedding Venue Stage
+              Wedding Hall Stage
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(2)}>
               Bridal Room
