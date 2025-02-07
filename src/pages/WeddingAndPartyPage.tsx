@@ -61,7 +61,7 @@ const Title = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-size: 50px;
+  font-size: 40px;
   margin: 150px 0px 0px 0px;
   font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   text-align: center;
@@ -75,12 +75,12 @@ const SubTitle = styled.div`
 const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 20px;
+  font-size: 17px;
   gap: 30px;
   margin: 80px 0px 0px 0px;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 13px;
     margin: 40px 0px 0px 0px;
     gap: 20px;
     padding: 0 20px;
@@ -90,12 +90,12 @@ const ContentsContainer = styled.div`
 
 const MainContent = styled.div`
   color: #166237;
-  font-size: 35px;
+  font-size: 30px;
   margin: 50px 0px 100px 0px;
   text-align: center;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 19px;
     margin: 30px 0px 60px 0px;
   }
 `;
@@ -149,16 +149,16 @@ const SubContainer = styled.div`
 
 const GalleryContents = styled.div`
   color: black;
-  font-size: 50px;
+  font-size: 30px;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 20px;
     margin: 20px 0px 0px 0px;
   }
 `;
 
 const GalleryContentsContainer = styled.div`
-  font-size: 25px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -166,7 +166,7 @@ const GalleryContentsContainer = styled.div`
   margin: 30px 0px 0px 0px;
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 13px;
     gap: 20px;
     align-items: center;
   }
@@ -174,8 +174,11 @@ const GalleryContentsContainer = styled.div`
 
 const UnderlinedText = styled.div`
   text-decoration: underline;
-  text-decoration-color: #ababab;
+  text-decoration-color: lightgray;
   cursor: pointer;
+  text-underline-offset: 6px; /* 밑줄과 텍스트 사이의 간격을 추가 */
+  margin-bottom: 8px; /* 텍스트 아래 간격 추가 */
+  letter-spacing: 1px; /* 글자 사이 간격을 추가 */
 
   &:hover {
     color: #166237;
