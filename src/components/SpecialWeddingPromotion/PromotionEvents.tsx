@@ -17,7 +17,7 @@ const EventsContainer = styled.div`
 const Event = styled.div`
   font-size: 18px;
   margin: 10px 0px;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 
     @media (max-width: 768px) {
@@ -58,7 +58,7 @@ const ErrorMessage = styled.div`
   justify-content: center;
   align-items: center;
   height: 200px; /* 적당한 높이 설정 */
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 `;
 

@@ -459,7 +459,7 @@ const ReservationPage = () => {
       return (
         <BannerContentWrapper>
           <EmptyContainer>
-            <EmptyTitle>웨딩 오월의신부</EmptyTitle>
+            <EmptyTitle>웨딩홀 예약하기</EmptyTitle>
             <MoveButton href="/">예약 신청</MoveButton>
           </EmptyContainer>
         </BannerContentWrapper>

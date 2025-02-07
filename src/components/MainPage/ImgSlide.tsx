@@ -15,7 +15,7 @@ const SubContainer = styled.div`
   gap: 30px;
   justify-content: center;
   padding: 0px 0px 0px 50px;
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 
   @media (max-width: 768px) {
@@ -52,7 +52,7 @@ const GalleryContentsContainer = styled.div`
   gap: 20px;
   align-items: flex-start;
   margin: 30px 0px 0px 0px;
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 
   @media (max-width: 768px) {
@@ -183,7 +183,7 @@ const ImgSlide = () => {
         <GalleryContents>Gallery of Hall</GalleryContents>
         <GalleryContentsContainer>
           <UnderlinedText onClick={() => handleSelectImage(0)}>
-            Wedding Hall Stage
+            Wedding Hall
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(1)}>
             Hall Stage

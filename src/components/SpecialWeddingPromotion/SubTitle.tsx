@@ -18,7 +18,7 @@ const SubContainer = styled.div`
 const FirstContent = styled.div`
   color: #166237;
   font-size: 30px;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 
     @media (max-width: 768px) {

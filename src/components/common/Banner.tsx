@@ -219,7 +219,7 @@ const Banner = () => {
   return (
     <BannerContainer $src={mainWedding}>
       <BannerContentWrapper>
-        <BannerTitle>예약하기</BannerTitle>
+        <BannerTitle>웨딩홀 예약하기</BannerTitle>
         <BannerBottomWrapper>
           <SelectorBox>
             <SelectorLabel>예식 예정일</SelectorLabel>

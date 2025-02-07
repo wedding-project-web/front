@@ -25,7 +25,7 @@ const PaginationContainer = styled.div`
     width: 40px; /* 버튼 크기 */
     height: 40px;
     font-size: 16px;
-      font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+      font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
       font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;

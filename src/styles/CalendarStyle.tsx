@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 export const CalendarStyle = styled(Calendar)`
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   width: 100%;
   display: flex;
   flex-direction: column;

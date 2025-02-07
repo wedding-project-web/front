@@ -17,7 +17,7 @@ const TitleContainer = styled.div`
 const Title = styled.div`
   font-size: 30px;
   color: #166237;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 
     @media (max-width: 768px) {
@@ -32,7 +32,7 @@ const Title = styled.div`
 const SubTitle = styled.div`
   font-size: 26px;
   color: #166237;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 
 
     @media (max-width: 768px) {

@@ -24,7 +24,7 @@ const TitleContainer = styled.div`
 const Title = styled.div`
   font-size: 30px;
   color: #166237;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */;
+    font-family: "Merriweather"
 
     @media (max-width: 768px) {
     font-size: 24px;
@@ -82,7 +82,7 @@ const FirstContent = styled.div`
   font-size: 20px;
   text-align: center;
   line-height: 1.7;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
     font-size: 25px;
 
   @media (max-width: 768px) {
@@ -93,7 +93,7 @@ const FirstContent = styled.div`
 const SecondContent = styled.div`
   color: #166237;
   font-size: 30px;
-    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
     text-align: center;
   margin: 10px 0px 10px 0px;
   @media (max-width: 768px) {

@@ -5,7 +5,7 @@
 */
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 900;
   font-display: swap;
   src: local("Pretendard Black"),
@@ -14,7 +14,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 800;
   font-display: swap;
   src: local("Pretendard ExtraBold"),
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 700;
   font-display: swap;
   src: local("Pretendard Bold"),
@@ -32,7 +32,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 600;
   font-display: swap;
   src: local("Pretendard SemiBold"),
@@ -41,7 +41,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 500;
   font-display: swap;
   src: local("Pretendard Medium"),
@@ -50,7 +50,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 400;
   font-display: swap;
   src: local("Pretendard Regular"),
@@ -59,7 +59,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 300;
   font-display: swap;
   src: local("Pretendard Light"),
@@ -68,7 +68,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 200;
   font-display: swap;
   src: local("Pretendard ExtraLight"),
@@ -77,7 +77,7 @@
 }
 
 @font-face {
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   font-weight: 100;
   font-display: swap;
   src: local("Pretendard Thin"),
@@ -209,7 +209,7 @@ section {
 html,
 body {
   font-size: 16px;
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
 }
 body {
   line-height: 1;

@@ -6,7 +6,7 @@ const FooterContainer = styled.div`
   display: flex;
   gap: 30px;
   border-top: 1px solid lightgray;
-  flex-wrap: wrap; /* 콘텐츠가 줄바꿈 되도록 유지 */
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -28,33 +28,34 @@ const ContentsContainer = styled.div`
   color: #b4b4b4;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  font-size: 18px;
+  gap: 10px; /* 더 작은 간격 */
+  font-size: 8px; /* 진짜 작은 폰트 크기 */
+  font-weight: 100; /* 얇은 폰트 굵기 */
 
   @media (max-width: 768px) {
-    font-size: 16px; /* 글씨 크기만 조정 */
-    width: 100%; /* 모바일에서 너비를 부모에 맞춤 */
+    font-size: 6px; /* 모바일에서는 더 작은 폰트 크기 */
+    width: 100%;
   }
 `;
 
 const FirstContentsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap; /* 줄바꿈 유지 */
+  gap: 5px; /* 더 작은 간격 */
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    gap: 8px; /* 모바일에서 간격 조정 */
+    gap: 4px;
   }
 `;
 
 const SecondContentsContainer = styled.div`
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap; /* 줄바꿈 유지 */
+  gap: 5px; /* 더 작은 간격 */
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    gap: 8px; /* 모바일에서 간격 조정 */
+    gap: 4px;
   }
 `;
 
@@ -62,15 +63,16 @@ const ThirdContentsContainer = styled.div`
   display: flex;
 
   @media (max-width: 768px) {
-    font-size: 14px; /* 작은 화면에서 글씨 크기만 조정 */
+    font-size: 6px; /* 모바일에서도 작은 폰트 */
   }
 `;
 
 const SubTitle = styled.span`
-  font-weight: 700;
+  font-weight: 100; /* 얇은 폰트 굵기 */
+  font-size: 8px; /* 더 작은 폰트 크기 */
 
   @media (max-width: 768px) {
-    font-size: 16px; /* 작은 화면에서 글씨 크기만 조정 */
+    font-size: 6px; /* 모바일에서 더 작은 폰트 */
   }
 `;
 
@@ -87,19 +89,22 @@ const TopClick = styled.div`
 
   @media (max-width: 768px) {
     width: 40px;
-    height: 40px; /* 아이콘 크기 축소 */
+    height: 40px;
   }
 `;
 
 const IconTop = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 20px; /* 더 작은 아이콘 */
+  height: 20px;
 
   @media (max-width: 768px) {
-    width: 20px;
-    height: 20px; /* 아이콘 크기 조정 */
+    width: 16px;
+    height: 16px; /* 모바일에서 아이콘 크기 더 줄이기 */
   }
 `;
+
+
+
 
 const Footer = () => {
   const handleScrollToTop = () => {

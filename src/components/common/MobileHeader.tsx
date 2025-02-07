@@ -73,7 +73,7 @@ const SubNavContainer = styled.a`
   gap: 8px;
   border-top: 1px solid #e9e9e9;
   color: #ffffff;
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   text-transform: uppercase;
   transition: all 0.2s;
   cursor: pointer;

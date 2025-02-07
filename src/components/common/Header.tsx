@@ -111,7 +111,7 @@ const NavButton = styled.a<{ $color: string; $height: string }>`
   font-weight: 600;
   transition: all 0.2s;
   text-transform: uppercase;
-  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+  font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
   position: relative;
 
   &:hover {
