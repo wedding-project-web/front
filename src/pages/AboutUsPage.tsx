@@ -149,7 +149,7 @@ const AboutUsPage = () => {
   return (
     <div>
       <TitleContainer>
-        <Title>마리드 메이 이야기</Title>
+        <Title>Mariée de May story</Title>
       </TitleContainer>
 
       {/* 탭 */}
@@ -158,7 +158,7 @@ const AboutUsPage = () => {
           active={activeTab === "story"}
           onClick={() => setActiveTab("story")}
         >
-          마리드 메이 이야기
+          Mariée de May story
         </Tab>
         <Tab
           active={activeTab === "location"}

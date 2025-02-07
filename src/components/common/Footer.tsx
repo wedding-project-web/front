@@ -29,11 +29,11 @@ const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px; /* 더 작은 간격 */
-  font-size: 8px; /* 진짜 작은 폰트 크기 */
+  font-size: 9px; /* 진짜 작은 폰트 크기 */
   font-weight: 100; /* 얇은 폰트 굵기 */
 
   @media (max-width: 768px) {
-    font-size: 6px; /* 모바일에서는 더 작은 폰트 크기 */
+    font-size: 7px; /* 모바일에서는 더 작은 폰트 크기 */
     width: 100%;
   }
 `;
@@ -41,38 +41,38 @@ const ContentsContainer = styled.div`
 const FirstContentsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 5px; /* 더 작은 간격 */
+  gap: 10px; /* 각 div 사이의 간격을 설정 */
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    gap: 4px;
+    gap: 8px; /* 모바일에서 간격을 좀 더 좁게 설정 */
   }
 `;
 
-const SecondContentsContainer = styled.div`
-  display: flex;
-  gap: 5px; /* 더 작은 간격 */
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    gap: 4px;
-  }
-`;
-
-const ThirdContentsContainer = styled.div`
-  display: flex;
-
-  @media (max-width: 768px) {
-    font-size: 6px; /* 모바일에서도 작은 폰트 */
-  }
-`;
+// const SecondContentsContainer = styled.div`
+//   display: flex;
+//   gap: 5px; /* 더 작은 간격 */
+//   flex-wrap: wrap;
+//
+//   @media (max-width: 768px) {
+//     gap: 4px;
+//   }
+// `;
+//
+// const ThirdContentsContainer = styled.div`
+//   display: flex;
+//
+//   @media (max-width: 768px) {
+//     font-size: 6px; /* 모바일에서도 작은 폰트 */
+//   }
+// `;
 
 const SubTitle = styled.span`
   font-weight: 100; /* 얇은 폰트 굵기 */
-  font-size: 8px; /* 더 작은 폰트 크기 */
+  font-size: 10px; /* 더 작은 폰트 크기 */
 
   @media (max-width: 768px) {
-    font-size: 6px; /* 모바일에서 더 작은 폰트 */
+    font-size: 8px; /* 모바일에서 더 작은 폰트 */
   }
 `;
 
@@ -121,39 +121,35 @@ const Footer = () => {
         <FirstContentsContainer>
           <SubTitle>웨딩 마리드 메이</SubTitle>
           <div>
-            <SubTitle>대표 </SubTitle>
+            <SubTitle>대표 : </SubTitle>
             김지영 외 1
           </div>
           <div>
-            <SubTitle>사업자번호 </SubTitle>
+            <SubTitle>사업자번호 : </SubTitle>
             881-01-01481
           </div>
           <div>
-            <SubTitle>개인정보보호책임자 </SubTitle>
+            <SubTitle>개인정보보호책임자 : </SubTitle>
             010-5064-2526
           </div>
           <div>
-            <SubTitle>주소 </SubTitle>
+            <SubTitle>주소 : </SubTitle>
             대구광역시 수성구 동대구로 157
           </div>
-        </FirstContentsContainer>
-        <SecondContentsContainer>
           <div>
-            <SubTitle>TEL </SubTitle>
+            <SubTitle>TEL : </SubTitle>
             053-763-6161
           </div>
           <div>
-            <SubTitle>FAX </SubTitle>
+            <SubTitle>FAX : </SubTitle>
             053-763-0319
           </div>
           <div>
-            <SubTitle>E-mail </SubTitle>
+            <SubTitle>E-mail : </SubTitle>
             bm6161@naver.com
           </div>
-        </SecondContentsContainer>
-        <ThirdContentsContainer>
           <div>Copyright© 마리드 메이 All Rights Reserved.</div>
-        </ThirdContentsContainer>
+        </FirstContentsContainer>
       </ContentsContainer>
       <TopClick onClick={handleScrollToTop}>
         <IconTop src={top} />

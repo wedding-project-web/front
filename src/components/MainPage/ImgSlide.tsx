@@ -46,7 +46,7 @@ const ImgGalleryContainer = styled.div`
 `;
 
 const GalleryContentsContainer = styled.div`
-  font-size: 25px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -56,17 +56,17 @@ const GalleryContentsContainer = styled.div`
 
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 13px;
     align-items: center;
   }
 `;
 
 const GalleryContents = styled.div`
   color: black;
-  font-size: 50px;
+  font-size: 30px;
 
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 20px;
     text-align: center;
   }
 `;

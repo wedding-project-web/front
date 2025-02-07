@@ -85,9 +85,8 @@ const WeddingStory = () => {
       <ContentsContainer>
         <FirstContentTitleContainer>
           <FirstContentTitle>
-            BRIDE OF MAY WEDDING STORY
+            Mariée de May Story
             <br />
-            마리드 메이 웨딩 이야기
           </FirstContentTitle>
         </FirstContentTitleContainer>
         <FirstContentsContainer>
