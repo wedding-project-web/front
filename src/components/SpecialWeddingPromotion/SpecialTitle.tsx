@@ -48,7 +48,7 @@ const SpecialTitle = () => {
   return (
     <TitleContainer>
       <Title>Special Wedding Promotion</Title>
-      <SubTitle>마리드 메이 프로모션</SubTitle>
+      {/*<SubTitle>마리드 메이 프로모션</SubTitle>*/}
     </TitleContainer>
   );
 };
