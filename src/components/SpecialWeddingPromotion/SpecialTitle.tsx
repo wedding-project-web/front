@@ -29,20 +29,20 @@ const Title = styled.div`
   }
 `;
 
-const SubTitle = styled.div`
-  font-size: 26px;
-  color: #166237;
-    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
-
-
-    @media (max-width: 768px) {
-    font-size: 20px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
-`;
+// const SubTitle = styled.div`
+//   font-size: 26px;
+//   color: #166237;
+//     font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
+//
+//
+//     @media (max-width: 768px) {
+//     font-size: 20px;
+//   }
+//
+//   @media (max-width: 480px) {
+//     font-size: 18px;
+//   }
+// `;
 
 const SpecialTitle = () => {
   return (

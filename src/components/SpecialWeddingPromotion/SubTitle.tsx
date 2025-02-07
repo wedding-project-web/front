@@ -30,18 +30,18 @@ const FirstContent = styled.div`
   }
 `;
 
-const SecondContent = styled.div`
-  color: #166237;
-  font-size: 20px;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 16px;
-  }
-`;
+// const SecondContent = styled.div`
+//   color: #166237;
+//   font-size: 20px;
+//
+//   @media (max-width: 768px) {
+//     font-size: 18px;
+//   }
+//
+//   @media (max-width: 480px) {
+//     font-size: 16px;
+//   }
+// `;
 
 const ThirdContent = styled.div`
   font-size: 15px;

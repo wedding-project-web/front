@@ -86,6 +86,8 @@ const UnderlinedText = styled.div`
   cursor: pointer;
   text-underline-offset: 6px; /* 밑줄과 텍스트 사이의 간격을 추가 */
   margin-bottom: 8px; /* 텍스트 아래 간격 추가 */
+  letter-spacing: 1px; /* 글자 사이 간격을 추가 */
+
 
   &:hover {
     color: #166237;
