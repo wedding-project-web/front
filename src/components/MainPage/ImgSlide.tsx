@@ -152,7 +152,7 @@ const Arrow = styled.img`
 `;
 
 const ImgSlide = () => {
-  const images = [virginRoad, weddingHall,weddingHallStage, bridal, banquet1, banquet2]; // 보여줄 이미지 배열
+  const images = [weddingHall, weddingHallStage , virginRoad, bridal, banquet1, banquet2]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -183,13 +183,13 @@ const ImgSlide = () => {
         <GalleryContents>Gallery of Hall</GalleryContents>
         <GalleryContentsContainer>
           <UnderlinedText onClick={() => handleSelectImage(0)}>
-            Virgin Road
+            Wedding Hall Stage
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(1)}>
             Hall Stage
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(2)}>
-            Wedding Hall Stage
+            Virgin Road
           </UnderlinedText>
           <UnderlinedText onClick={() => handleSelectImage(3)}>
             Bridal Room

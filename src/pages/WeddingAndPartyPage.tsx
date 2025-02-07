@@ -229,7 +229,7 @@ const RightArrow = styled.div`
   }
 `;
 const WeddingAndPartyPage = () => {
-  const images = [back, front,mainWedding, bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
+  const images = [mainWedding, front,back ,bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -291,13 +291,13 @@ const WeddingAndPartyPage = () => {
           <GalleryContents>Gallery of Hall</GalleryContents>
           <GalleryContentsContainer>
             <UnderlinedText onClick={() => handleSelectImage(0)}>
-              Virgin Road
+              Wedding Hall Stage
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(1)}>
               Hall Stage
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(2)}>
-              Wedding Hall Stage
+              Virgin Road
             </UnderlinedText>
             <UnderlinedText onClick={() => handleSelectImage(2)}>
               Bridal Room
