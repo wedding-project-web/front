@@ -51,7 +51,7 @@ const Title = styled.div`
   font-size: 50px;
   color: white;
   z-index: 2;
-  font-family: "Montserrat", serif;
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */;
   text-align: center;
   transform: translate(-50%, -50%);
 
@@ -63,7 +63,7 @@ const Title = styled.div`
 const SubTitle = styled.div`
   font-size: 50px;
   margin: 150px 0px 0px 0px;
-  font-family: "Montserrat", serif;
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
   text-align: center;
 
   @media (max-width: 768px) {
@@ -137,7 +137,8 @@ const SubContainer = styled.div`
   gap: 30px;
   justify-content: center;
   padding: 0px 0px 0px 50px;
-  font-family: "Montserrat", serif;
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+
 
   @media (max-width: 768px) {
     gap: 20px;

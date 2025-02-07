@@ -17,9 +17,10 @@ const TitleContainer = styled.div`
 const Title = styled.div`
   font-size: 30px;
   color: #166237;
-  font-family: "Montserrat", serif;
+    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
 
-  @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
     font-size: 24px;
   }
 
@@ -31,9 +32,10 @@ const Title = styled.div`
 const SubTitle = styled.div`
   font-size: 26px;
   color: #166237;
-  font-family: "Montserrat", serif;
+    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
 
-  @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
     font-size: 20px;
   }
 
@@ -46,7 +48,7 @@ const SpecialTitle = () => {
   return (
     <TitleContainer>
       <Title>Special Wedding Promotion</Title>
-      <SubTitle>메리드 메이 프로모션</SubTitle>
+      <SubTitle>마리드 메이 프로모션</SubTitle>
     </TitleContainer>
   );
 };

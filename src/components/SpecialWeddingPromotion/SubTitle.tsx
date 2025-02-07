@@ -18,9 +18,10 @@ const SubContainer = styled.div`
 const FirstContent = styled.div`
   color: #166237;
   font-size: 30px;
-  font-family: "Montserrat", serif;
+    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
 
-  @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
     font-size: 24px;
   }
 
@@ -71,9 +72,9 @@ const SubTitle = () => {
   return (
     <SubContainer>
       <FirstContent>Promotion</FirstContent>
-      <SecondContent>메리드 메이 프로모션</SecondContent>
+      <SecondContent>마리드 메이 프로모션</SecondContent>
       <Icon>X</Icon>
-      <ThirdContent>메리드 메이 다양한 프로모션을 진행합니다.</ThirdContent>
+      <ThirdContent>마리드 메이 다양한 프로모션을 진행합니다.</ThirdContent>
     </SubContainer>
   );
 };

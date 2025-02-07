@@ -17,7 +17,8 @@ const PageContainer = styled.div`
 const Event = styled.div`
   font-size: 18px;
   margin: 10px 0px 10px 0px;
-  font-family: "Montserrat", serif;
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+
   text-align: center;
 
   @media (max-width: 768px) {
@@ -27,7 +28,7 @@ const Event = styled.div`
 
 const SubTitle = styled.div`
   font-size: 20px;
-  font-family: "Montserrat", serif;
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
   margin: 30px 0px 50px 0px;
   text-align: center;
 

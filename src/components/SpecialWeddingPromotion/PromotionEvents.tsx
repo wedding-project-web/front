@@ -17,9 +17,10 @@ const EventsContainer = styled.div`
 const Event = styled.div`
   font-size: 18px;
   margin: 10px 0px;
-  font-family: "Montserrat", serif;
+    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
 
-  @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
     font-size: 16px;
   }
 
@@ -57,7 +58,8 @@ const ErrorMessage = styled.div`
   justify-content: center;
   align-items: center;
   height: 200px; /* 적당한 높이 설정 */
-  font-family: "Montserrat", serif;
+    font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+
 `;
 
 const ImgContainer = styled.div`

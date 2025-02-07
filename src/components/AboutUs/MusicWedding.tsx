@@ -89,7 +89,7 @@ const MusicWedding = () => {
         <FirstContentTitleContainer>
           <FirstContentTitle>
             Nature Inspired Wedding
-            {/*<br /> 메리드 메이 웨딩 이야기*/}
+            {/*<br /> 마리드 메이 웨딩 이야기*/}
           </FirstContentTitle>
         </FirstContentTitleContainer>
         <FirstContentsContainer>
@@ -101,7 +101,7 @@ const MusicWedding = () => {
           도심을 벗어나 자연과 하나된 웨딩홀을 선사하고 싶습니다.
           <FirstContents>
             자연의 선물을 받은 공간, 마리드메이는 <br/>
-            도심을 벗어나 자연과 하나된 웨딩홀을 선사하고 싶습니다.<br/>
+            도심의 복잡함을 벗어나 자연과 하나된 품격 있는 웨딩베뉴을 제공하고 있습니다.<br/>
           </FirstContents>
         </FirstContentsContainer>
       </ContentsContainer>

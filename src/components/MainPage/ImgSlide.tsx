@@ -15,7 +15,8 @@ const SubContainer = styled.div`
   gap: 30px;
   justify-content: center;
   padding: 0px 0px 0px 50px;
-  font-family: "Montserrat", serif;
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -51,7 +52,8 @@ const GalleryContentsContainer = styled.div`
   gap: 20px;
   align-items: flex-start;
   margin: 30px 0px 0px 0px;
-  font-family: "Pretendard";
+  font-family: "Merriweather", "Noto Serif KR", serif; /* 영어+한글 폰트 적용 */
+
 
   @media (max-width: 768px) {
     font-size: 18px;
