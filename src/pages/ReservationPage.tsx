@@ -380,11 +380,13 @@ const ReservationPage = () => {
   const endDate = urlParams.get("ed");
   const time = urlParams.get("t");
   const count = urlParams.get("c");
+  const visitDate = urlParams.get("vd")
 
   const [weddingValue, setWeddingValue] = useState<any>({
     name: "",
     phone: "",
     email: "",
+    visitDate:"",
   });
   const [check, setCheck] = useState<any>({
     use: false,
@@ -440,7 +442,6 @@ const ReservationPage = () => {
         },
         body: JSON.stringify(data),
       });
-
       if (response.ok) {
         alert(`예약 완료`);
       }
@@ -493,6 +494,13 @@ const ReservationPage = () => {
                 onChange={onChangeHandler}
                 autoComplete="off"
               />
+              <FormLabel>방문일자</FormLabel>
+              <FormInput
+                  type="date"
+                  name="visitDate"
+                  value={weddingValue.visitDate || ""} // visitDate가 null일 때 빈 문자열로 처리
+                  onChange={(e) => setWeddingValue({ ...weddingValue, visitDate: e.target.value })}
+              />
             </FormContainer>
             <InfoContainer>
               <InfoLabel>예약일</InfoLabel>
@@ -503,6 +511,8 @@ const ReservationPage = () => {
               <InfoText>{time}</InfoText>
               <InfoLabel>예상 하객수</InfoLabel>
               <InfoText>{count} 명</InfoText>
+              <InfoLabel>방문일자</InfoLabel>
+              <InfoText>{visitDate}</InfoText>
               <ModifyButton href="/">예약정보 수정</ModifyButton>
             </InfoContainer>
           </TopContainer>
