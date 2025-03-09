@@ -119,7 +119,7 @@ const Footer = () => {
       <ImgContainer>{/* <img src={logo} alt="Logo" /> */}</ImgContainer>
       <ContentsContainer>
         <FirstContentsContainer>
-          <SubTitle>웨딩 마리드 메이</SubTitle>
+          <SubTitle>마리드메이</SubTitle>
           <div>
             <SubTitle>대표 : </SubTitle>
             김지영 외 1
@@ -148,7 +148,7 @@ const Footer = () => {
             <SubTitle>E-mail : </SubTitle>
             bm6161@naver.com
           </div>
-          <div>Copyright© 마리드 메이 All Rights Reserved.</div>
+          <div>Copyright© 마리드메이 All Rights Reserved.</div>
         </FirstContentsContainer>
       </ContentsContainer>
       <TopClick onClick={handleScrollToTop}>
