@@ -178,7 +178,7 @@ const AboutUsPage = () => {
           <SecondContent>New Wedding Culture</SecondContent>
           <ThirdContent>
             웨딩 베뉴 안에서 시작되는 이야기가 아닌 신랑신부의 이야기에서 시작되는
-            웨딩, <br />그 이야기의 새로운 시작을 마리드 메이에서 만들어갑니다.
+            웨딩, <br />그 이야기의 새로운 시작을 마리드메이에서 만들어갑니다.
           </ThirdContent>
           <WeddingStory />
           <MusicWedding />
@@ -190,10 +190,10 @@ const AboutUsPage = () => {
           <FirstContent>
             Location
             <br />
-            마리드 메이 오시는 길
+            마리드메이 오시는 길
           </FirstContent>
           <XIcon>X</XIcon>
-          <ThirdContent>마리드 메이 오시는 길을 안내해드립니다</ThirdContent>
+          <ThirdContent>마리드메이 오시는 길을 안내해드립니다</ThirdContent>
           <LocationImg src={location} />
         </LocationContainer>
       )}

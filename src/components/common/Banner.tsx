@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import mainWedding from "../../assets/image/wedding-hall.jpg";
+import mainWeddingVideo from "../../assets/image/3. 영상 - 마리드메이 웨딩홀.mp4";
 import { useEffect, useRef, useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 import CalendarModal from "./CalendarModal";
@@ -7,27 +7,12 @@ import { todayString, tomorrowString } from "../../utils/dateString";
 import ChevronDown from "../../assets/icon/chevron-down-white.svg";
 import ChevronUp from "../../assets/icon/chevron-up-white.svg";
 
-const BannerContainer = styled.section<{ $src: string }>`
+const BannerContainer = styled.div`
   width: 100%;
   height: 100dvh;
   position: relative;
-  background-image: url(${(props) => props.$src});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  ::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background-color: #22202080;
-  }
+  overflow: hidden;
 `;
-
 const BannerContentWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -85,6 +70,31 @@ const SelectorLabel = styled.label`
     font-size: 14px;
   }
 `;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: #22202080;
+`;
+
+const BackgroundVideo = styled.video`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+`;
+
 
 const SelectButton = styled.button`
   font-size: 24px;
@@ -216,8 +226,14 @@ const Banner = () => {
     };
   }, []);
 
+
   return (
-    <BannerContainer $src={mainWedding}>
+    <BannerContainer>
+      <BackgroundVideo autoPlay muted loop playsInline>
+        <source src={mainWeddingVideo} type="video/mp4" />
+        브라우저가 video 태그를 지원하지 않습니다.
+      </BackgroundVideo>
+      <Overlay />
       <BannerContentWrapper>
         <BannerTitle>웨딩홀 예약하기</BannerTitle>
         <BannerBottomWrapper>

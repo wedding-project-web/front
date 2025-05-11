@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import virginRoad from "../../assets/image/10. 예식홀-후면.jpg";
-import weddingHallStage from "../../assets/image/10. 웨딩홀 정면.jpg";
-import bridal from "../../assets/image/신부대기실.jpg";
-import banquet1 from "../../assets/image/14 연회장.jpg";
-import banquet2 from "../../assets/image/14 연회장2.jpg";
+import virginRoad from "../../assets/image/virgin_road.jpg";
+import weddingHallStage from "../../assets/image/hall_stage.jpg";
+import bridal from "../../assets/image/bridal_room.jpg";
+import banquet1 from "../../assets/image/banquet_hall1.jpg";
+import banquet2 from "../../assets/image/banguet_hall2.jpg";
 import { useState } from "react";
 import leftArrow from "../../assets/icon/chevron-left.svg";
 import rightArrow from "../../assets/icon/chevron-right.svg";

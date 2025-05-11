@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import mainWedding from "../assets/image/wedding-hall.jpg";
+import mainWedding from "../assets/image/3. 영상 - 마리드메이 웨딩홀.mp4";
 import { useState } from "react";
 import right from "../assets/icon/chevron-right.svg";
 import TermModal from "../components/Reservation/TermModal";
@@ -15,14 +15,10 @@ const ReservationContainer = styled.div`
   }
 `;
 
-const BannerContainer = styled.div<{ $src: string }>`
+const BannerContainer = styled.div`
   width: 100%;
   height: 100dvh;
   position: relative;
-  background-image: url(${(props) => props.$src});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   overflow: hidden;
 
   ::after {
@@ -35,7 +31,21 @@ const BannerContainer = styled.div<{ $src: string }>`
     z-index: 1;
     background-color: #222020a6;
   }
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
 `;
+
 
 const BannerContentWrapper = styled.div`
   width: 800px;
@@ -455,6 +465,30 @@ const ReservationPage = () => {
     setTermOpen(key);
   };
 
+  const BackgroundVideo = styled.video`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+`;
+
+  const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 32, 32, 0.65);
+  z-index: 1;
+`;
+
   const infoFunc = () => {
     if (!startDate || !endDate || !time || !count) {
       return (
@@ -556,15 +590,23 @@ const ReservationPage = () => {
   };
 
   return (
-    <ReservationContainer>
-      <BannerContainer $src={mainWedding}>{infoFunc()}</BannerContainer>
-      <TermModal
-        termOpen={termOpen}
-        setTermOpen={setTermOpen}
-        check={check}
-        setCheck={setCheck}
-      />
-    </ReservationContainer>
+      <ReservationContainer>
+        <BannerContainer>
+          <BackgroundVideo autoPlay muted loop playsInline>
+            <source src={mainWedding} type="video/mp4" />
+            브라우저가 video 태그를 지원하지 않습니다.
+          </BackgroundVideo>
+          <Overlay />
+          {infoFunc()}
+        </BannerContainer>
+
+        <TermModal
+            termOpen={termOpen}
+            setTermOpen={setTermOpen}
+            check={check}
+            setCheck={setCheck}
+        />
+      </ReservationContainer>
   );
 };
 

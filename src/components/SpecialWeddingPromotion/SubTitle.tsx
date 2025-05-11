@@ -72,9 +72,9 @@ const SubTitle = () => {
   return (
     <SubContainer>
       <FirstContent>Promotion</FirstContent>
-      {/*<SecondContent>마리드 메이 프로모션</SecondContent>*/}
+      {/*<SecondContent>마리드메이 프로모션</SecondContent>*/}
       <Icon>X</Icon>
-      <ThirdContent>마리드 메이 다양한 프로모션을 진행합니다.</ThirdContent>
+      <ThirdContent>마리드메이 다양한 프로모션을 진행합니다.</ThirdContent>
     </SubContainer>
   );
 };
