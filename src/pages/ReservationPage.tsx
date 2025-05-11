@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import mainWedding from "../assets/image/3. 영상 - 마리드메이 웨딩홀.mp4";
+import mainWedding from "../assets/image/main_video.mp4";
 import { useState } from "react";
 import right from "../assets/icon/chevron-right.svg";
 import TermModal from "../components/Reservation/TermModal";
