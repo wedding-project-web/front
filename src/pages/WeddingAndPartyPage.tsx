@@ -304,13 +304,13 @@ const WeddingAndPartyPage = () => {
             <UnderlinedText onClick={() => handleSelectImage(2)}>
               Virgin Road
             </UnderlinedText>
-            <UnderlinedText onClick={() => handleSelectImage(2)}>
+            <UnderlinedText onClick={() => handleSelectImage(3)}>
               Bridal Room
             </UnderlinedText>
-            <UnderlinedText onClick={() => handleSelectImage(3)}>
+            <UnderlinedText onClick={() => handleSelectImage(4)}>
               Banquet Hall 1
             </UnderlinedText>
-            <UnderlinedText onClick={() => handleSelectImage(4)}>
+            <UnderlinedText onClick={() => handleSelectImage(5)}>
               Banquet Hall 2
             </UnderlinedText>
           </GalleryContentsContainer>
