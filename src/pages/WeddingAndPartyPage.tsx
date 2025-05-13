@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 import mainWedding from "../assets/image/wedding-hall.jpg";
-import back from "../assets/image/10. 예식홀-후면.jpg";
-import front from "../assets/image/10. 웨딩홀 정면.jpg";
-import bridal from "../assets/image/신부대기실.jpg";
-import banquet from "../assets/image/14 연회장.jpg";
-import secondBanquet from "../assets/image/14 연회장2.jpg";
 import leftArrow from "../assets/icon/arrow-left.png";
 import rightArrow from "../assets/icon/arrow-right.png";
 import { useState } from "react";
+import weddingHall from "../assets/image/wedding-hall.jpg";
+import virginRoad from "../assets/image/virgin_road.jpg";
+import weddingHallStage from "../assets/image/hall_stage.jpg";
+import bridal from "../assets/image/bridal_room.jpg";
+import banquet1 from "../assets/image/banquet_hall1.jpg";
+import banquet2 from "../assets/image/banguet_hall2.jpg";
 
 const PageContainer = styled.div`
   width: 100%;
@@ -232,7 +233,8 @@ const RightArrow = styled.div`
   }
 `;
 const WeddingAndPartyPage = () => {
-  const images = [mainWedding, front,back ,bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
+  // const images = [mainWedding, front,back ,bridal, banquet, secondBanquet]; // 보여줄 이미지 배열
+  const images = [weddingHall, weddingHallStage , virginRoad, bridal, banquet1, banquet2]; // 보여줄 이미지 배열
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {

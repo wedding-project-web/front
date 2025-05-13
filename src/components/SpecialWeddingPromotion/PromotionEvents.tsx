@@ -107,7 +107,6 @@ const PromotionEvents = ({ data }: Props) => {
 
   return (
     <EventsContainer>
-      <Event>Event</Event>
       <ImagesContainer>
         {(data.length > 0 || !data) ? (
           data.map((item: any, index: any) => (
