@@ -14,20 +14,20 @@ const EventsContainer = styled.div`
   }
 `;
 
-const Event = styled.div`
-  font-size: 18px;
-  margin: 10px 0px;
-    font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
-
-
-    @media (max-width: 768px) {
-    font-size: 16px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 14px;
-  }
-`;
+// const Event = styled.div`
+//   font-size: 18px;
+//   margin: 10px 0px;
+//     font-family: "Merriweather"; /* 영어+한글 폰트 적용 */
+//
+//
+//     @media (max-width: 768px) {
+//     font-size: 16px;
+//   }
+//
+//   @media (max-width: 480px) {
+//     font-size: 14px;
+//   }
+// `;
 
 const ImagesContainer = styled.div`
   display: grid;
