@@ -1,8 +1,43 @@
 import styled from "@emotion/styled";
 import mainWedding from "../assets/image/main_video.mp4";
-import { useState } from "react";
+import { useState, useCallback, useMemo, memo } from "react";
 import right from "../assets/icon/chevron-right.svg";
 import TermModal from "../components/Reservation/TermModal";
+
+const BackgroundVideo = styled.video`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 32, 32, 0.65);
+  z-index: 1;
+`;
+
+// Memoized background video component to prevent re-rendering when form inputs change
+const BackgroundVideoComponent = memo(() => (
+  <>
+    <BackgroundVideo autoPlay muted loop playsInline>
+      <source src={mainWedding} type="video/mp4" />
+      브라우저가 video 태그를 지원하지 않습니다.
+    </BackgroundVideo>
+    <Overlay />
+  </>
+));
 
 const ReservationContainer = styled.div`
   width: 100%;
@@ -390,15 +425,28 @@ const ReservationPage = () => {
   const endDate = urlParams.get("ed");
   const time = urlParams.get("t");
   const count = urlParams.get("c");
-  const visitDate = urlParams.get("vd")
+  const visitDate = urlParams.get("vd");
 
-  const [weddingValue, setWeddingValue] = useState<any>({
+  interface WeddingFormValues {
+    name: string;
+    phone: string;
+    email: string;
+    visitDate: string;
+  }
+
+  const [weddingValue, setWeddingValue] = useState<WeddingFormValues>({
     name: "",
     phone: "",
     email: "",
-    visitDate:"",
+    visitDate: visitDate || "",
   });
-  const [check, setCheck] = useState<any>({
+  interface CheckValues {
+    use: boolean;
+    privacy: boolean;
+    ad: boolean;
+  }
+
+  const [check, setCheck] = useState<CheckValues>({
     use: false,
     privacy: false,
     ad: false,
@@ -407,27 +455,35 @@ const ReservationPage = () => {
   const { use, privacy, ad } = check;
   const [termOpen, setTermOpen] = useState<number>(0);
 
-  const onChangeHandler = (e: any) => {
+  const onChangeHandler = useCallback((e: any) => {
     const { name, value } = e.target;
-    setWeddingValue({
-      ...weddingValue,
+    setWeddingValue((prevValue: WeddingFormValues) => ({
+      ...prevValue,
       [name]: value,
-    });
-  };
+    }));
+  }, []);
 
-  const onClickCheckHandler = (key?: string) => {
+  const onVisitDateChangeHandler = useCallback((e: any) => {
+    setWeddingValue((prevValue: WeddingFormValues) => ({
+      ...prevValue,
+      visitDate: e.target.value,
+    }));
+  }, []);
+
+  const onClickCheckHandler = useCallback((key?: string) => {
     if (!key) {
       if (use && privacy && ad)
         return setCheck({ use: false, privacy: false, ad: false });
       return setCheck({ use: true, privacy: true, ad: true });
     }
-    if (key === "use") return setCheck({ ...check, use: !use });
-    if (key === "privacy") return setCheck({ ...check, privacy: !privacy });
-    if (key === "ad") return setCheck({ ...check, ad: !ad });
-  };
+    if (key === "use") return setCheck((prev: CheckValues) => ({ ...prev, use: !prev.use }));
+    if (key === "privacy") return setCheck((prev: CheckValues) => ({ ...prev, privacy: !prev.privacy }));
+    if (key === "ad") return setCheck((prev: CheckValues) => ({ ...prev, ad: !prev.ad }));
+  }, [use, privacy, ad]);
 
-  const privacyOnClick = () => {};
-  const handleReservation = async (e: any) => {
+  const privacyOnClick = useCallback(() => {}, []);
+
+  const handleReservation = useCallback(async (e: any) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -458,38 +514,15 @@ const ReservationPage = () => {
     } catch (err) {
       alert(`예약 중 오류가 발생했습니다: ${err}`);
     }
-  };
+  }, [startDate, endDate, time, count, use, privacy, ad, weddingValue]);
 
-  const handleTermOpen = (key: number) => {
+  const handleTermOpen = useCallback((key: number) => {
     if (termOpen !== 0) return setTermOpen(0);
     setTermOpen(key);
-  };
+  }, [termOpen]);
 
-  const BackgroundVideo = styled.video`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-`;
 
-  const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(34, 32, 32, 0.65);
-  z-index: 1;
-`;
-
-  const infoFunc = () => {
+  const infoFunc = useMemo(() => {
     if (!startDate || !endDate || !time || !count) {
       return (
         <BannerContentWrapper>
@@ -533,7 +566,7 @@ const ReservationPage = () => {
                   type="date"
                   name="visitDate"
                   value={weddingValue.visitDate || ""} // visitDate가 null일 때 빈 문자열로 처리
-                  onChange={(e) => setWeddingValue({ ...weddingValue, visitDate: e.target.value })}
+                  onChange={onVisitDateChangeHandler}
               />
             </FormContainer>
             <InfoContainer>
@@ -587,17 +620,19 @@ const ReservationPage = () => {
         </BannerContentWrapper>
       );
     }
-  };
+  }, [
+    startDate, endDate, time, count, visitDate,
+    name, phone, email, privacy,
+    weddingValue.visitDate,
+    onChangeHandler, onVisitDateChangeHandler, onClickCheckHandler,
+    handleTermOpen, privacyOnClick, handleReservation
+  ]);
 
   return (
       <ReservationContainer>
         <BannerContainer>
-          <BackgroundVideo autoPlay muted loop playsInline>
-            <source src={mainWedding} type="video/mp4" />
-            브라우저가 video 태그를 지원하지 않습니다.
-          </BackgroundVideo>
-          <Overlay />
-          {infoFunc()}
+          <BackgroundVideoComponent />
+          {infoFunc}
         </BannerContainer>
 
         <TermModal

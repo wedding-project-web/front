@@ -1,11 +1,90 @@
-# React + TypeScript + Vite
+# Wedding Reservation System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a frontend application for a wedding reservation system built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## How to Run the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm, yarn, or pnpm
+
+### Installation and Setup
+
+1. **Install Dependencies**
+
+   Run the following command in the project root directory:
+
+   ```bash
+   # Using npm
+   npm install
+
+   # Using yarn
+   yarn
+
+   # Using pnpm
+   pnpm install
+   ```
+
+2. **Run Development Server**
+
+   To run the application in development mode:
+
+   ```bash
+   # Using npm
+   npm run dev
+
+   # Using yarn
+   yarn dev
+
+   # Using pnpm
+   pnpm dev
+   ```
+
+   This will start the Vite development server, and you can access the application at `http://localhost:5173` by default.
+
+3. **Build for Production**
+
+   To create a production build:
+
+   ```bash
+   # Using npm
+   npm run build
+
+   # Using yarn
+   yarn build
+
+   # Using pnpm
+   pnpm build
+   ```
+
+   The built files will be generated in the `dist` directory.
+
+4. **Preview Production Build**
+
+   To preview the production build locally:
+
+   ```bash
+   # Using npm
+   npm run preview
+
+   # Using yarn
+   yarn preview
+
+   # Using pnpm
+   pnpm preview
+   ```
+
+## Additional Information
+
+- This project is built using React, TypeScript, and Vite.
+- Routing is handled through react-router-dom.
+- State management uses Recoil.
+- API requests are made using React Query and Axios.
+
+---
+
+한국어 설명서는 [README.ko.md](README.ko.md)를 참조하세요.
 
 ## Expanding the ESLint configuration
 
