@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import MobileHeader from "./MobileHeader";
+import MainPopup from "./MainPopup";
 
 const CommonLayout = styled.div`
   width: 100%;
@@ -33,6 +34,7 @@ const Layout = () => {
 
   return (
     <CommonLayout>
+      <MainPopup />
       {(isMobile) ? <MobileHeader /> : <Header />}
       <Outlet />
       <Footer />
