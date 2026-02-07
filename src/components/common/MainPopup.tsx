@@ -1,27 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled";
-import Popup1 from "../../assets/image/팝업1.jpeg";
-import Popup2 from "../../assets/image/팝업2.jpeg";
-import Popup3 from "../../assets/image/팝업3.jpeg";
-
 const bannerItems = [
   {
     id: "popup1",
-    src: Popup1,
+    src: "/assets/popup1.jpeg",
     alt: "팝업 배너 1",
     href: "",
     storageKey: "popup_1_hidden_until",
   },
   {
     id: "popup2",
-    src: Popup2,
+    src: "/assets/popup2.jpeg",
     alt: "팝업 배너 2",
     href: "",
     storageKey: "popup_2_hidden_until",
   },
   {
     id: "popup3",
-    src: Popup3,
+    src: "/assets/popup3.jpeg",
     alt: "팝업 배너 3",
     href: "",
     storageKey: "popup_3_hidden_until",
